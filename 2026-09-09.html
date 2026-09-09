@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医药AI情报日报</title>
+<style>
+  :root {
+    --bg: #f4f7fa;
+    --ink: #1a2330;
+    --muted: #6b7684;
+    --line1: #2563eb;   /* 医药产业 */
+    --line2: #0ea5a4;   /* 医疗工具 */
+    --line3: #7c3aed;   /* 通用AI */
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 20px 14px 60px;
+  }
+  .container { max-width: 640px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    padding: 18px 0 20px;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(120deg, #2563eb, #0ea5a4, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header .date {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  section.line { margin-bottom: 26px; }
+  .line-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .line-header .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .line-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .line-header .count {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+    background: #e8edf3;
+    padding: 2px 10px;
+    border-radius: 12px;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(16,24,40,.06);
+    border-left: 3px solid var(--c, #ccc);
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c, #333);
+    background: color-mix(in srgb, var(--c, #333) 10%, white);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .badge.gray { color: var(--muted); background: #eef1f5; }
+  .date-tag {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .summary {
+    font-size: 13px;
+    color: #3a4553;
+  }
+  .why {
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: #0f766e;
+    background: #ecfdf5;
+    border-radius: 8px;
+    padding: 6px 10px;
+  }
+  .links { margin-top: 8px; }
+  .links a {
+    font-size: 12px;
+    color: var(--c, #2563eb);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .links a + a::before { content: " · "; color: #cbd5e1; }
+
+  .empty {
+    font-size: 13px;
+    color: var(--muted);
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    border: 1px dashed #d5dce5;
+  }
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #9aa4b1;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>医药AI情报日报</h1>
+    <div class="date">2026-09-09（周三）</div>
+  </header>
+  
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#2563eb"></span>
+      <h2>💊 医药产业动态（新药研发·注册·上市）</h2>
+      <span class="count">4 条</span>
+    </div>
+    
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">西湖大学 / 西湖制药</span>
+        <span class="date-tag">2026-09-07</span>
+      </div>
+      <h3>国内首款AI辅助创新药「艾普司韦」获NMPA附条件批准上市</h3>
+      <div class="summary">由西湖大学、西湖实验室、西湖制药联合研发的1类创新药盐酸伊司特韦片（商品名艾普司韦）获国家药监局附条件批准上市，用于成人轻型、中型新冠感染治疗。它是国内首款凭借AI辅助研发获批上市的原创药，也是全球首款基于DNA编码化合物库（DEL）技术获批的小分子药，从源头发现到完成临床试验仅用时三年半。</div>
+      <div class="why">💡 AI制药从概念验证迈向商业化兑现的标志性事件，DEL技术提出34年后首次实现「从0到1」突破，为AI原生药物研发路径提供了可复制的范本。</div>
+      <div class="links"><a href="https://finance.eastmoney.com/a/202609073866234629.html" target="_blank">https://finance.eastmoney.com/a/202609073866234629.html</a><a href="https://finance.sina.com.cn/jjxw/2026-09-08/doc-iniqzsvr0026745.shtml" target="_blank">https://finance.sina.com.cn/jjxw/2026-09-08/doc-iniqzsvr0026745.shtml</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">科伦博泰 / Windward Bio</span>
+        <span class="date-tag">2026-09-08</span>
+      </div>
+      <h3>SKB378/WIN378 哮喘 II 期获阳性结果，同步启动 III 期研究</h3>
+      <div class="summary">科伦博泰授权合作伙伴 Windward Bio 公布 SKB378/WIN378 用于哮喘的 POLARIS-1 II 期研究阳性中期结果（每年两次给药），并宣布启动 III 期研究。</div>
+      <div class="why">💡 科伦博泰授权资产的海外临床再获突破，体现国产创新药「借船出海」模式持续兑现，TSLP 等呼吸免疫赛道竞争进一步升温。</div>
+      <div class="links"><a href="https://www.prnewswire.com/news-releases/kelun-biotechs-partner-windward-bio-announces-positive-phase-2-results-of-skb378win378-in-asthma-and-initiates-phase-3-study-302872230.html" target="_blank">https://www.prnewswire.com/news-releases/kelun-biotechs-partner-windward-bio-announces-positive-phase-2-results-of-skb378win378-in-asthma-and-initiates-phase-3-study-302872230.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Upstream Bio</span>
+        <span class="date-tag">2026-09-08</span>
+      </div>
+      <h3>Verekitug 严重哮喘 II 期 VALIANT 研究于 ERS 2026 公布，年化急性加重率降低 56%</h3>
+      <div class="summary">Upstream Bio 在 ERS 2026 大会以口头报告形式公布 verekitug 治疗严重哮喘的 II 期 VALIANT 研究：100mg 每 12 周一次给药较安慰剂年化急性加重率（AAER）降低 56%（p&lt;0.001），并计划 2027 年 Q1 启动 III 期。</div>
+      <div class="why">💡 长效给药（每12周）哮喘生物制剂是差异化竞争焦点，verekitug 数据支持其推进 III 期，值得关注后续 CRSwNP 与哮喘双适应症布局。</div>
+      <div class="links"><a href="https://www.stocktitan.net/news/UPB/upstream-bio-presents-results-from-the-phase-2-valiant-trial-of-vo0cjr49wgjc.html" target="_blank">https://www.stocktitan.net/news/UPB/upstream-bio-presents-results-from-the-phase-2-valiant-trial-of-vo0cjr49wgjc.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">纽欧申医药等</span>
+        <span class="date-tag">2026-09-08</span>
+      </div>
+      <h3>多家创新药新锐完成新一轮融资，资本流向中枢神经、蛋白降解、细胞治疗、小核酸四条前沿赛道</h3>
+      <div class="summary">8月31日至9月6日，纽欧申医药、沃生医药、先博生物、先衍生物等创新药新锐先后完成新一轮融资，资金集中流向差异化技术平台，而非扎堆热门靶点。</div>
+      <div class="why">💡 投融资热度从热门靶点向源头创新与差异化平台扩散，是观察国内创新药管线多元化与下一阶段发展后劲的重要信号。</div>
+      <div class="links"><a href="https://xinyaoapp.com/kuaixun/1843.html" target="_blank">https://xinyaoapp.com/kuaixun/1843.html</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#0ea5a4"></span>
+      <h2>🩺 医疗AI与工具创新（院内·院外）</h2>
+      <span class="count">2 条</span>
+    </div>
+    
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">华为</span>
+        <span class="date-tag">2026-09-08</span>
+      </div>
+      <h3>华为于 HIMSS26 APAC 发布四大 AI 医疗场景方案：智慧病房、病理、CDSS、全周期临床智能</h3>
+      <div class="summary">华为在新加坡 HIMSS26 APAC 发布「AI for Health, Health for All」四大场景方案，分别联合 Cadi Scientific/Lachesis（智慧病房）、TEKSQRAY（病理）、GuidelineX（CDSS）、润达医疗（全周期临床智能），均基于 OceanStor 存储与昇腾算力底座。</div>
+      <div class="why">💡 华为以「算力+存储+伙伴」模式把 AI 从单点影像辅助扩展到病房、病理、临床决策与全流程编排，是国产医疗 AI 向院内全场景基础设施化的重要一步。</div>
+      <div class="links"><a href="https://distilinfo.com/2026/09/08/huawei-ai-healthcare-scenarios-apac/" target="_blank">https://distilinfo.com/2026/09/08/huawei-ai-healthcare-scenarios-apac/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">FDA</span>
+        <span class="date-tag">2026-09-07</span>
+      </div>
+      <h3>FDA TEMPO 试点纳入生成式 AI 医疗器械，Cadence、Limbic 等先行「豁免上市」</h3>
+      <div class="summary">FDA 的 TEMPO 试点允许部分生成式 AI 医疗器械在豁免上市前授权（enforcement discretion）的情况下先行投放市场，Cadence 与 Limbic 等四款产品已进入试点，并与 Medicare ACCESS 模型联动，要求企业收集真实世界数据以支撑后续正式注册。</div>
+      <div class="why">💡 FDA 首次以「真实世界试点」方式探索生成式 AI 医疗器械监管路径，叠加 8 月发布的 GenAI 医疗器械监管讨论文件，为 AI 医疗器械合规框架定调。</div>
+      <div class="links"><a href="https://distilinfo.com/2026/09/07/fda-tempo-generative-ai-devices/" target="_blank">https://distilinfo.com/2026/09/07/fda-tempo-generative-ai-devices/</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#7c3aed"></span>
+      <h2>🤖 通用AI公司新AI产品</h2>
+      <span class="count">3 条</span>
+    </div>
+    
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">DeepSeek</span>
+        <span class="date-tag">2026-09-08</span>
+      </div>
+      <h3>DeepSeek V4.1 Flash 开启限时内测：新架构、原生多模态</h3>
+      <div class="summary">DeepSeek 9月8日在官方交流群开启 V4.1 Flash 中间版本内测，采用新模型结构并原生支持多模态，在能力、速度与成本上进一步优化；开发者可将模型名改为 deepseek-v4.1-flash-expires-on-0910 直接调用，计费与 V4-Flash 相同。</div>
+      <div class="why">💡 DeepSeek 在 V4 系列基础上快速迭代多模态与推理能力，是观察国产开源模型技术路线与成本策略的关键信号。</div>
+      <div class="links"><a href="https://m.36kr.com/p/3974654461604357" target="_blank">https://m.36kr.com/p/3974654461604357</a><a href="https://www.yicai.com/news/103356428.html" target="_blank">https://www.yicai.com/news/103356428.html</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-09-08</span>
+      </div>
+      <h3>OpenAI 发布 ChatGPT Images 2.5 图像模型，生成速度提升最高 50%</h3>
+      <div class="summary">OpenAI 发布新一代图像模型 ChatGPT Images 2.5，细节更清晰、多轮编辑一致性更强、生成延迟较 2.0 降低最高 50%；API 同步上线 GPT-Image-2.5 Flare 与 Sunburst 两款模型，新增 Sketch 手绘参考功能。</div>
+      <div class="why">💡 图像生成从「单次出图」走向「多轮精准编辑+工作流」，OpenAI 以速度和编辑一致性切入设计与广告生产场景，加剧与 Midjourney、Adobe Firefly 的竞争。</div>
+      <div class="links"><a href="https://openai.com/index/introducing-chatgpt-images-2-5/" target="_blank">https://openai.com/index/introducing-chatgpt-images-2-5/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">高通 / 亚马逊</span>
+        <span class="date-tag">2026-09-08</span>
+      </div>
+      <h3>高通与亚马逊达成 AI 基础设施合作：定制 AI 推理芯片 + 1.6T 光连接</h3>
+      <div class="summary">高通与亚马逊宣布面向大型 AI 数据中心规模化开发多代定制芯片并共同推进 AI 推理技术，同时合作开发最高 1.6T 光连接方案；这是继与 Meta 合作后高通第二笔超大规模云服务商交易，受此提振高通股价开盘涨超 6%。</div>
+      <div class="why">💡 云厂商自研芯片生态加速扩张，高通切入推理芯片与高速光互连，反映 AI 算力竞争从训练向推理与网络基础设施下沉。</div>
+      <div class="links"><a href="https://www.guancha.cn/economy/2026_09_09_830511.shtml" target="_blank">https://www.guancha.cn/economy/2026_09_09_830511.shtml</a></div>
+    </div>
+  </section>
+  <footer>由 Hermes Agent 自动生成 · 数据来自公开新闻源</footer>
+</div>
+</body>
+</html>
