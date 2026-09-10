@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医药AI情报日报</title>
+<style>
+  :root {
+    --bg: #f4f7fa;
+    --ink: #1a2330;
+    --muted: #6b7684;
+    --line1: #2563eb;   /* 医药产业 */
+    --line2: #0ea5a4;   /* 医疗工具 */
+    --line3: #7c3aed;   /* 通用AI */
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 20px 14px 60px;
+  }
+  .container { max-width: 640px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    padding: 18px 0 20px;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(120deg, #2563eb, #0ea5a4, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header .date {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  section.line { margin-bottom: 26px; }
+  .line-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .line-header .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .line-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .line-header .count {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+    background: #e8edf3;
+    padding: 2px 10px;
+    border-radius: 12px;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(16,24,40,.06);
+    border-left: 3px solid var(--c, #ccc);
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c, #333);
+    background: color-mix(in srgb, var(--c, #333) 10%, white);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .badge.gray { color: var(--muted); background: #eef1f5; }
+  .date-tag {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .summary {
+    font-size: 13px;
+    color: #3a4553;
+  }
+  .why {
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: #0f766e;
+    background: #ecfdf5;
+    border-radius: 8px;
+    padding: 6px 10px;
+  }
+  .links { margin-top: 8px; }
+  .links a {
+    font-size: 12px;
+    color: var(--c, #2563eb);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .links a + a::before { content: " · "; color: #cbd5e1; }
+
+  .empty {
+    font-size: 13px;
+    color: var(--muted);
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    border: 1px dashed #d5dce5;
+  }
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #9aa4b1;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>医药AI情报日报</h1>
+    <div class="date">2026-09-10（周四）</div>
+  </header>
+  
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#2563eb"></span>
+      <h2>💊 医药产业动态（新药研发·注册·上市·BD）</h2>
+      <span class="count">4 条</span>
+    </div>
+    
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">恒瑞医药</span>
+        <span class="date-tag">2026-09-09</span>
+      </div>
+      <h3>SHR-1179注射液获药物临床试验批准</h3>
+      <div class="summary">恒瑞医药1类新药SHR-1179注射液收到国家药监局《药物临床试验批准通知书》，将于近期开展临床试验。</div>
+      <div class="why">💡 恒瑞创新药管线持续推进，单日多项临床获批，反映头部药企研发产出节奏保持高位。</div>
+      <div class="links"><a href="https://m.cnpharm.com/c/2026-09-09/1106493.shtml" target="_blank">https://m.cnpharm.com/c/2026-09-09/1106493.shtml</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">药捷安康</span>
+        <span class="date-tag">2026-09-09</span>
+      </div>
+      <h3>创新药捷恩泰®获批后首批产品出厂</h3>
+      <div class="summary">药捷安康首款自研1类新药捷恩泰®（FGFR抑制剂，8月获批上市）首批产品正式出厂，商业化落地提速。</div>
+      <div class="why">💡 国产创新药从获批到商业化放量的关键节点，标志着Biotech进入收获期。</div>
+      <div class="links"><a href="https://finance.tom.com/202609/4727691214.html" target="_blank">https://finance.tom.com/202609/4727691214.html</a><a href="http://3g.cnfol.com/news/diqucaijing/20260909/32365049.shtml" target="_blank">http://3g.cnfol.com/news/diqucaijing/20260909/32365049.shtml</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">复星医药</span>
+        <span class="date-tag">2026-09-09</span>
+      </div>
+      <h3>控股子公司药品获临床试验批准</h3>
+      <div class="summary">复星医药发布公告，控股子公司一款药品获得国家药监局临床试验批准。</div>
+      <div class="why">💡 传统药企持续通过子公司平台推进创新管线，临床阶段进展值得跟踪。</div>
+      <div class="links"><a href="https://www.fosunpharma.com/investor/" target="_blank">https://www.fosunpharma.com/investor/</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">和铂医药</span>
+        <span class="date-tag">2026-09-09</span>
+      </div>
+      <h3>合作伙伴Solstice Oncology完成2.25亿美元A轮融资</h3>
+      <div class="summary">和铂医药合作伙伴Solstice Oncology完成2.25亿美元A轮融资（RA Capital领投），推进第二代CTLA-4抗体普鲁苏拜单抗用于新辅助治疗结肠癌的2期研究。</div>
+      <div class="why">💡 肿瘤免疫新辅助赛道获大额资本加持，印证差异化免疫疗法管线价值。</div>
+      <div class="links"><a href="https://www.caiwennews.com/article/1593324.shtml" target="_blank">https://www.caiwennews.com/article/1593324.shtml</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#0ea5a4"></span>
+      <h2>🩺 医疗AI与工具创新（院内·院外）</h2>
+      <span class="count">2 条</span>
+    </div>
+    
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">蚂蚁集团</span>
+        <span class="date-tag">2026-09-09</span>
+      </div>
+      <h3>蚂蚁阿福&quot;未来健康中心&quot;亮相外滩大会</h3>
+      <div class="summary">蚂蚁阿福&quot;未来健康中心&quot;亮相2026外滩大会，展示&quot;未来村卫生室&quot;AI赋能基层医疗方案；医院场景AI服务已贯穿号源挂号、导诊导航、报告解读、医保结算全流程。</div>
+      <div class="why">💡 大厂AI健康助手从线上问答走向院内全流程落地，并下沉基层医疗，代表性较强。</div>
+      <div class="links"><a href="https://www.caiwennews.com/article/1592986.shtml" target="_blank">https://www.caiwennews.com/article/1592986.shtml</a><a href="https://www.yzwb.net/news/ch/202609/t20260909_390882.html" target="_blank">https://www.yzwb.net/news/ch/202609/t20260909_390882.html</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">2026外滩大会</span>
+        <span class="date-tag">2026-09-09</span>
+      </div>
+      <h3>集中展示多项医疗AI前沿应用</h3>
+      <div class="summary">2026外滩大会集中展示AI辅助肿瘤诊疗研究、数字肺重建、病理计算，以及AI结合CT开展多病种筛查等技术探索。</div>
+      <div class="why">💡 医疗AI正从&quot;能聊天&quot;迈向临床诊疗场景的规模化探索，是院内落地的风向标。</div>
+      <div class="links"><a href="http://www.news.cn/fortune/20260909/083041f165f841faa42ed3aa167c0ce1/c.html" target="_blank">http://www.news.cn/fortune/20260909/083041f165f841faa42ed3aa167c0ce1/c.html</a><a href="https://www.cls.cn/detail/2478519" target="_blank">https://www.cls.cn/detail/2478519</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#7c3aed"></span>
+      <h2>🤖 通用AI公司新AI产品</h2>
+      <span class="count">2 条</span>
+    </div>
+    
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">DeepSeek</span>
+        <span class="date-tag">2026-09-08</span>
+      </div>
+      <h3>V4.1 Flash开启中间版本内测，同步筹备科创板IPO</h3>
+      <div class="summary">DeepSeek于9月8日开启V4.1 Flash中间版本内测，采用新模型结构、原生多模态、成本更低；财联社报道其将在9月10日前后正式发布，并同步筹备科创板IPO。</div>
+      <div class="why">💡 国产开源大模型在性能/成本上继续逼近前沿，IPO筹备标志着商业化与资本化加速。</div>
+      <div class="links"><a href="https://www.cls.cn/detail/2478606" target="_blank">https://www.cls.cn/detail/2478606</a><a href="https://m.36kr.com/p/3974654461604357" target="_blank">https://m.36kr.com/p/3974654461604357</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">蚂蚁集团</span>
+        <span class="date-tag">2026-09-09</span>
+      </div>
+      <h3>2026外滩大会开幕，AI智能体进入真实场景</h3>
+      <div class="summary">2026外滩大会9月9日在上海开幕，主题&quot;共创AI新经济&quot;，蚂蚁数科智能体超级工厂、30余个智能体应用及具身智能机器人（机器狗买水、药房机器人）集中亮相。</div>
+      <div class="why">💡 AI智能体从对话走向&quot;自主行动&quot;，标志着AI新经济进入实质落地阶段。</div>
+      <div class="links"><a href="http://www.news.cn/fortune/20260909/083041f165f841faa42ed3aa167c0ce1/c.html" target="_blank">http://www.news.cn/fortune/20260909/083041f165f841faa42ed3aa167c0ce1/c.html</a><a href="https://www.bjnews.com.cn/detail/1788936047129242.html" target="_blank">https://www.bjnews.com.cn/detail/1788936047129242.html</a></div>
+    </div>
+  </section>
+  <footer>由 Hermes Agent 自动生成 · 数据来自公开新闻源</footer>
+</div>
+</body>
+</html>
