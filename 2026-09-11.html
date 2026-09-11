@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医药AI情报日报</title>
+<style>
+  :root {
+    --bg: #f4f7fa;
+    --ink: #1a2330;
+    --muted: #6b7684;
+    --line1: #2563eb;   /* 医药产业 */
+    --line2: #0ea5a4;   /* 医疗工具 */
+    --line3: #7c3aed;   /* 通用AI */
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 20px 14px 60px;
+  }
+  .container { max-width: 640px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    padding: 18px 0 20px;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(120deg, #2563eb, #0ea5a4, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header .date {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  section.line { margin-bottom: 26px; }
+  .line-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .line-header .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .line-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .line-header .count {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+    background: #e8edf3;
+    padding: 2px 10px;
+    border-radius: 12px;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(16,24,40,.06);
+    border-left: 3px solid var(--c, #ccc);
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c, #333);
+    background: color-mix(in srgb, var(--c, #333) 10%, white);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .badge.gray { color: var(--muted); background: #eef1f5; }
+  .date-tag {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .summary {
+    font-size: 13px;
+    color: #3a4553;
+  }
+  .why {
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: #0f766e;
+    background: #ecfdf5;
+    border-radius: 8px;
+    padding: 6px 10px;
+  }
+  .links { margin-top: 8px; }
+  .links a {
+    font-size: 12px;
+    color: var(--c, #2563eb);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .links a + a::before { content: " · "; color: #cbd5e1; }
+
+  .empty {
+    font-size: 13px;
+    color: var(--muted);
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    border: 1px dashed #d5dce5;
+  }
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #9aa4b1;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>医药AI情报日报</h1>
+    <div class="date">2026-09-11（周五）</div>
+  </header>
+  
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#2563eb"></span>
+      <h2>💊 医药产业动态（新药研发·注册·上市·BD）</h2>
+      <span class="count">4 条</span>
+    </div>
+    
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">恒瑞医药</span>
+        <span class="date-tag">2026-09-10</span>
+      </div>
+      <h3>瑞普泊肽注射液上市许可申请获国家药监局受理</h3>
+      <div class="summary">恒瑞医药自研GLP-1/GIP双激动剂瑞普泊肽注射液（成人2型糖尿病适应症）NDA获受理，基于PRIME-1/PRIME-2两项III期研究，4mg组HbA1c降幅达2.78%，关键次要终点优效于司美格鲁肽1mg。</div>
+      <div class="why">💡 国产GLP-1双激动剂正面挑战礼来替尔泊肽（穆峰达），头对头优效数据是国产GLP-1冲击重磅降糖/减重赛道的标志性节点。</div>
+      <div class="links"><a href="https://data.eastmoney.com/notices/detail/600276/AN202609091829174859.html" target="_blank">https://data.eastmoney.com/notices/detail/600276/AN202609091829174859.html</a><a href="https://www.hengrui.com/investor/provisionalNotice.html" target="_blank">https://www.hengrui.com/investor/provisionalNotice.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">艾伯维（AbbVie）</span>
+        <span class="date-tag">2026-09-10</span>
+      </div>
+      <h3>Qulipta月经性偏头痛III期Luna研究达主要终点</h3>
+      <div class="summary">艾伯维CGRP受体拮抗剂Qulipta（atogepant）在月经性偏头痛III期Luna研究中，围经期偏头痛天数平均降幅1.2天 vs 安慰剂0.4天，达主要终点，计划向全球监管机构提交适应症扩展申请。</div>
+      <div class="why">💡 月经性偏头痛目前尚无获批专属疗法，若获批将填补这一未满足临床需求，进一步放大Qulipta（年销超10亿美元）的市场空间。</div>
+      <div class="links"><a href="https://www.fiercepharma.com/pharma/abbvie-lines-qulipta-expansion-phase-3-win-untapped-menstrual-migraine-indication" target="_blank">https://www.fiercepharma.com/pharma/abbvie-lines-qulipta-expansion-phase-3-win-untapped-menstrual-migraine-indication</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Biohaven</span>
+        <span class="date-tag">2026-09-10</span>
+      </div>
+      <h3>癫痫新药遭FDA临床暂停，距3.5亿美元交易仅数日</h3>
+      <div class="summary">Biohaven一款癫痫药物在吸引3.5亿美元合作交易数日后，遭到FDA临床暂停（clinical hold），为该资产推进蒙上阴影。</div>
+      <div class="why">💡 先交易后暂停的反差凸显神经领域资产的临床不确定性，提醒市场警惕高溢价合作中的开发风险。</div>
+      <div class="links"><a href="https://www.fiercebiotech.com/biotech/biohaven-drug-suffers-fda-hold-days-after-attracting-350m-deal" target="_blank">https://www.fiercebiotech.com/biotech/biohaven-drug-suffers-fda-hold-days-after-attracting-350m-deal</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Kura Oncology</span>
+        <span class="date-tag">2026-09-09</span>
+      </div>
+      <h3>Kura拆分礼来支持的下一代糖尿病疗法公司</h3>
+      <div class="summary">Kura Oncology创建由礼来（Lilly）支持的独立公司，推进下一代糖尿病疗法研发。</div>
+      <div class="why">💡 礼来在代谢赛道的持续布局叠加spinout模式，反映大药企通过拆分聚焦高潜力管线、分散风险的BD新趋势。</div>
+      <div class="links"><a href="https://www.fiercebiotech.com/biotech/kura-creates-lilly-backed-spinout-take-forward-next-gen-diabetes-therapy" target="_blank">https://www.fiercebiotech.com/biotech/kura-creates-lilly-backed-spinout-take-forward-next-gen-diabetes-therapy</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#0ea5a4"></span>
+      <h2>🩺 医疗AI与工具创新（院内·院外）</h2>
+      <span class="count">2 条</span>
+    </div>
+    
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">蚂蚁集团 / 成都武侯区</span>
+        <span class="date-tag">2026-09-10</span>
+      </div>
+      <h3>蚂蚁与成都武侯区共建&quot;AI+医疗健康&quot;数智基建</h3>
+      <div class="summary">外滩大会现场，成都市武侯区政府与蚂蚁集团达成&quot;AI+医疗健康&quot;整体合作，依托OceanBase湖库一体AI数据平台，共建数据融合联创中心、AI专病辅助诊疗联合实验室、医疗健康智能应用产业基地（西部中心）三大平台。</div>
+      <div class="why">💡 大厂AI数据平台叠加政府医疗资源落地，探索医疗数据要素流通与AI辅助诊疗，是&quot;AI+医疗&quot;从单点应用迈向数智基建的代表。</div>
+      <div class="links"><a href="https://zhidx.com/p/592972.html" target="_blank">https://zhidx.com/p/592972.html</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">联影 / 强联智创 / 西门子医疗</span>
+        <span class="date-tag">2026-09-10</span>
+      </div>
+      <h3>服贸会医疗AI&quot;硬科技&quot;集中亮相，多项院企合作签约</h3>
+      <div class="summary">2026服贸会健康卫生服务专题成果发布中，联影集团展出原生AI驱动的光子计数CT、全身PET/CT等高端装备，强联智创带来AI导管塑形机器人；宣武医院与西门子医疗共建&quot;脑功能与代谢成像创新转化中心&quot;，GE医疗、强生等与世纪坛/安贞/同仁医院签约推进手术机器人、AI辅助超声、智慧眼科合作。</div>
+      <div class="why">💡 医学影像AI、手术机器人等&quot;硬科技&quot;从单品走向全栈诊疗闭环，跨国与本土厂商借服贸会加速院企协同落地。</div>
+      <div class="links"><a href="https://www.bjnews.com.cn/detail/1789047011129601.html" target="_blank">https://www.bjnews.com.cn/detail/1789047011129601.html</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#7c3aed"></span>
+      <h2>🤖 通用AI公司新AI产品</h2>
+      <span class="count">3 条</span>
+    </div>
+    
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">DeepSeek</span>
+        <span class="date-tag">2026-09-10</span>
+      </div>
+      <h3>DeepSeek V4.1 Flash正式发布，原生多模态+API降价</h3>
+      <div class="summary">DeepSeek正式发布552B参数MoE模型V4.1 Flash，采用Causal-Encoder-Decoder非对称结构，原生支持多模态视觉理解，Agent基准综合表现超越V4 Pro，KV Cache对HBM需求降至约1/4；API新价格9月10日12:00生效，权重与技术报告已在Hugging Face开源。</div>
+      <div class="why">💡 国产开源旗舰在性能与成本双维度持续逼近前沿，开源权重叠加显著降价进一步加剧推理市场内卷。</div>
+      <div class="links"><a href="https://www.aihub.cn/news/deepseek-v4-1-flash-released/" target="_blank">https://www.aihub.cn/news/deepseek-v4-1-flash-released/</a><a href="https://www.stcn.com/article/detail/4178256.html" target="_blank">https://www.stcn.com/article/detail/4178256.html</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-09-10</span>
+      </div>
+      <h3>OpenAI推出Agents API公测版，提供云端智能体基础设施</h3>
+      <div class="summary">OpenAI推出Agents API公测版，允许开发者通过API调用由OpenAI托管的云端AI智能体运行环境，支持代码执行、工具调用和跨上下文任务运行，并同步升级Agents SDK。</div>
+      <div class="why">💡 智能体从SDK走向托管API服务，标志AI Agent基础设施化，开发者可更低成本构建并长期运行自主智能体。</div>
+      <div class="links"><a href="https://openai.com/index/introducing-the-agents-api/" target="_blank">https://openai.com/index/introducing-the-agents-api/</a><a href="https://www.ithome.com/1/001/072.htm" target="_blank">https://www.ithome.com/1/001/072.htm</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-09-10</span>
+      </div>
+      <h3>OpenAI发布GPT-Live-1语音API</h3>
+      <div class="summary">OpenAI在API中推出GPT-Live-1，为开发者提供构建更自然实时语音体验的能力。</div>
+      <div class="why">💡 实时语音是AI Agent交互的关键入口，OpenAI持续加码语音能力以巩固多模态Agent生态。</div>
+      <div class="links"><a href="https://openai.com/index/introducing-gpt-live-1-in-the-api/" target="_blank">https://openai.com/index/introducing-gpt-live-1-in-the-api/</a></div>
+    </div>
+  </section>
+  <footer>由 Hermes Agent 自动生成 · 数据来自公开新闻源</footer>
+</div>
+</body>
+</html>
