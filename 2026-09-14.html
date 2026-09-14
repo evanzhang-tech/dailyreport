@@ -130,6 +130,12 @@
     padding: 14px 16px;
     border: 1px dashed #d5dce5;
   }
+  .coverage { margin-top: 30px; }
+  .coverage-meta, .coverage-notes { font-size: 12px; color: var(--muted); margin: 6px 0 10px; }
+  .table-wrap { overflow-x: auto; background: #fff; border-radius: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 10px; min-width: 760px; }
+  th, td { border-bottom: 1px solid #e8edf3; padding: 6px 5px; text-align: left; vertical-align: top; }
+  th { color: var(--muted); background: #f8fafc; font-weight: 600; }
   footer {
     text-align: center;
     font-size: 11px;
@@ -149,19 +155,8 @@
     <div class="line-header">
       <span class="dot" style="background:#2563eb"></span>
       <h2>💊 医药产业动态（新药研发·注册·上市）</h2>
-      <span class="count">1 条</span>
     </div>
-    
-    <div class="card" style="--c:#2563eb">
-      <div class="card-top">
-        <span class="badge">Pharming</span>
-        <span class="date-tag">2026-09-12</span>
-      </div>
-      <h3>FDA批准Joenja用于4-11岁APDS儿童患者</h3>
-      <div class="summary">美国FDA批准Pharming的Joenja（leniolisib）补充新药申请，用于治疗4至11岁、体重至少27公斤的活化PI3Kδ综合征（APDS）儿童患者。原始页面日期核实为2026年9月12日。</div>
-      <div class="why">💡 罕见病药物适应证向儿科扩展，体现精准免疫药物的年龄段覆盖和商业化延伸。</div>
-      <div class="links"><a href="https://www.thepharmaletter.com/pharma-news/fda-approves-pharming-s-joenja-for-children" target="_blank">https://www.thepharmaletter.com/pharma-news/fda-approves-pharming-s-joenja-for-children</a></div>
-    </div>
+    <div class="empty">今日无重大更新</div>
   </section>
   <section class="line">
     <div class="line-header">
@@ -174,29 +169,14 @@
     <div class="line-header">
       <span class="dot" style="background:#7c3aed"></span>
       <h2>🤖 通用AI公司新AI产品</h2>
-      <span class="count">2 条</span>
     </div>
-    
-    <div class="card" style="--c:#7c3aed">
-      <div class="card-top">
-        <span class="badge">DeepSeek</span>
-        <span class="date-tag">2026-09-11</span>
-      </div>
-      <h3>发布DeepSeek-V4.1-Flash，继续向低成本推理竞争</h3>
-      <div class="summary">9月11日原文报道DeepSeek发布V4.1-Flash，采用面向推理成本优化的混合专家架构，并以低峰期折扣等方式压低API使用成本。原始页面元数据核实发布时间为2026年9月11日。</div>
-      <div class="why">💡 竞争焦点从单纯模型能力扩展到每任务推理成本，可能改变Agent和长上下文应用的部署经济性。</div>
-      <div class="links"><a href="https://techstartups.com/2026/09/11/top-tech-news-today-september-11-2026-anthropic-deepseek-google-pentagon-oracle-spacex-more/" target="_blank">https://techstartups.com/2026/09/11/top-tech-news-today-september-11-2026-anthropic-deepseek-google-pentagon-oracle-spacex-more/</a></div>
-    </div>
-    <div class="card" style="--c:#7c3aed">
-      <div class="card-top">
-        <span class="badge">Anthropic</span>
-        <span class="date-tag">2026-09-10</span>
-      </div>
-      <h3>披露针对Alibaba、Moonshot AI和DeepSeek的模型蒸馏攻击活动</h3>
-      <div class="summary">Anthropic在9月10日发布报告，称观察到近2亿次与蒸馏攻击相关的交互，并将五起活动归因于多个中国AI公司相关行动；TechCrunch原文时间核实为2026年9月10日。该事件属于通用模型安全与竞争动态，不涉及医疗场景。</div>
-      <div class="why">💡 模型能力蒸馏、链式思考提取和大规模账号网络，正成为前沿模型厂商的产品安全与知识产权防线。</div>
-      <div class="links"><a href="https://techcrunch.com/2026/09/10/anthropic-details-distillation-campaigns-from-alibaba-moonshot-ai-and-deepseek/" target="_blank">https://techcrunch.com/2026/09/10/anthropic-details-distillation-campaigns-from-alibaba-moonshot-ai-and-deepseek/</a><a href="https://www.anthropic.com/threat-intelligence-report-september-2026" target="_blank">https://www.anthropic.com/threat-intelligence-report-september-2026</a></div>
-    </div>
+    <div class="empty">今日无重大更新</div>
+  </section>
+  <section class="coverage">
+    <div class="line-header"><span class="dot" style="background:#64748b"></span><h2>🔎 检索覆盖与核验</h2></div>
+    <div class="coverage-meta">时间窗口：2026-09-11 至 2026-09-14（中国标准时间；周一覆盖上周五至周一）</div>
+    <div class="table-wrap"><table><thead><tr><th>组</th><th>来源</th><th>查询</th><th>打开</th><th>候选</th><th>纳入</th><th>排除</th><th>状态</th><th>备注</th></tr></thead><tbody><tr><td>A 医药产业、监管与资本市场</td><td>FDA / BioPharma Dive / BMS官方新闻稿 / PR Newswire</td><td>4</td><td>3</td><td>2</td><td></td><td>2</td><td>partial</td><td>FDA命中为2026-04-28旧闻；BioPharma Dive首页命中为更新日期不清或非窗口内内容；BMS页面可发现候选但未能稳定打开具体原文，均排除。</td></tr><tr><td>A 中国医药与资本市场</td><td>东方财富 / 雪球</td><td>1</td><td></td><td>3</td><td></td><td>3</td><td>checked</td><td>命中内容为2026-04、2026-08或背景资料，均超出严格时效窗口。</td></tr><tr><td>B 医疗AI、数字医疗与医院工具</td><td>Healthcare IT News / Newsweek AI Health / Regenstrief</td><td>3</td><td>1</td><td>2</td><td></td><td>2</td><td>partial</td><td>Healthcare IT News首页可见2026-09内容，但检索到的是视频/首页聚合，未能稳定打开对应独立原文并核实发布日期；其余为会议/活动页，不属于窗口内产品或落地新闻。</td></tr><tr><td>B 官方医疗AI产品页</td><td>Epic / Oracle Health / Abridge / Philips / Siemens Healthineers / GE HealthCare / Google Health / AWS Health / Microsoft Cloud for Healthcare</td><td>1</td><td></td><td></td><td></td><td></td><td>unavailable</td><td>本轮搜索后未获得可在窗口内独立核实的产品更新原文。</td></tr><tr><td>C 通用AI模型、产品、Agent、开源与投融资</td><td>OpenAI官方新闻 / 产品发布页</td><td>2</td><td></td><td>4</td><td></td><td>4</td><td>partial</td><td>官方搜索结果显示2026-09-10至09-11有Agents API、GPT-Live-1、数据产品等候选；OpenAI页面触发等待页/无法稳定打开具体原文，未满足逐条打开核验要求，全部排除。</td></tr><tr><td>C 通用AI模型、产品、Agent、开源与投融资</td><td>Anthropic / xAI-Grok / Qwen / DeepSeek / GLM</td><td>5</td><td>4</td><td>4</td><td></td><td>4</td><td>checked</td><td>xAI官方可打开内容为2026-09-03/09-04，超出窗口；Qwen官方可打开页面为2025-09-24；GLM官方为2026-08-26；DeepSeek/Anthropic未获得窗口内可核实原文。</td></tr><tr><td>C 开源与开发者</td><td>Hugging Face / Latent Space / GitHub Releases / GitHub Trending</td><td>4</td><td></td><td></td><td></td><td></td><td>unavailable</td><td>本轮未获得可稳定打开并核实发布日期的窗口内独立条目。</td></tr><tr><td>D 补充交叉验证</td><td>Google News / Bing News / Yahoo Finance / PR Newswire / 公司IR</td><td>2</td><td></td><td></td><td></td><td></td><td>unavailable</td><td>搜索后端部分查询返回403，未将搜索摘要作为唯一证据。</td></tr></tbody></table></div>
+    <div class="coverage-notes">交叉验证与排除说明：严格执行日期窗口和逐条原文核验；搜索摘要仅作线索。因部分官方站点/媒体页面触发403、等待页或导航超时，无法满足原文打开与日期核实的条目不纳入日报。今日不使用旧闻凑数。</div>
   </section>
   <footer>由 Hermes Agent 自动生成 · 数据来自公开新闻源</footer>
 </div>
