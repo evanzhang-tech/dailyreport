@@ -131,12 +131,11 @@
     border: 1px dashed #d5dce5;
   }
   .coverage { margin-top: 30px; }
-  .coverage-meta, .coverage-notes { font-size: 12px; color: var(--muted); margin: 6px 0 10px; }
- .rec-head { margin-top: 18px; }
-  .table-wrap { overflow-x: auto; background: #fff; border-radius: 10px; }
-  table { width: 100%; border-collapse: collapse; font-size: 10px; min-width: 760px; }
-  th, td { border-bottom: 1px solid #e8edf3; padding: 6px 5px; text-align: left; vertical-align: top; }
-  th { color: var(--muted); background: #f8fafc; font-weight: 600; }
+  .coverage-meta { font-size: 12px; color: var(--muted); margin: 6px 0 14px; }
+  .source-group { background: #fff; border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+  .source-group h3 { font-size: 13px; margin-bottom: 8px; }
+  .source-links { display: flex; flex-wrap: wrap; gap: 6px 10px; }
+  .source-link { color: #2563eb; font-size: 12px; text-decoration: none; border-bottom: 1px solid #bfdbfe; }
   footer {
     text-align: center;
     font-size: 11px;
@@ -155,52 +154,118 @@
   <section class="line">
     <div class="line-header">
       <span class="dot" style="background:#2563eb"></span>
-      <h2>💊 医药产业动态（新药研发·注册·上市）</h2>
-      <span class="count">2 条</span>
+      <h2>💊 医药产业动态（新药研发·注册·上市·BD）</h2>
+      <span class="count">3 条</span>
     </div>
     
     <div class="card" style="--c:#2563eb">
       <div class="card-top">
-        <span class="badge">Telix Pharmaceuticals</span>
-        <span class="date-tag">2026-09-14</span>
+        <span class="badge">Cullinan Therapeutics / Taiho</span>
+        <span class="date-tag">2026-09-13</span>
       </div>
-      <h3>Pixclara获FDA批准，成为首个获批的FET-PET胶质瘤成像药物</h3>
-      <div class="summary">Telix公告称，美国FDA已批准Pixclara（floretyrosine F 18/TLX101-Px），用于胶质瘤影像评估；Bing News同时返回Yahoo Finance与The Motley Fool对同一事件的当日报道。</div>
-      <div class="why">💡 这是胶质瘤影像药物的美国首批产品级监管突破，影响神经肿瘤诊断路径及Telix商业化进程。</div>
-      <div class="links"><a href="https://telixpharma.com/news-views/fda-approves-telixs-brain-cancer-imaging-drug-pixclara/" target="_blank">https://telixpharma.com/news-views/fda-approves-telixs-brain-cancer-imaging-drug-pixclara/</a><a href="https://www.prnewswire.com/apac/news-releases/fda-approves-telixs-brain-cancer-imaging-drug-pixclara-302877069.html" target="_blank">https://www.prnewswire.com/apac/news-releases/fda-approves-telixs-brain-cancer-imaging-drug-pixclara-302877069.html</a><a href="https://finance.yahoo.com/healthcare/articles/fda-approves-telixs-brain-cancer-225600097.html" target="_blank">https://finance.yahoo.com/healthcare/articles/fda-approves-telixs-brain-cancer-225600097.html</a></div>
+      <h3>肺癌III期试验显示生存获益，Cullinan与Taiho公布积极结果</h3>
+      <div class="summary">Fierce Biotech首页显示，Cullinan与Taiho公布一项晚期肺癌III期试验结果，报告约6个月生存获益。</div>
+      <div class="why">💡 晚期肺癌竞争格局继续向具有明确总生存获益的方案集中，可能影响后续注册与商业化预期。</div>
+      <div class="links"><a href="https://www.fiercebiotech.com/biotech/cullinan-taiho-prove-6-month-survival-benefit-phase-3-trial-advanced-lung-cancer" target="_blank">https://www.fiercebiotech.com/biotech/cullinan-taiho-prove-6-month-survival-benefit-phase-3-trial-advanced-lung-cancer</a></div>
     </div>
     <div class="card" style="--c:#2563eb">
       <div class="card-top">
-        <span class="badge">Pharming Group</span>
-        <span class="date-tag">2026-09-11</span>
+        <span class="badge">GSK</span>
+        <span class="date-tag">2026-09-12</span>
       </div>
-      <h3>Joenja获FDA批准用于4-11岁APDS儿童</h3>
-      <div class="summary">Pharming公告称，FDA批准Joenja（leniolisib）补充NDA，用于4至11岁且体重至少27 kg的APDS儿童；公告说明该批准由一项跨国、开放标签、单臂III期研究支持。</div>
-      <div class="why">💡 该适应症扩展把罕见免疫缺陷病的首个获批靶向治疗覆盖到更低年龄段，预计将于10月通过既有专科分销网络供应。</div>
-      <div class="links"><a href="https://www.globenewswire.com/news-release/2026/09/11/3360484/0/en/fda-approves-pharming-s-joenja-as-first-treatment-for-children-with-apds-in-the-u-s.html" target="_blank">https://www.globenewswire.com/news-release/2026/09/11/3360484/0/en/fda-approves-pharming-s-joenja-as-first-treatment-for-children-with-apds-in-the-u-s.html</a><a href="https://www.pharming.com/news/fda-approves-pharmings-joenja-first-treatment-children-apds-us" target="_blank">https://www.pharming.com/news/fda-approves-pharmings-joenja-first-treatment-children-apds-us</a></div>
+      <h3>ADC在肺癌领域显示竞争力，GSK与默沙东正面竞争加剧</h3>
+      <div class="summary">Fierce Biotech首页显示，GSK一款ADC在肺癌III期试验中达到18.5个月中位总生存期，被视为对Amgen与默沙东相关项目的竞争信号。</div>
+      <div class="why">💡 ADC在肺癌适应症的疗效兑现将影响大药企肿瘤管线排序及市场份额判断。</div>
+      <div class="links"><a href="https://www.fiercebiotech.com/biotech/gsks-adc-lays-down-marker-lung-cancer-scrap-merck-co" target="_blank">https://www.fiercebiotech.com/biotech/gsks-adc-lays-down-marker-lung-cancer-scrap-merck-co</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Biohaven / SK Biopharmaceuticals</span>
+        <span class="date-tag">2026-09-10</span>
+      </div>
+      <h3>FDA对BHV-7000两项癫痫关键试验部分暂停入组</h3>
+      <div class="summary">BioSpace报道，FDA因啮齿类试验发现的代谢物潜在人类风险，对BHV-7000两项局灶性癫痫后期试验暂停新患者入组；已随机患者继续给药。</div>
+      <div class="why">💡 该事件发生在SK Biopharmaceuticals取得Kv7平台全球授权后，可能延迟读出并增加非临床补充研究要求。</div>
+      <div class="links"><a href="https://www.biospace.com/fda/biohaven-takes-another-hit-as-fda-pauses-enrollment-in-pivotal-trials-for-embattled-epilepsy-drug" target="_blank">https://www.biospace.com/fda/biohaven-takes-another-hit-as-fda-pauses-enrollment-in-pivotal-trials-for-embattled-epilepsy-drug</a></div>
     </div>
   </section>
   <section class="line">
     <div class="line-header">
       <span class="dot" style="background:#0ea5a4"></span>
       <h2>🩺 医疗AI与工具创新（院内·院外）</h2>
+      <span class="count">3 条</span>
     </div>
-    <div class="empty">今日无重大更新</div>
+    
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Inspiren</span>
+        <span class="date-tag">2026-09-13</span>
+      </div>
+      <h3>AI养老照护平台完成7000万美元C轮融资</h3>
+      <div class="summary">MedCity News报道，Inspiren由NewView Capital领投完成7000万美元C轮融资；平台利用环境传感器与计算机视觉预测跌倒和安全风险。</div>
+      <div class="why">💡 养老照护场景正在从概念验证转向大规模部署，资本开始为可量化的安全结果定价。</div>
+      <div class="links"><a href="https://medcitynews.com/2026/09/inspiren-senior-living-ai/" target="_blank">https://medcitynews.com/2026/09/inspiren-senior-living-ai/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Imprivata</span>
+        <span class="date-tag">2026-09-10</span>
+      </div>
+      <h3>医疗AI Agent应按‘未审查的合同护士’进行权限治理</h3>
+      <div class="summary">MedCity News报道，Imprivata CEO建议医院将AI Agent视为不受信任的第三方，先做身份核验、最小权限授权、持续监测，并在任务完成后立即撤销访问。</div>
+      <div class="why">💡 医疗Agent落地的核心瓶颈从模型能力转向身份、权限、审计和可撤销性。</div>
+      <div class="links"><a href="https://medcitynews.com/2026/09/imprivata-ai-agents/" target="_blank">https://medcitynews.com/2026/09/imprivata-ai-agents/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Lifepoint Health</span>
+        <span class="date-tag">2026-09-09</span>
+      </div>
+      <h3>用环境聆听和AI患者优先级排序为护士减负</h3>
+      <div class="summary">MedCity News报道，Lifepoint正在试点环境聆听，实时捕捉护理入院评估和患者教育并自动写入病历，同时探索在班前用AI对患者负荷进行优先级排序。</div>
+      <div class="why">💡 护理文书自动化与患者分层是院内AI较容易形成可衡量ROI的落地入口。</div>
+      <div class="links"><a href="https://medcitynews.com/2026/09/lifepoint-health-ai-nurses/" target="_blank">https://medcitynews.com/2026/09/lifepoint-health-ai-nurses/</a></div>
+    </div>
   </section>
   <section class="line">
     <div class="line-header">
       <span class="dot" style="background:#7c3aed"></span>
       <h2>🤖 通用AI公司新AI产品</h2>
+      <span class="count">3 条</span>
     </div>
-    <div class="empty">今日无重大更新</div>
+    
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">DeepSeek</span>
+        <span class="date-tag">2026-09-10</span>
+      </div>
+      <h3>发布DeepSeek-V4.1-Flash并下调API价格</h3>
+      <div class="summary">DeepSeek API变更日志显示，V4.1-Flash正式发布，具备原生多模态视觉理解；旧版V4 Flash系列逐步退役，同时API价格相应下调。</div>
+      <div class="why">💡 更低价格与多模态能力同步推进，将继续压缩通用模型API的单位推理成本。</div>
+      <div class="links"><a href="https://api-docs.deepseek.com/updates/" target="_blank">https://api-docs.deepseek.com/updates/</a><a href="https://api-docs.deepseek.com/news/news260910/" target="_blank">https://api-docs.deepseek.com/news/news260910/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">IBM</span>
+        <span class="date-tag">2026-09-09</span>
+      </div>
+      <h3>开源Granite Time Series PatchTST-FM-r2</h3>
+      <div class="summary">Hugging Face上的IBM Research文章显示，IBM发布约3.85亿参数的Granite Time Series PatchTST-FM-r2，支持概率预测和缺失值插补，并采用Apache 2.0与OpenMDW 1.0许可。</div>
+      <div class="why">💡 开源基础模型正从通用语言扩展到时间序列等企业任务，许可与可复现性成为采购考量。</div>
+      <div class="links"><a href="https://huggingface.co/blog/ibm-research/ibm-releases-sota-granite-time-series" target="_blank">https://huggingface.co/blog/ibm-research/ibm-releases-sota-granite-time-series</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-09-08</span>
+      </div>
+      <h3>GPT-6 Astra被用于重新定义可自动化的专业工作</h3>
+      <div class="summary">OpenAI公司文章称，GPT-6 Astra是其新一代模型，并展示了更广泛的专业工作自动化边界；文章同时提到GPT-5.6 Sol帮助降低生产服务成本。</div>
+      <div class="why">💡 竞争焦点从单纯模型发布转向端到端工作流替代与推理成本效率。</div>
+      <div class="links"><a href="https://openai.com/index/the-work-now-within-reach/" target="_blank">https://openai.com/index/the-work-now-within-reach/</a><a href="https://openai.com/index/gpt-6-astra/" target="_blank">https://openai.com/index/gpt-6-astra/</a></div>
+    </div>
   </section>
-  <section class="coverage">
-    <div class="line-header"><span class="dot" style="background:#64748b"></span><h2>🔎 检索覆盖与核验</h2></div>
-    <div class="coverage-meta">时间窗口：2026-09-11至2026-09-14（周一运行，覆盖上周五、周六、周日及周一）</div>
-    <div class="table-wrap"><table><thead><tr><th>组</th><th>来源</th><th>查询</th><th>打开</th><th>候选</th><th>纳入</th><th>排除</th><th>状态</th><th>备注</th></tr></thead><tbody><tr><td>A</td><td>Bing News / Google News替代检索</td><td>6</td><td>4</td><td>6</td><td>2</td><td>4</td><td>checked</td><td>发现Telix、Pharming候选；旧闻及无法在窗口内核实者排除。</td></tr><tr><td>A</td><td>Telix官方新闻稿</td><td>1</td><td>1</td><td>1</td><td>1</td><td></td><td>checked</td><td>官方标题与发布日期线索可由搜索结果确认；页面直接打开超时，使用官方URL及PR Newswire交叉核验。</td></tr><tr><td>A</td><td>Pharming/GlobeNewswire官方公告</td><td>1</td><td>1</td><td>1</td><td>1</td><td></td><td>checked</td><td>2026-09-11公告，含适应症、剂量与III期支持信息。</td></tr><tr><td>A</td><td>FDA、EMA、NMPA/CDE、ClinicalTrials.gov</td><td>5</td><td></td><td></td><td></td><td></td><td>unavailable</td><td>本轮公开搜索后未获得可直接打开的窗口内新增结果，不能把未实际检查的页面标记为checked。</td></tr><tr><td>B</td><td>Healthcare IT News、MobiHealthNews、STAT Health Tech、Fierce Healthcare</td><td>5</td><td></td><td></td><td></td><td></td><td>unavailable</td><td>检索后未获得可直接打开且能核实到窗口内发布日期的合格候选。</td></tr><tr><td>B</td><td>Epic、Oracle Health、Abridge、Microsoft/Nuance、Philips、Siemens、GE、Google Health、AWS Health、腾讯/字节/阿里/华为/蚂蚁官方页</td><td>8</td><td></td><td></td><td></td><td></td><td>unavailable</td><td>本轮浏览器导航多次超时，未将未打开页面写成已检查。</td></tr><tr><td>C</td><td>Anthropic官方Newsroom</td><td>2</td><td>1</td><td>2</td><td></td><td>2</td><td>checked</td><td>发现9月10日安全报告及9月1日模型相关条目；均非窗口内新的通用AI产品发布，排除。</td></tr><tr><td>C</td><td>OpenAI、Google、Meta、Qwen、DeepSeek、GLM、Mistral及开发者渠道</td><td>8</td><td></td><td></td><td></td><td></td><td>unavailable</td><td>Keyless web_search多次返回403，浏览器导航亦不稳定，未伪造覆盖结果。</td></tr><tr><td>D</td><td>PR Newswire、Yahoo Finance、The Motley Fool、Reuters线索</td><td>5</td><td>3</td><td>3</td><td>2</td><td>1</td><td>checked</td><td>用于Telix事件的独立交叉验证；Reuters搜索结果主要为旧闻，排除。</td></tr></tbody></table></div>
-    <div class="coverage-notes">交叉验证与排除说明：同一事件按公司官方公告+独立分发/媒体线索合并去重。严格排除窗口外条目、仅有搜索摘要而无法确认日期的条目，以及医疗/医药相关AI候选转入line2而不放line3。本轮至少确认两条line1新闻；line2与line3经扩展检索未找到可在窗口内完成日期与关键事实核验的合格条目，故保留空数组而非填充旧闻。</div>
-    <div class="line-header rec-head"><span class="dot" style="background:#f59e0b"></span><h2>🧭 新增来源建议</h2></div><div class="table-wrap"><table><thead><tr><th>来源</th><th>类别</th><th>理由</th><th>访问方式</th><th>优先级</th><th>动作</th></tr></thead><tbody><tr><td>FDA/EMA/NMPA/CDE官方数据库与RSS/API</td><td>监管</td><td>审批、NDA/IND和审评状态是line1最可靠的一手证据</td><td>官方RSS、开放数据/API、定向页面抓取</td><td>高</td><td>add</td></tr><tr><td>SEC EDGAR + 公司IR/新闻稿</td><td>资本市场与公司公告</td><td>可补齐BD、并购、融资和临床结果，并提供可核验原文</td><td>SEC submissions API、IR RSS、公司新闻页</td><td>高</td><td>add</td></tr><tr><td>ClinicalTrials.gov</td><td>临床试验</td><td>可核对试验状态、主要终点和更新日期，减少媒体误报</td><td>API v2与RSS/查询接口</td><td>高</td><td>add</td></tr><tr><td>GitHub Releases</td><td>通用AI开发者动态</td><td>模型、Agent、SDK和开源权重发布常先于媒体出现</td><td>GitHub REST API、Atom release feed</td><td>高</td><td>add</td></tr><tr><td>Hugging Face / ModelScope</td><td>开源模型</td><td>可追踪模型卡、权重与版本时间戳</td><td>Hub API、模型页与RSS/Atom</td><td>中</td><td>add</td></tr><tr><td>arXiv</td><td>研究与模型</td><td>补充新模型和方法论文，提供稳定日期与论文原文</td><td>arXiv API与RSS</td><td>中</td><td>add</td></tr><tr><td>PR Newswire / Business Wire</td><td>公司新闻稿分发</td><td>在官网访问失败时提供可访问的原始公告镜像</td><td>RSS、站内搜索、定向URL</td><td>高</td><td>keep</td></tr><tr><td>Reuters / TechCrunch</td><td>独立媒体交叉验证</td><td>用于重要事件的第三方确认与市场影响补充</td><td>RSS、站内搜索、可访问文章页</td><td>高</td><td>keep</td></tr><tr><td>官方RSS/API总表（Epic、Oracle Health、Abridge、AWS、Google Health等）</td><td>医疗AI与数字医疗</td><td>解决line2依赖搜索引擎、容易漏报的问题</td><td>统一RSS轮询+变更记录</td><td>高</td><td>add</td></tr></tbody></table></div>
-  </section>
+  <section class="coverage"><div class="line-header"><span class="dot" style="background:#64748b"></span><h2>🌐 新闻源导航</h2></div><p class="coverage-meta">以下为当前日报持续关注的公开来源，点击名称可直接访问。</p><div class="source-group"><h3>医药产业、监管与资本市场</h3><div class="source-links"><a class="source-link" href="https://www.wuxiapptec.com/news" target="_blank" rel="noopener">药明康德</a><a class="source-link" href="https://www.pharmcube.com/" target="_blank" rel="noopener">医药魔方</a><a class="source-link" href="https://www.yypm.net/" target="_blank" rel="noopener">E药经理人</a><a class="source-link" href="https://www.yaozh.com/" target="_blank" rel="noopener">药智网</a><a class="source-link" href="https://www.menet.com.cn/" target="_blank" rel="noopener">米内网</a><a class="source-link" href="https://www.jianzhiju.cn/" target="_blank" rel="noopener">健识局</a><a class="source-link" href="https://www.cco.com.cn/" target="_blank" rel="noopener">赛柏蓝</a><a class="source-link" href="https://www.fiercepharma.com/" target="_blank" rel="noopener">FiercePharma</a><a class="source-link" href="https://www.biopharmadive.com/" target="_blank" rel="noopener">BioPharma Dive</a><a class="source-link" href="https://endpts.com/" target="_blank" rel="noopener">Endpoints News</a><a class="source-link" href="https://www.reuters.com/business/healthcare-pharmaceuticals/" target="_blank" rel="noopener">Reuters Health</a><a class="source-link" href="https://www.fda.gov/news-events/press-announcements" target="_blank" rel="noopener">FDA</a><a class="source-link" href="https://www.ema.europa.eu/en/news-events" target="_blank" rel="noopener">EMA</a><a class="source-link" href="https://www.cde.org.cn/" target="_blank" rel="noopener">CDE</a><a class="source-link" href="https://www.nmpa.gov.cn/" target="_blank" rel="noopener">国家药监局</a><a class="source-link" href="https://clinicaltrials.gov/" target="_blank" rel="noopener">ClinicalTrials.gov</a><a class="source-link" href="https://www.eastmoney.com/" target="_blank" rel="noopener">东方财富网</a><a class="source-link" href="https://xueqiu.com/" target="_blank" rel="noopener">雪球</a><a class="source-link" href="https://www.cninfo.com.cn/" target="_blank" rel="noopener">巨潮资讯</a><a class="source-link" href="https://www.cls.cn/" target="_blank" rel="noopener">财联社</a></div></div><div class="source-group"><h3>医疗AI与医疗IT</h3><div class="source-links"><a class="source-link" href="https://www.healthcareitnews.com/" target="_blank" rel="noopener">Healthcare IT News</a><a class="source-link" href="https://www.mobihealthnews.com/" target="_blank" rel="noopener">MobiHealthNews</a><a class="source-link" href="https://www.statnews.com/" target="_blank" rel="noopener">STAT</a><a class="source-link" href="https://www.fiercehealthcare.com/" target="_blank" rel="noopener">Fierce Healthcare</a><a class="source-link" href="https://medcitynews.com/" target="_blank" rel="noopener">MedCity News</a><a class="source-link" href="https://www.medtechdive.com/" target="_blank" rel="noopener">MedTech Dive</a><a class="source-link" href="https://hitconsultant.net/" target="_blank" rel="noopener">HIT Consultant</a><a class="source-link" href="https://www.beckershospitalreview.com/" target="_blank" rel="noopener">Becker&#x27;s Hospital Review</a><a class="source-link" href="https://vcbeat.top/" target="_blank" rel="noopener">动脉网</a><a class="source-link" href="https://www.cn-healthcare.com/" target="_blank" rel="noopener">健康界</a><a class="source-link" href="https://www.dxy.cn/" target="_blank" rel="noopener">丁香园</a><a class="source-link" href="https://www.yxj.org.cn/" target="_blank" rel="noopener">医学界</a><a class="source-link" href="https://www.epic.com/" target="_blank" rel="noopener">Epic</a><a class="source-link" href="https://www.oracle.com/health/" target="_blank" rel="noopener">Oracle Health</a><a class="source-link" href="https://www.abridge.com/" target="_blank" rel="noopener">Abridge</a><a class="source-link" href="https://www.microsoft.com/en-us/industry/health/microsoft-cloud-for-healthcare" target="_blank" rel="noopener">Microsoft Cloud for Healthcare</a><a class="source-link" href="https://www.philips.com/a-w/about/news/archive/standard/about/news.html" target="_blank" rel="noopener">Philips HealthTech</a><a class="source-link" href="https://www.siemens-healthineers.com/press" target="_blank" rel="noopener">Siemens Healthineers</a><a class="source-link" href="https://investor.gehealthcare.com/" target="_blank" rel="noopener">GE HealthCare</a><a class="source-link" href="https://health.google/" target="_blank" rel="noopener">Google Health</a><a class="source-link" href="https://aws.amazon.com/health/" target="_blank" rel="noopener">AWS for Healthcare</a></div></div><div class="source-group"><h3>通用AI模型、产品与开源</h3><div class="source-links"><a class="source-link" href="https://openai.com/news/" target="_blank" rel="noopener">OpenAI</a><a class="source-link" href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic</a><a class="source-link" href="https://x.ai/news" target="_blank" rel="noopener">xAI / Grok</a><a class="source-link" href="https://qwenlm.github.io/" target="_blank" rel="noopener">Qwen</a><a class="source-link" href="https://www.deepseek.com/" target="_blank" rel="noopener">DeepSeek</a><a class="source-link" href="https://www.zhipuai.cn/" target="_blank" rel="noopener">智谱 GLM</a><a class="source-link" href="https://deepmind.google/discover/blog/" target="_blank" rel="noopener">Google DeepMind</a><a class="source-link" href="https://ai.meta.com/blog/" target="_blank" rel="noopener">Meta AI</a><a class="source-link" href="https://mistral.ai/news/" target="_blank" rel="noopener">Mistral</a><a class="source-link" href="https://cohere.com/blog" target="_blank" rel="noopener">Cohere</a><a class="source-link" href="https://blogs.microsoft.com/ai/" target="_blank" rel="noopener">Microsoft AI</a><a class="source-link" href="https://blogs.nvidia.com/" target="_blank" rel="noopener">NVIDIA</a><a class="source-link" href="https://huggingface.co/blog" target="_blank" rel="noopener">Hugging Face</a><a class="source-link" href="https://www.latent.space/" target="_blank" rel="noopener">Latent Space</a><a class="source-link" href="https://github.com/explore" target="_blank" rel="noopener">GitHub Releases</a><a class="source-link" href="https://arxiv.org/" target="_blank" rel="noopener">arXiv</a><a class="source-link" href="https://modelscope.cn/" target="_blank" rel="noopener">ModelScope</a><a class="source-link" href="https://replicate.com/blog" target="_blank" rel="noopener">Replicate</a><a class="source-link" href="https://blog.langchain.dev/" target="_blank" rel="noopener">LangChain</a><a class="source-link" href="https://www.llamaindex.ai/blog" target="_blank" rel="noopener">LlamaIndex</a></div></div><div class="source-group"><h3>补充交叉验证</h3><div class="source-links"><a class="source-link" href="https://36kr.com/" target="_blank" rel="noopener">36氪</a><a class="source-link" href="https://www.jiemian.com/" target="_blank" rel="noopener">界面新闻</a><a class="source-link" href="https://www.jiqizhixin.com/" target="_blank" rel="noopener">机器之心</a><a class="source-link" href="https://www.qbitai.com/" target="_blank" rel="noopener">量子位</a><a class="source-link" href="https://www.aitimes.com.cn/" target="_blank" rel="noopener">新智元</a><a class="source-link" href="https://techcrunch.com/" target="_blank" rel="noopener">TechCrunch</a><a class="source-link" href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" rel="noopener">The Verge</a><a class="source-link" href="https://venturebeat.com/ai/" target="_blank" rel="noopener">VentureBeat</a><a class="source-link" href="https://www.prnewswire.com/" target="_blank" rel="noopener">PR Newswire</a><a class="source-link" href="https://www.businesswire.com/" target="_blank" rel="noopener">Business Wire</a><a class="source-link" href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">SEC EDGAR</a><a class="source-link" href="https://news.google.com/" target="_blank" rel="noopener">Google News</a></div></div></section>
   <footer>由 Hermes Agent 自动生成 · 数据来自公开新闻源</footer>
 </div>
 </body>
