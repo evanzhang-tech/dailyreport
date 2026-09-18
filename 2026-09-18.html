@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医药AI情报日报</title>
+<style>
+  :root {
+    --bg: #f4f7fa;
+    --ink: #1a2330;
+    --muted: #6b7684;
+    --line1: #2563eb;   /* 医药产业 */
+    --line2: #0ea5a4;   /* 医疗工具 */
+    --line3: #7c3aed;   /* 通用AI */
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 20px 14px 60px;
+  }
+  .container { max-width: 640px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    padding: 18px 0 20px;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(120deg, #2563eb, #0ea5a4, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header .date {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  section.line { margin-bottom: 26px; }
+  .line-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .line-header .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .line-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .line-header .count {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+    background: #e8edf3;
+    padding: 2px 10px;
+    border-radius: 12px;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(16,24,40,.06);
+    border-left: 3px solid var(--c, #ccc);
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c, #333);
+    background: color-mix(in srgb, var(--c, #333) 10%, white);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .badge.gray { color: var(--muted); background: #eef1f5; }
+  .date-tag {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .summary {
+    font-size: 13px;
+    color: #3a4553;
+  }
+  .why {
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: #0f766e;
+    background: #ecfdf5;
+    border-radius: 8px;
+    padding: 6px 10px;
+  }
+  .links { margin-top: 8px; }
+  .links a {
+    font-size: 12px;
+    color: var(--c, #2563eb);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .links a + a::before { content: " · "; color: #cbd5e1; }
+
+  .empty {
+    font-size: 13px;
+    color: var(--muted);
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    border: 1px dashed #d5dce5;
+  }
+  .coverage { margin-top: 30px; }
+  .coverage-meta { font-size: 12px; color: var(--muted); margin: 6px 0 14px; }
+  .source-group { background: #fff; border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+  .source-group h3 { font-size: 13px; margin-bottom: 8px; }
+  .source-links { display: flex; flex-wrap: wrap; gap: 6px 10px; }
+  .source-link { color: #2563eb; font-size: 12px; text-decoration: none; border-bottom: 1px solid #bfdbfe; }
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #9aa4b1;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>医药AI情报日报</h1>
+    <div class="date">2026-09-18（周五）</div>
+  </header>
+  
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#2563eb"></span>
+      <h2>💊 医药产业动态（研发·临床·注册·BD）</h2>
+      <span class="count">13 条</span>
+    </div>
+    
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Ultragenyx</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>Fayuvi获FDA批准，成为首款Sanfilippo A型治疗药物</h3>
+      <div class="summary">FDA批准Ultragenyx基因疗法Fayuvi，用于Sanfilippo综合征A型。STAT公开正文确认这是该病首个获批的专门治疗药物；不据付费墙内信息扩写适用年龄或价格。</div>
+      <div class="why">💡 超罕见病基因治疗新增监管先例，后续需跟踪标签与商业化可及性。</div>
+      <div class="links"><a href="https://www.statnews.com/2026/09/17/sanfilippo-syndrome-treatment-ultragenyx-approval/" target="_blank">https://www.statnews.com/2026/09/17/sanfilippo-syndrome-treatment-ultragenyx-approval/</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">拜耳</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>非奈利酮获批用于1型糖尿病相关慢性肾病</h3>
+      <div class="summary">拜耳宣布FDA批准非奈利酮（Kerendia）新增1型糖尿病相关慢性肾病适应症。此次为既有产品的适应症扩展，而非全新分子首次上市。</div>
+      <div class="why">💡 拓展肾脏保护药物的目标人群，值得跟踪临床使用与支付覆盖。</div>
+      <div class="links"><a href="https://www.bayer.com/media/en-us/us-fda-approves-finerenone-for-new-indication-in-patients-with-chronic-kidney-disease-associated-with-type-1-diabetes/" target="_blank">https://www.bayer.com/media/en-us/us-fda-approves-finerenone-for-new-indication-in-patients-with-chronic-kidney-disease-associated-with-type-1-diabetes/</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">罗氏</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>Lunsumio联合来那度胺III期CELESTIMO达到PFS主要终点</h3>
+      <div class="summary">在至少接受过一线治疗的复发/难治性滤泡性淋巴瘤中，该联合方案较利妥昔单抗联合来那度胺显著改善无进展生存期。总生存期数据尚不成熟，完整数据将提交监管并在会议公布。</div>
+      <div class="why">💡 既支持加速/附条件批准的确证要求，也关系到向二线治疗拓展。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/roches-lunsumio-based-regimen-significantly-improves-progression-free-survival-in-follicular-lymphoma-in-phase-iii-celestimo-study" target="_blank">https://www.biospace.com/press-releases/roches-lunsumio-based-regimen-significantly-improves-progression-free-survival-in-follicular-lymphoma-in-phase-iii-celestimo-study</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">罗氏 / Dualitas</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>以3650万美元首付款布局免疫疾病双特异性抗体</h3>
+      <div class="summary">Dualitas将筛选逾30万种潜在双抗组合，为罗氏寻找免疫疾病候选药物。首付款3650万美元，未来里程碑付款最高10亿美元，另有销售提成。</div>
+      <div class="why">💡 高通量组合筛选正成为双抗差异化研发与平台型BD的重要能力。</div>
+      <div class="links"><a href="https://www.biopharmadive.com/news/roche-dualitas-bispecific-antibodies-immune/830573/" target="_blank">https://www.biopharmadive.com/news/roche-dualitas-bispecific-antibodies-immune/830573/</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">North Immunology / Aethlon</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>拟通过反向合并上市，并配套1.8亿美元私募</h3>
+      <div class="summary">合并主体预计以North Immunology名称运营，推进靶向IL-13/IL-18的NOR-101。公司预计交易在2027年一季度完成，资金支持运营至2028年下半年。</div>
+      <div class="why">💡 免疫疾病双通路竞争升温；交易和临床推进仍有完成条件。</div>
+      <div class="links"><a href="https://www.biopharmadive.com/news/north-immunology-aethlon-biotech-reverse-merger-eczema-drug/830631/" target="_blank">https://www.biopharmadive.com/news/north-immunology-aethlon-biotech-reverse-merger-eczema-drug/830631/</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Lisata / Marea</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>收购Marea并宣布约2.25亿美元配套私募</h3>
+      <div class="summary">合并公司将聚焦心血管及内分泌疾病，推进MAR001/005治疗严重高甘油三酯血症的IIb期研究及MAR002治疗肢端肥大症的II期研究，顶线结果计划于2027年四季度公布。</div>
+      <div class="why">💡 通过并购与融资重构临床管线，后续里程碑明确。</div>
+      <div class="links"><a href="https://www.stocktitan.net/news/LSTA/lisata-therapeutics-announces-acquisition-of-marea-therapeutics-and-142rtiihty51.html" target="_blank">https://www.stocktitan.net/news/LSTA/lisata-therapeutics-announces-acquisition-of-marea-therapeutics-and-142rtiihty51.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">SK Biopharmaceuticals / First Biotherapeutics</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>引入LRRK2/c-Abl双靶点帕金森病候选药</h3>
+      <div class="summary">SK获得候选药全球独家开发及商业化权利，并进行30亿韩元股权投资。许可首付款25亿韩元，开发及商业化和销售里程碑使最高合同金额约4308亿韩元，另有销售提成；项目仍处临床前候选筛选阶段。</div>
+      <div class="why">💡 病程修饰疗法布局继续前移，不能将临床前授权等同临床有效性。</div>
+      <div class="links"><a href="https://www.asiae.co.kr/en/article/2026091716353804557" target="_blank">https://www.asiae.co.kr/en/article/2026091716353804557</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">华东医药 / 美柏生物</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>达成ECM胶原蛋白MB007中国市场独家合作</h3>
+      <div class="summary">华东医药全资子公司欣可丽美学与美柏生物签署战略合作协议，布局细胞外基质胶原蛋白MB007。报道显示该产品正在推进III期临床试验。</div>
+      <div class="why">💡 再生医美竞争从销售渠道延伸至材料技术与临床证据。</div>
+      <div class="links"><a href="https://news.yaozh.com/archive/49027.html" target="_blank">https://news.yaozh.com/archive/49027.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">迈英诺医药</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>完成超2亿元A轮融资，推进局部给药MDI-1228</h3>
+      <div class="summary">公司宣布完成新一轮融资，核心泛JAK/泛Trk多靶点抑制剂MDI-1228正在中美推进II期临床，重点探索糖尿病足等局部治疗场景。报道中的早期疗效信号尚不能替代确证性结果。</div>
+      <div class="why">💡 局部暴露控制与组织修复为拥挤的JAK赛道提供差异化路径。</div>
+      <div class="links"><a href="https://bydrug.pharmcube.com/news/detail/a6a1b5cc453a1e5afb3542914b37d57a" target="_blank">https://bydrug.pharmcube.com/news/detail/a6a1b5cc453a1e5afb3542914b37d57a</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">翰森制药</span>
+        <span class="date-tag">2026-09-18</span>
+      </div>
+      <h3>奥莱泊肽III期减重完整数据将于EASD公布</h3>
+      <div class="summary">9月18日报道披露，GLP-1/GIP双靶点双偏向性激动剂奥莱泊肽将于9月28日至10月2日举行的EASD年会报告III期完整数据；此次是会议披露预告，并非今日新完成读出。</div>
+      <div class="why">💡 重点观察完整安全性、亚组及停药率，避免仅依据既有顶线数据判断优势。</div>
+      <div class="links"><a href="https://news.yaozh.com/archive/49031.html" target="_blank">https://news.yaozh.com/archive/49031.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">辰欣药业</span>
+        <span class="date-tag">2026-09-18</span>
+      </div>
+      <h3>氯替泼诺妥布霉素滴眼液获批国内首仿</h3>
+      <div class="summary">米内网9月18日报道，辰欣子公司山东辰欣佛都药业该滴眼液以仿制4类报产获批，并成为首家过评企业。报道未披露批件的精确签发日。</div>
+      <div class="why">💡 复方眼科制剂首仿落地，值得跟踪上市供货与终端竞争。</div>
+      <div class="links"><a href="https://www.menet.com.cn/info/202609/202609180911581158_151205.shtml" target="_blank">https://www.menet.com.cn/info/202609/202609180911581158_151205.shtml</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">百利天恒 / Connexus</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>子公司拟投资500万美元布局肿瘤小分子研发</h3>
+      <div class="summary">盘古资本拟认购Connexus A轮优先股，交易完成后持股7.91%。Connexus专注肿瘤小分子药物，在研项目均处于临床前阶段。</div>
+      <div class="why">💡 在ADC与多抗平台之外补充小分子技术布局，仍属于早期股权投资。</div>
+      <div class="links"><a href="https://www.zhitongcaijing.com/content/detail/1497567.html" target="_blank">https://www.zhitongcaijing.com/content/detail/1497567.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">阿斯利康 / 第一三共</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>英格兰NHS将覆盖HER2低表达转移性乳腺癌Enhertu治疗</h3>
+      <div class="summary">STAT公开正文报道，英格兰卫生主管部门同意为相关患者提供Enhertu，预计扩大至约1000名患者；此次是支付与可及性进展，不是首次药品批准。</div>
+      <div class="why">💡 药物成本效果评价阈值与支付协议变化直接影响ADC市场可及性。</div>
+      <div class="links"><a href="https://www.statnews.com/2026/09/17/astrazeneca-enhertu-breast-cancer-england-nice-pricing-agreement-us-trade-deal/" target="_blank">https://www.statnews.com/2026/09/17/astrazeneca-enhertu-breast-cancer-england-nice-pricing-agreement-us-trade-deal/</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#0ea5a4"></span>
+      <h2>🩺 医疗AI与医疗IT创新</h2>
+      <span class="count">13 条</span>
+    </div>
+    
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">诺和 / Orbis</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>最高14亿美元合作开发口服大环肽，使用AI分子设计平台</h3>
+      <div class="summary">双方将围绕心血管代谢靶点发现大环分子，交易最高14亿美元并附销售提成。Orbis的nGen平台结合AI建模与分子设计，目标是改善口服生物利用度。</div>
+      <div class="why">💡 AI药物设计与口服递送难题结合；同一事件仅列医疗AI板块。</div>
+      <div class="links"><a href="https://www.biopharmadive.com/news/novo-orbis-macrocyclic-peptides-oral-obesity-drugs/830645/" target="_blank">https://www.biopharmadive.com/news/novo-orbis-macrocyclic-peptides-oral-obesity-drugs/830645/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Anthropic</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>推出生命科学验证计划LSVP测试版</h3>
+      <div class="summary">经资质、安全与伦理监督核验的生命科学团队可申请分级模型访问，覆盖科研、临床开发与制造等工作流。计划采用用途监测并要求相关流量保留30天，个人计划的扩展仍待后续。</div>
+      <div class="why">💡 药企采购除了能力评估，还需审查数据保留、组织责任与使用边界。</div>
+      <div class="links"><a href="https://www.anthropic.com/news/life-sciences-verification-program" target="_blank">https://www.anthropic.com/news/life-sciences-verification-program</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">LangChain</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>开源Deep Life Sci，面向临床与实验室科研</h3>
+      <div class="summary">该生命科学Agent可连接ClinicalTrials.gov、PubMed和PubMed Central，在安全沙箱运行数据分析并将文献任务分发给子Agent。研发团队可增加自有数据，并结合LangSmith追踪和评估。</div>
+      <div class="why">💡 提供可定制、可审计的科研Agent参考实现，而非已验证的临床决策系统。</div>
+      <div class="links"><a href="https://www.langchain.com/blog/agent-harness-life-sciences" target="_blank">https://www.langchain.com/blog/agent-harness-life-sciences</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Included Health / LangChain</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>披露Dot医疗导航多Agent生产架构</h3>
+      <div class="summary">Included Health公开使用Deep Agents和LangGraph构建的联邦式Agent架构，覆盖保险、账单、预约、专科寻找及就医导航，并由不同产品团队维护领域工作流。</div>
+      <div class="why">💡 医疗导航从固定流程转向上下文驱动协作，需兼顾紧急分流与一致体验。</div>
+      <div class="links"><a href="https://www.langchain.com/blog/how-included-health-built-federated-agents-for-healthcare-navigation-with-deep-agents-and-langgraph" target="_blank">https://www.langchain.com/blog/how-included-health-built-federated-agents-for-healthcare-navigation-with-deep-agents-and-langgraph</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Ferry Health</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>融资900万美元，推出代患者电话预约的AI助理</h3>
+      <div class="summary">平台AI Agent可致电诊所核验保险、地点及专科匹配，并完成预约。公司称已通过机构合作覆盖美国50州、可供逾100万名参保患者使用。</div>
+      <div class="why">💡 将患者导航从信息检索推进到实际执行；覆盖数字为公司披露。</div>
+      <div class="links"><a href="https://hitconsultant.net/2026/09/17/ferry-health-launches-stealth-9m-seed-a16z-index-ventures-agentic-ai-patient-scheduling/" target="_blank">https://hitconsultant.net/2026/09/17/ferry-health-launches-stealth-9m-seed-a16z-index-ventures-agentic-ai-patient-scheduling/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Kairon Health</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>获得500万美元融资，建设价值医疗AI执行平台</h3>
+      <div class="summary">平台整合理赔、EHR、入出院转诊、检验及药房等数据，支持诊所管理、照护执行和患者激活，旨在让照护缺口识别转化为实际工作完成。</div>
+      <div class="why">💡 价值医疗工具的评价重点从看板转向可测量的运营与照护结果。</div>
+      <div class="links"><a href="https://hitconsultant.net/2026/09/17/kairon-health-raises-5m-flare-capital-ai-execution-layer-value-based-care-lead-model/" target="_blank">https://hitconsultant.net/2026/09/17/kairon-health-raises-5m-flare-capital-ai-execution-layer-value-based-care-lead-model/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Datavant</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>引入Neuberger与KKR少数股权投资，扩展健康数据协作</h3>
+      <div class="summary">新增资本将支持健康数据连接、隐私保护的标识化基础设施，以及临床AI训练和真实世界证据分析所需的数据供给。报道未披露投资金额。</div>
+      <div class="why">💡 数据互操作与治理是医疗AI规模化落地的前置条件。</div>
+      <div class="links"><a href="https://hitconsultant.net/2026/09/17/datavant-secures-minority-investment-neuberger-kkr-new-mountain-capital-health-data-collaboration/" target="_blank">https://hitconsultant.net/2026/09/17/datavant-secures-minority-investment-neuberger-kkr-new-mountain-capital-health-data-collaboration/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Ultrahuman / HealthEx</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>将电子病历接入智能戒指健康时间线</h3>
+      <div class="summary">HealthEx PowerPlug通过患者授权获取纵向医疗记录，并把诊断、用药及手术信息与连续生理指标放在同一时间线上。产品定位一般健康功能，不应视为诊断工具。</div>
+      <div class="why">💡 院外可穿戴数据与院内病历开始形成连续上下文。</div>
+      <div class="links"><a href="https://hitconsultant.net/2026/09/17/ultrahuman-launches-healthex-powerplug-combining-medical-records-wearable-ring-biometrics/" target="_blank">https://hitconsultant.net/2026/09/17/ultrahuman-launches-healthex-powerplug-combining-medical-records-wearable-ring-biometrics/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Philips / Southwest Health</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>Rembra CT完成美国首例临床安装</h3>
+      <div class="summary">Southwest Mississippi Regional Medical Center宣布安装Philips Rembra CT，面向急诊和创伤等高负荷场景，结合AI引导定位与图像重建，提升检查工作流效率。</div>
+      <div class="why">💡 影像AI价值既包括识别能力，也包括设备操作与患者周转。</div>
+      <div class="links"><a href="https://hitconsultant.net/2026/09/17/southwest-mississippi-regional-medical-center-first-us-installation-philips-rembra-ct/" target="_blank">https://hitconsultant.net/2026/09/17/southwest-mississippi-regional-medical-center-first-us-installation-philips-rembra-ct/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Vitality / Google Cloud</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>Vitality AI扩展至美国，面向健康计划与雇主</h3>
+      <div class="summary">双方将基于Google Cloud、Gemini Enterprise及Vitality健康行为数据的个性化建议、辅导和激励平台引入美国。既有国际市场效果由公司披露，不等同美国临床验证。</div>
+      <div class="why">💡 保险与雇主健康管理成为医疗AI的新分发与支付渠道。</div>
+      <div class="links"><a href="https://www.googlecloudpresscorner.com/2026-09-17-Vitality-and-Google-Expand-Technology-Partnership-to-Bring-AI-Driven-Health-Platform-to-the-United-States-to-Incentivize-Healthier-Behaviors" target="_blank">https://www.googlecloudpresscorner.com/2026-09-17-Vitality-and-Google-Expand-Technology-Partnership-to-Bring-AI-Driven-Health-Platform-to-the-United-States-to-Incentivize-Healthier-Behaviors</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">阿里达摩院</span>
+        <span class="date-tag">2026-09-18</span>
+      </div>
+      <h3>腹部影像AI RADAR研究登上Science</h3>
+      <div class="summary">量子位报道，RADAR面向腹部多器官、多病种识别，可覆盖146种疾病；在8家外部医院超过2.4万例CT上验证，AUC为0.895。研究结果不等于获批上市或全面替代放射科医生。</div>
+      <div class="why">💡 从单病种模型转向通用影像助手，外部验证与实际工作流整合值得跟进。</div>
+      <div class="links"><a href="https://www.qbitai.com/2026/09/491875.html" target="_blank">https://www.qbitai.com/2026/09/491875.html</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Phyraxis AI（上海斐睿科思）</span>
+        <span class="date-tag">2026-09-18</span>
+      </div>
+      <h3>完成数百万元首轮战略投资，建设生命科学机器人数据设施</h3>
+      <div class="summary">资金用于实验室、机器人系统、跨设备适配和训练数据平台建设。首批设备已到位，实验室预计10月初投用；近期目标是工程链路验证，而非已实现全自主实验。</div>
+      <div class="why">💡 生命科学自动化的执行证据、失败数据与跨设备迁移成为基础能力。</div>
+      <div class="links"><a href="https://www.vbdata.cn/1519095520" target="_blank">https://www.vbdata.cn/1519095520</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">FIZE Medical / 旭化成医疗</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>2000万美元B轮融资完成首期交割，推进AI液体管理</h3>
+      <div class="summary">本轮由旭化成医疗与Rapha Capital联合领投，支持FIZE Optima预测性AI临床决策平台开发，并扩展欧洲分销。2000万美元是该轮规模，不代表首期交割全部到账。</div>
+      <div class="why">💡 连续生理监测数据开始向预测风险和治疗辅助延伸，临床证据仍需累积。</div>
+      <div class="links"><a href="https://www.prnewswire.com/news-releases/fize-medical-announces-first-close-of-20m-series-b-financing-co-led-by-asahi-kasei-medical-and-rapha-capital-302881840.html" target="_blank">https://www.prnewswire.com/news-releases/fize-medical-announces-first-close-of-20m-series-b-financing-co-led-by-asahi-kasei-medical-and-rapha-capital-302881840.html</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#7c3aed"></span>
+      <h2>🤖 通用AI模型、Agent与产品</h2>
+      <span class="count">21 条</span>
+    </div>
+    
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">阿里千问</span>
+        <span class="date-tag">2026-09-18</span>
+      </div>
+      <h3>Qwen3.8-Omni-Flash上线，扩展长音视频与实时交互</h3>
+      <div class="summary">模型支持文本、图像、音频、视频输入和1M上下文，并扩展Qwen-MM-Plugins、开源Qwen-Live Harness。性能与降价幅度为官方公布指标，具体任务仍需实测。</div>
+      <div class="why">💡 全模态Agent成本与长程工具调用能力直接影响会议和内容生产应用。</div>
+      <div class="links"><a href="https://www.ithome.com/1/004/049.htm" target="_blank">https://www.ithome.com/1/004/049.htm</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">智谱</span>
+        <span class="date-tag">2026-09-18</span>
+      </div>
+      <h3>GLM-5.3-FlashX API上线，主打低延迟</h3>
+      <div class="summary">新模型支持1M上下文和多模态输入，官方称最高200 tokens/s；公布的输入/输出价格分别为每百万Tokens 2元和7元。</div>
+      <div class="why">💡 为高吞吐Agent提供新选项，速度提升伴随较Flash版本更高单价。</div>
+      <div class="links"><a href="https://www.ithome.com/1/004/061.htm" target="_blank">https://www.ithome.com/1/004/061.htm</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">阿里Qoder</span>
+        <span class="date-tag">2026-09-18</span>
+      </div>
+      <h3>Qwen3.8-Flash限时免费并增加每日登录Credits</h3>
+      <div class="summary">9月18日10时至9月30日23:59:59，该模型在Qoder计费系数降为0；平台同时推出每日100通用Credits领取活动，适用范围与有效期按平台规则。</div>
+      <div class="why">💡 开发者可降低试用成本，但不应将限时权益当作长期API价格。</div>
+      <div class="links"><a href="https://www.ithome.com/1/004/011.htm" target="_blank">https://www.ithome.com/1/004/011.htm</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">PrismML</span>
+        <span class="date-tag">2026-09-18</span>
+      </div>
+      <h3>发布Bonsai 2压缩模型，27B权重缩至约5.9GB</h3>
+      <div class="summary">TechCrunch在9月17日UTC晚间报道，Bonsai 2基于Qwen3.8 27B进行三值权重量化，以显著更低内存占用保留约98%的综合基准成绩；上述性能为公司披露。</div>
+      <div class="why">💡 端侧大模型部署门槛继续下降，但基准保持率不代表所有任务无损。</div>
+      <div class="links"><a href="https://techcrunch.com/2026/09/17/prismml-hopes-its-tiny-llm-could-change-how-we-all-use-ai/" target="_blank">https://techcrunch.com/2026/09/17/prismml-hopes-its-tiny-llm-could-change-how-we-all-use-ai/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Anthropic</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>重构Claude Code Projects：共享记忆与云端多线程协作</h3>
+      <div class="summary">新版项目可由协调器拆解任务、并行运行云端线程、审查输出并汇总结果，线程共享项目记忆和文件库。首先向部分Pro/Max用户测试开放，本地执行仍为后续计划。</div>
+      <div class="why">💡 协作型Agent开始产品化，同时需关注并行会话的额度消耗与代码合并。</div>
+      <div class="links"><a href="https://claude.com/blog/projects-redesigned" target="_blank">https://claude.com/blog/projects-redesigned</a><a href="https://www.theverge.com/ai-artificial-intelligence/997134/anthropic-claude-code-projects" target="_blank">https://www.theverge.com/ai-artificial-intelligence/997134/anthropic-claude-code-projects</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Anthropic</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>合并Cowork与聊天入口，推出Claude Docs和Slides</h3>
+      <div class="summary">消息发布于9月16日16:30 UTC，即北京时间9月17日；用户可在统一对话中生成、修改及分享文档和演示。功能分批开放，Enterprise启用由管理员控制。</div>
+      <div class="why">💡 办公成果生成进一步内置于Agent对话，而非跨工具搬运。</div>
+      <div class="links"><a href="https://www.theverge.com/ai-artificial-intelligence/996234/anthropic-one-claude-cowork-docs-slides" target="_blank">https://www.theverge.com/ai-artificial-intelligence/996234/anthropic-one-claude-cowork-docs-slides</a><a href="https://claude.com/blog/cowork-is-now-claude/" target="_blank">https://claude.com/blog/cowork-is-now-claude/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Google</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>Google Home新增MCP集成，允许第三方Agent接入</h3>
+      <div class="summary">消息发布于9月16日17:00 UTC，即北京时间9月17日。支持MCP的Agent可访问设备状态和事件历史并执行受限操作，Google称设有限流及安全限制，例如不允许解锁门锁。</div>
+      <div class="why">💡 Agent工具生态开始延伸至物理设备，权限设计比单纯接通API更重要。</div>
+      <div class="links"><a href="https://www.theverge.com/tech/996310/google-home-mcp-integration-agentic-ai-smart-home-price-release-date" target="_blank">https://www.theverge.com/tech/996310/google-home-mcp-integration-agentic-ai-smart-home-price-release-date</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Snap</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>发布Specs Intelligence，提供跨设备主动式AI助理</h3>
+      <div class="summary">9月16日23:40 UTC发布，即北京时间9月17日；服务可连接用户授权的应用，主动呈现会议和旅行等上下文。iOS提供预览，Mac完整早期体验需候补。</div>
+      <div class="why">💡 跨设备个人上下文成为助理产品竞争焦点，隐私与授权是使用前提。</div>
+      <div class="links"><a href="https://www.theverge.com/tech/996078/snap-specs-intelligence-ai-agent-ios-mac" target="_blank">https://www.theverge.com/tech/996078/snap-specs-intelligence-ai-agent-ios-mac</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Instinct / Meta</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>Instinct Concierge与Muse新增代用户拨打电话能力</h3>
+      <div class="summary">Instinct面向部分用户早期开放代订服务等电话功能，Meta Muse也开始向美国商家外呼测试；两者均非一次性全量开放。</div>
+      <div class="why">💡 通用个人Agent从文本建议走向跨渠道事务执行。</div>
+      <div class="links"><a href="https://techcrunch.com/2026/09/17/rival-ai-agents-instinct-and-metas-muse-both-add-the-ability-to-make-calls/" target="_blank">https://techcrunch.com/2026/09/17/rival-ai-agents-instinct-and-metas-muse-both-add-the-ability-to-make-calls/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Figure</span>
+        <span class="date-tag">2026-09-18</span>
+      </div>
+      <h3>Helix 2.5发布，展示陌生家庭中的全身操作泛化</h3>
+      <div class="summary">Figure介绍基于Index人类行为数据预训练的机器人模型，并在30个此前未采集数据的家庭环境测试整理、叠毛巾和铺床。公司实验中任务成功率由8%提高至56%。</div>
+      <div class="why">💡 具身模型泛化取得可测量进展，但仍不是家庭任务全面可靠的证明。</div>
+      <div class="links"><a href="https://www.ithome.com/1/003/942.htm" target="_blank">https://www.ithome.com/1/003/942.htm</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">加速进化</span>
+        <span class="date-tag">2026-09-18</span>
+      </div>
+      <h3>Booster K1探索版发售，标配豆包大模型</h3>
+      <div class="summary">产品售价38999元，提供22个自由度、48TOPS稠密算力及开放API，面向具身智能开发和定制。</div>
+      <div class="why">💡 相对低价的整机与开放接口降低机器人开发者入场门槛。</div>
+      <div class="links"><a href="https://www.ithome.com/1/003/924.htm" target="_blank">https://www.ithome.com/1/003/924.htm</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">华睿智普 / 联发科</span>
+        <span class="date-tag">2026-09-18</span>
+      </div>
+      <h3>发布基于Genio Pro 5100的Praxis One具身算力平台</h3>
+      <div class="summary">9月18日报道确认，平台于9月17日中国机器人峰会生态活动发布，采用大小脑单芯片融合架构，面向端侧感知、决策与控制。</div>
+      <div class="why">💡 本地闭环算力、系统兼容和长期供货是机器人规模化的关键约束。</div>
+      <div class="links"><a href="https://www.ithome.com/1/004/012.htm" target="_blank">https://www.ithome.com/1/004/012.htm</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">华为</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>推出OceanStor M900 AI记忆存储</h3>
+      <div class="summary">产品面向超节点推理，以灵衢网络连接显存、内存与SSD，提供全局共享KV Cache。官方称单集群可提供64PB容量及40TB/s聚合带宽。</div>
+      <div class="why">💡 长上下文推理优化开始从算力竞争转向存储、网络和计算协同。</div>
+      <div class="links"><a href="https://www.huawei.com/cn/news/2026/9/hc-context-memory-storage" target="_blank">https://www.huawei.com/cn/news/2026/9/hc-context-memory-storage</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">华为</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>将Ascend 960DT计划上市时间提前至2027年一季度</h3>
+      <div class="summary">华为确认下一代AI芯片计划由2027年三季度提前至一季度；这是路线图调整，并非芯片已交付。同期披露Peerium架构及Atlas系统扩展方向。</div>
+      <div class="why">💡 国产AI基础设施的交付节奏可能影响集群采购与迁移安排。</div>
+      <div class="links"><a href="https://techcrunch.com/2026/09/17/huawei-plans-q1-2027-launch-of-new-ai-chip-as-it-takes-on-nvidia/" target="_blank">https://techcrunch.com/2026/09/17/huawei-plans-q1-2027-launch-of-new-ai-chip-as-it-takes-on-nvidia/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">云知声</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>U2-Flash开放体验与API，支持512K上下文</h3>
+      <div class="summary">模型采用稀疏MoE，并兼容OpenAI与Anthropic接口协议；报道显示平台提供多档思考强度及限时Token权益。所谓自改进为模型参与后训练和系统优化，不等同完全自主递归进化。</div>
+      <div class="why">💡 低成本模型与现有开发工具兼容，有助于评估国产Agent替代方案。</div>
+      <div class="links"><a href="https://www.qbitai.com/2026/09/491091.html" target="_blank">https://www.qbitai.com/2026/09/491091.html</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">智谱</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>披露GLM驱动Infra Agent构建国产集群推理系统</h3>
+      <div class="summary">智谱分享在十万卡国产集群上，由GLM-5.3驱动Agent参与算子、并发与系统优化的实践。公司明确未实现完全递归自我改进，人类仍负责目标和风险边界。</div>
+      <div class="why">💡 将AI研发能力落实到可观测、可回归验证的基础设施工作。</div>
+      <div class="links"><a href="https://www.qbitai.com/2026/09/491357.html" target="_blank">https://www.qbitai.com/2026/09/491357.html</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-09-18</span>
+      </div>
+      <h3>发布Astra for Law法律研究基础平台</h3>
+      <div class="summary">9月18日IT之家报道OpenAI于前一日发布法律专用服务，搜索索引覆盖超过2.3亿URL并连接CourtListener案例库。其定位是面向律师与法律软件企业的工具，不是自主执业律师。</div>
+      <div class="why">💡 专业索引与检索增强成为通用模型行业化产品的重要路径。</div>
+      <div class="links"><a href="https://www.ithome.com/1/003/927.htm" target="_blank">https://www.ithome.com/1/003/927.htm</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Pinterest</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>Restyle测试上线，用AI重设真实房间</h3>
+      <div class="summary">Restyle在美国和加拿大推出测试，用户上传室内照片后可用提示词替换家具、装饰和风格，底层结合Pinterest Intelligence与NVIDIA基础设施。</div>
+      <div class="why">💡 视觉生成与可购买商品衔接，缩短内容发现到消费决策的链路。</div>
+      <div class="links"><a href="https://techcrunch.com/2026/09/17/pinterest-teases-a-new-restyle-feature-that-lets-you-redesign-your-room-with-ai/" target="_blank">https://techcrunch.com/2026/09/17/pinterest-teases-a-new-restyle-feature-that-lets-you-redesign-your-room-with-ai/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">TypeSafe AI / LangChain</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>Jev接入Agent工作流，提供快速结构化决策</h3>
+      <div class="summary">LangChain介绍Jev集成：模型不生成长文本，而对分类、排序和真假判断返回概率与置信度，可用于模型路由和动作风险判断。</div>
+      <div class="why">💡 把简单决策从通用生成模型拆出，有望降低Agent控制环节的成本与延迟。</div>
+      <div class="links"><a href="https://www.langchain.com/blog/building-a-harness-with-jev" target="_blank">https://www.langchain.com/blog/building-a-harness-with-jev</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">联合国 / Google</span>
+        <span class="date-tag">2026-09-18</span>
+      </div>
+      <h3>推出支持自然语言及MCP访问的联合国数据平台</h3>
+      <div class="summary">9月17日20:00 UTC报道，即北京时间9月18日。新平台基于Data Commons，使AI可连接多家联合国机构的统计数据，首发覆盖近20家机构。</div>
+      <div class="why">💡 权威数据通过标准接口供Agent调用，可减少无依据的统计回答。</div>
+      <div class="links"><a href="https://techcrunch.com/2026/09/17/un-turns-to-google-to-make-its-global-data-ready-for-ai-agents/" target="_blank">https://techcrunch.com/2026/09/17/un-turns-to-google-to-make-its-global-data-ready-for-ai-agents/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Comp AI</span>
+        <span class="date-tag">2026-09-17</span>
+      </div>
+      <h3>获3400万美元A轮融资，扩展安全合规Agent平台</h3>
+      <div class="summary">平台支持起草安全政策、收集审计证据、持续监测合规控制及AI渗透测试；团队强调人类仍负责审批，不能取代独立审计。</div>
+      <div class="why">💡 连续运行的Agent需要持续权限与证据治理，而非仅一次性合规检查。</div>
+      <div class="links"><a href="https://techcrunch.com/2026/09/17/comp-ai-sets-eyes-on-a-continiously-agentic-future-for-security-and-complaince/" target="_blank">https://techcrunch.com/2026/09/17/comp-ai-sets-eyes-on-a-continiously-agentic-future-for-security-and-complaince/</a></div>
+    </div>
+  </section>
+  <section class="coverage"><div class="line-header"><span class="dot" style="background:#64748b"></span><h2>🌐 新闻源导航</h2></div><p class="coverage-meta">以下为当前日报持续关注的公开来源，点击名称可直接访问。</p><div class="source-group"><h3>医药产业、监管与资本市场</h3><div class="source-links"><a class="source-link" href="https://www.wuxiapptec.com/news" target="_blank" rel="noopener">药明康德</a><a class="source-link" href="https://www.pharmcube.com/" target="_blank" rel="noopener">医药魔方</a><a class="source-link" href="https://www.yypm.net/" target="_blank" rel="noopener">E药经理人</a><a class="source-link" href="https://www.yaozh.com/" target="_blank" rel="noopener">药智网</a><a class="source-link" href="https://www.menet.com.cn/" target="_blank" rel="noopener">米内网</a><a class="source-link" href="https://www.jianzhiju.cn/" target="_blank" rel="noopener">健识局</a><a class="source-link" href="https://www.cco.com.cn/" target="_blank" rel="noopener">赛柏蓝</a><a class="source-link" href="https://www.fiercepharma.com/" target="_blank" rel="noopener">FiercePharma</a><a class="source-link" href="https://www.biopharmadive.com/" target="_blank" rel="noopener">BioPharma Dive</a><a class="source-link" href="https://endpts.com/" target="_blank" rel="noopener">Endpoints News</a><a class="source-link" href="https://www.reuters.com/business/healthcare-pharmaceuticals/" target="_blank" rel="noopener">Reuters Health</a><a class="source-link" href="https://www.fda.gov/news-events/press-announcements" target="_blank" rel="noopener">FDA</a><a class="source-link" href="https://www.ema.europa.eu/en/news-events" target="_blank" rel="noopener">EMA</a><a class="source-link" href="https://www.cde.org.cn/" target="_blank" rel="noopener">CDE</a><a class="source-link" href="https://www.nmpa.gov.cn/" target="_blank" rel="noopener">国家药监局</a><a class="source-link" href="https://clinicaltrials.gov/" target="_blank" rel="noopener">ClinicalTrials.gov</a><a class="source-link" href="https://www.eastmoney.com/" target="_blank" rel="noopener">东方财富网</a><a class="source-link" href="https://xueqiu.com/" target="_blank" rel="noopener">雪球</a><a class="source-link" href="https://www.cninfo.com.cn/" target="_blank" rel="noopener">巨潮资讯</a><a class="source-link" href="https://www.cls.cn/" target="_blank" rel="noopener">财联社</a></div></div><div class="source-group"><h3>医疗AI与医疗IT</h3><div class="source-links"><a class="source-link" href="https://www.healthcareitnews.com/" target="_blank" rel="noopener">Healthcare IT News</a><a class="source-link" href="https://www.mobihealthnews.com/" target="_blank" rel="noopener">MobiHealthNews</a><a class="source-link" href="https://www.statnews.com/" target="_blank" rel="noopener">STAT</a><a class="source-link" href="https://www.fiercehealthcare.com/" target="_blank" rel="noopener">Fierce Healthcare</a><a class="source-link" href="https://medcitynews.com/" target="_blank" rel="noopener">MedCity News</a><a class="source-link" href="https://www.medtechdive.com/" target="_blank" rel="noopener">MedTech Dive</a><a class="source-link" href="https://hitconsultant.net/" target="_blank" rel="noopener">HIT Consultant</a><a class="source-link" href="https://www.beckershospitalreview.com/" target="_blank" rel="noopener">Becker&#x27;s Hospital Review</a><a class="source-link" href="https://vcbeat.top/" target="_blank" rel="noopener">动脉网</a><a class="source-link" href="https://www.cn-healthcare.com/" target="_blank" rel="noopener">健康界</a><a class="source-link" href="https://www.dxy.cn/" target="_blank" rel="noopener">丁香园</a><a class="source-link" href="https://www.yxj.org.cn/" target="_blank" rel="noopener">医学界</a><a class="source-link" href="https://www.epic.com/" target="_blank" rel="noopener">Epic</a><a class="source-link" href="https://www.oracle.com/health/" target="_blank" rel="noopener">Oracle Health</a><a class="source-link" href="https://www.abridge.com/" target="_blank" rel="noopener">Abridge</a><a class="source-link" href="https://www.microsoft.com/en-us/industry/health/microsoft-cloud-for-healthcare" target="_blank" rel="noopener">Microsoft Cloud for Healthcare</a><a class="source-link" href="https://www.philips.com/a-w/about/news/archive/standard/about/news.html" target="_blank" rel="noopener">Philips HealthTech</a><a class="source-link" href="https://www.siemens-healthineers.com/press" target="_blank" rel="noopener">Siemens Healthineers</a><a class="source-link" href="https://investor.gehealthcare.com/" target="_blank" rel="noopener">GE HealthCare</a><a class="source-link" href="https://health.google/" target="_blank" rel="noopener">Google Health</a><a class="source-link" href="https://aws.amazon.com/health/" target="_blank" rel="noopener">AWS for Healthcare</a></div></div><div class="source-group"><h3>通用AI模型、产品与开源</h3><div class="source-links"><a class="source-link" href="https://openai.com/news/" target="_blank" rel="noopener">OpenAI</a><a class="source-link" href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic</a><a class="source-link" href="https://x.ai/news" target="_blank" rel="noopener">xAI / Grok</a><a class="source-link" href="https://qwenlm.github.io/" target="_blank" rel="noopener">Qwen</a><a class="source-link" href="https://www.deepseek.com/" target="_blank" rel="noopener">DeepSeek</a><a class="source-link" href="https://www.zhipuai.cn/" target="_blank" rel="noopener">智谱 GLM</a><a class="source-link" href="https://deepmind.google/discover/blog/" target="_blank" rel="noopener">Google DeepMind</a><a class="source-link" href="https://ai.meta.com/blog/" target="_blank" rel="noopener">Meta AI</a><a class="source-link" href="https://mistral.ai/news/" target="_blank" rel="noopener">Mistral</a><a class="source-link" href="https://cohere.com/blog" target="_blank" rel="noopener">Cohere</a><a class="source-link" href="https://blogs.microsoft.com/ai/" target="_blank" rel="noopener">Microsoft AI</a><a class="source-link" href="https://blogs.nvidia.com/" target="_blank" rel="noopener">NVIDIA</a><a class="source-link" href="https://huggingface.co/blog" target="_blank" rel="noopener">Hugging Face</a><a class="source-link" href="https://www.latent.space/" target="_blank" rel="noopener">Latent Space</a><a class="source-link" href="https://github.com/explore" target="_blank" rel="noopener">GitHub Releases</a><a class="source-link" href="https://arxiv.org/" target="_blank" rel="noopener">arXiv</a><a class="source-link" href="https://modelscope.cn/" target="_blank" rel="noopener">ModelScope</a><a class="source-link" href="https://replicate.com/blog" target="_blank" rel="noopener">Replicate</a><a class="source-link" href="https://blog.langchain.dev/" target="_blank" rel="noopener">LangChain</a><a class="source-link" href="https://www.llamaindex.ai/blog" target="_blank" rel="noopener">LlamaIndex</a></div></div><div class="source-group"><h3>补充交叉验证</h3><div class="source-links"><a class="source-link" href="https://36kr.com/" target="_blank" rel="noopener">36氪</a><a class="source-link" href="https://www.jiemian.com/" target="_blank" rel="noopener">界面新闻</a><a class="source-link" href="https://www.jiqizhixin.com/" target="_blank" rel="noopener">机器之心</a><a class="source-link" href="https://www.qbitai.com/" target="_blank" rel="noopener">量子位</a><a class="source-link" href="https://www.aitimes.com.cn/" target="_blank" rel="noopener">新智元</a><a class="source-link" href="https://next.ithome.com/" target="_blank" rel="noopener">IT之家 Next</a><a class="source-link" href="https://techcrunch.com/" target="_blank" rel="noopener">TechCrunch</a><a class="source-link" href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" rel="noopener">The Verge</a><a class="source-link" href="https://venturebeat.com/ai/" target="_blank" rel="noopener">VentureBeat</a><a class="source-link" href="https://www.prnewswire.com/" target="_blank" rel="noopener">PR Newswire</a><a class="source-link" href="https://www.businesswire.com/" target="_blank" rel="noopener">Business Wire</a><a class="source-link" href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">SEC EDGAR</a><a class="source-link" href="https://news.google.com/" target="_blank" rel="noopener">Google News</a></div></div></section>
+  <footer>由 Hermes Agent 自动生成 · 数据来自公开新闻源</footer>
+</div>
+</body>
+</html>
