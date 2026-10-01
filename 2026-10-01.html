@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医药AI情报日报</title>
+<style>
+  :root {
+    --bg: #f4f7fa;
+    --ink: #1a2330;
+    --muted: #6b7684;
+    --line1: #2563eb;   /* 医药产业 */
+    --line2: #0ea5a4;   /* 医疗工具 */
+    --line3: #7c3aed;   /* 通用AI */
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 20px 14px 60px;
+  }
+  .container { max-width: 640px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    padding: 18px 0 20px;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(120deg, #2563eb, #0ea5a4, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header .date {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  section.line { margin-bottom: 26px; }
+  .line-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .line-header .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .line-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .line-header .count {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+    background: #e8edf3;
+    padding: 2px 10px;
+    border-radius: 12px;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(16,24,40,.06);
+    border-left: 3px solid var(--c, #ccc);
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c, #333);
+    background: color-mix(in srgb, var(--c, #333) 10%, white);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .badge.gray { color: var(--muted); background: #eef1f5; }
+  .date-tag {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .summary {
+    font-size: 13px;
+    color: #3a4553;
+  }
+  .why {
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: #0f766e;
+    background: #ecfdf5;
+    border-radius: 8px;
+    padding: 6px 10px;
+  }
+  .links { margin-top: 8px; }
+  .links a {
+    font-size: 12px;
+    color: var(--c, #2563eb);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .links a + a::before { content: " · "; color: #cbd5e1; }
+
+  .empty {
+    font-size: 13px;
+    color: var(--muted);
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    border: 1px dashed #d5dce5;
+  }
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #9aa4b1;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>医药AI情报日报</h1>
+    <div class="date">2026-10-01（周四）</div>
+  </header>
+  
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#2563eb"></span>
+      <h2>💊 医药产业动态（新药研发·注册·上市）</h2>
+      <span class="count">4 条</span>
+    </div>
+    
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">百时美施贵宝（BMS）</span>
+        <span class="date-tag">2026-09-30</span>
+      </div>
+      <h3>1类创新药盐酸艾泊度胺胶囊（赞赋）附条件获批上市</h3>
+      <div class="summary">国家药监局通过优先审评程序，附条件批准BMS申报的1类创新药盐酸艾泊度胺胶囊（商品名：赞赋）上市，联合达雷妥尤单抗和地塞米松用于治疗既往接受过至少一线治疗（含蛋白酶体抑制剂和免疫调节剂）的多发性骨髓瘤成人患者。</div>
+      <div class="why">💡 这是BMS新型蛋白降解剂（CELMoD）在中国获批，为多发性骨髓瘤患者提供新的联合治疗选择。</div>
+      <div class="links"><a href="https://www.nmpa.gov.cn/directory/web/nmpa/zhuanti/cxylqx/cxypxx/20260930162132100.html" target="_blank">https://www.nmpa.gov.cn/directory/web/nmpa/zhuanti/cxylqx/cxypxx/20260930162132100.html</a><a href="https://bydrug.pharmcube.com/news/detail/c5b51ec667dd7d5eb0d743ada80a7444" target="_blank">https://bydrug.pharmcube.com/news/detail/c5b51ec667dd7d5eb0d743ada80a7444</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">罗氏（Roche）</span>
+        <span class="date-tag">2026-09-30</span>
+      </div>
+      <h3>非共价BTK抑制剂fenebrutinib的NDA获FDA受理并授予优先审评</h3>
+      <div class="summary">罗氏宣布美国FDA已受理其非共价BTK抑制剂fenebrutinib的新药上市申请（NDA）并给予优先审评，用于治疗复发型多发性硬化症（RMS）和原发进展型多发性硬化症（PPMS）。</div>
+      <div class="why">💡 fenebrutinib是罗氏多发性硬化症管线的关键资产，若能获批将成为脑内可及的BTK抑制剂新疗法。</div>
+      <div class="links"><a href="https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-09-30/doc-initqzmc5710950.shtml" target="_blank">https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-09-30/doc-initqzmc5710950.shtml</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">默沙东（Merck）</span>
+        <span class="date-tag">2026-09-30</span>
+      </div>
+      <h3>抗TL1A抗体tulisokibart治疗化脓性汗腺炎IIb期达到主要终点</h3>
+      <div class="summary">默沙东公布其108亿美元收购Prometheus获得的抗TL1A抗体tulisokibart，在中重度化脓性汗腺炎（HS）的IIb期试验中达到主要及关键次要终点，但在系统性硬化症相关间质性肺病（SSc-ILD）试验中失败并终止该适应症开发。</div>
+      <div class="why">💡 这是抗TL1A单抗在皮肤科领域首个阳性II期数据，验证了该靶点拓展适应症的潜力。</div>
+      <div class="links"><a href="https://www.fiercebiotech.com/biotech/mercks-anti-tl1a-antibody-secures-win-ph-2-hidradenitis-suppurativa-trial" target="_blank">https://www.fiercebiotech.com/biotech/mercks-anti-tl1a-antibody-secures-win-ph-2-hidradenitis-suppurativa-trial</a><a href="https://endpoints.news/mercks-anti-tl1a-from-prometheus-scores-a-win-in-hidradenitis-suppurativa-but-fails-in-ssc-ild/" target="_blank">https://endpoints.news/mercks-anti-tl1a-from-prometheus-scores-a-win-in-hidradenitis-suppurativa-but-fails-in-ssc-ild/</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">诚益生物 × 阿斯利康</span>
+        <span class="date-tag">2026-09-29</span>
+      </div>
+      <h3>诚益生物收到阿斯利康5000万美元里程碑付款</h3>
+      <div class="summary">诚益生物宣布收到阿斯利康5000万美元里程碑付款，触发条件是双方合作的口服小分子GLP-1受体激动剂elecoglipron全球III期临床项目正式启动，公司已累计从该合作获得2.95亿美元。</div>
+      <div class="why">💡 国产口服GLP-1进入全球III期并触发大额里程碑，是减肥/代谢赛道BD兑现的又一信号。</div>
+      <div class="links"><a href="https://finance.sina.com.cn/wm/2026-09-29/doc-initnfqc7858111.shtml" target="_blank">https://finance.sina.com.cn/wm/2026-09-29/doc-initnfqc7858111.shtml</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#0ea5a4"></span>
+      <h2>🩺 医疗AI与工具创新（院内·院外）</h2>
+      <span class="count">2 条</span>
+    </div>
+    
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">EliseAI</span>
+        <span class="date-tag">2026-09-29</span>
+      </div>
+      <h3>医疗AI自动化公司EliseAI融资3.5亿美元，估值达40亿美元</h3>
+      <div class="summary">纽约医疗AI自动化公司EliseAI完成3.5亿美元融资、估值40亿美元，由a16z与Bessemer领投，资金将用于扩展面向患者的行政AI助手（排程、医保资格核验、EHR记录匹配等）及北美团队。</div>
+      <div class="why">💡 医疗行政自动化是AI落地最成熟的院内场景之一，高估值反映资本对减负型医疗AI的持续看好。</div>
+      <div class="links"><a href="https://www.mobihealthnews.com/news/eliseai-raises-350m-4b-valuation-expand-healthcare-ai-automation" target="_blank">https://www.mobihealthnews.com/news/eliseai-raises-350m-4b-valuation-expand-healthcare-ai-automation</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">新加坡多家医院</span>
+        <span class="date-tag">2026-09-29</span>
+      </div>
+      <h3>新加坡医院密集落地AI：内镜辅助、脑出血CT筛查与空间组学平台</h3>
+      <div class="summary">Woodlands医院在全部内镜室上线AI辅助检测（实时识别胃肠息肉）、新加坡中央医院部署iScreen脑出血CT筛查AI、SingHealth发布SPADE空间组学AI科研平台并与10x Genomics合作。</div>
+      <div class="why">💡 新加坡公立医院体系集中落地多类AI，是亚太区院内AI规模化部署的代表案例。</div>
+      <div class="links"><a href="https://www.healthcareitnews.com/news/asia/latest-hospital-ai-deployments-singapore-and-more-briefs" target="_blank">https://www.healthcareitnews.com/news/asia/latest-hospital-ai-deployments-singapore-and-more-briefs</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#7c3aed"></span>
+      <h2>🤖 通用AI公司新AI产品</h2>
+      <span class="count">2 条</span>
+    </div>
+    
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-09-29</span>
+      </div>
+      <h3>发布GPT-6.1 Sol：性能逼近Astra、价格仅为其五分之一</h3>
+      <div class="summary">OpenAI在DevDay 2026发布GPT-6.1 Sol，在智能体编程、计算机使用与专业工作场景接近旗舰GPT-6 Astra水平，标准输入/输出Token价格仅为Astra的五分之一（输入2美元、输出10美元/百万Token），并同步推出Ultrafast高速档。</div>
+      <div class="why">💡 以显著更低的成本提供接近前沿模型的智能，直接降低智能体规模化构建的门槛。</div>
+      <div class="links"><a href="https://openai.com/zh-Hans-CN/index/introducing-gpt-6-1-sol/" target="_blank">https://openai.com/zh-Hans-CN/index/introducing-gpt-6-1-sol/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-09-29</span>
+      </div>
+      <h3>发布全天候AI智能体「dots」：每个dot配独立云端电脑</h3>
+      <div class="summary">OpenAI发布由GPT-6 Astra驱动、7×24小时在线的AI智能体dots，拥有独立云端电脑与身份、可连接4000余款应用，通过ChatGPT、短信、Slack、Teams等渠道工作，并向Pro/Business/Enterprise用户逐步开放。</div>
+      <div class="why">💡 从对话式助手转向可自主执行任务的常驻智能体，代表AI代理（Agent）产品化的重要一步。</div>
+      <div class="links"><a href="https://openai.com/zh-Hans-CN/index/introducing-dots/" target="_blank">https://openai.com/zh-Hans-CN/index/introducing-dots/</a></div>
+    </div>
+  </section>
+  <footer>由 Hermes Agent 自动生成 · 数据来自公开新闻源</footer>
+</div>
+</body>
+</html>
