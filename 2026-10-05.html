@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医药AI情报日报</title>
+<style>
+  :root {
+    --bg: #f4f7fa;
+    --ink: #1a2330;
+    --muted: #6b7684;
+    --line1: #2563eb;   /* 医药产业 */
+    --line2: #0ea5a4;   /* 医疗工具 */
+    --line3: #7c3aed;   /* 通用AI */
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 20px 14px 60px;
+  }
+  .container { max-width: 640px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    padding: 18px 0 20px;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(120deg, #2563eb, #0ea5a4, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header .date {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  section.line { margin-bottom: 26px; }
+  .line-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .line-header .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .line-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .line-header .count {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+    background: #e8edf3;
+    padding: 2px 10px;
+    border-radius: 12px;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(16,24,40,.06);
+    border-left: 3px solid var(--c, #ccc);
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c, #333);
+    background: color-mix(in srgb, var(--c, #333) 10%, white);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .badge.gray { color: var(--muted); background: #eef1f5; }
+  .date-tag {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .summary {
+    font-size: 13px;
+    color: #3a4553;
+  }
+  .why {
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: #0f766e;
+    background: #ecfdf5;
+    border-radius: 8px;
+    padding: 6px 10px;
+  }
+  .links { margin-top: 8px; }
+  .links a {
+    font-size: 12px;
+    color: var(--c, #2563eb);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .links a + a::before { content: " · "; color: #cbd5e1; }
+
+  .empty {
+    font-size: 13px;
+    color: var(--muted);
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    border: 1px dashed #d5dce5;
+  }
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #9aa4b1;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>医药AI情报日报</h1>
+    <div class="date">2026-10-05（周一）</div>
+  </header>
+  
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#2563eb"></span>
+      <h2>💊 医药产业动态（新药研发·注册·上市）</h2>
+      <span class="count">2 条</span>
+    </div>
+    
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">勃林格殷格翰（Boehringer Ingelheim）</span>
+        <span class="date-tag">2026-10-01</span>
+      </div>
+      <h3>GLP-1/胰高血糖素双靶点新药 survodutide Ⅲ期 SYNCHRONIZE-2 阳性结果公布</h3>
+      <div class="summary">survodutide 在肥胖合并 2 型糖尿病患者的 Ⅲ 期 SYNCHRONIZE-2 试验中达到共同主要终点：治疗 76 周后体重平均下降 13.1%（安慰剂组 3.1%，p&lt;0.0001），并显著改善血糖控制，结果在 EASD 2026 大会公布并同步发表于《新英格兰医学杂志》（NEJM）。</div>
+      <div class="why">💡 在公认减重难度更大的 2 型糖尿病人群中交出亮眼数据，直接对标司美格鲁肽/替尔泊肽，是代谢减肥赛道重磅 Ⅲ 期结果。</div>
+      <div class="links"><a href="https://www.boehringer-ingelheim.com/human-health/crm-health/metabolic-health/survodutide-synchronize-2-phase-3-obesity-type-2-diabetes-results" target="_blank">https://www.boehringer-ingelheim.com/human-health/crm-health/metabolic-health/survodutide-synchronize-2-phase-3-obesity-type-2-diabetes-results</a><a href="https://www.drugs.com/clinical_trials/boehringer-ingelheim-s-survodutide-achieves-up-13-1-weight-loss-new-phase-iii-trial-alongside-22618.html" target="_blank">https://www.drugs.com/clinical_trials/boehringer-ingelheim-s-survodutide-achieves-up-13-1-weight-loss-new-phase-iii-trial-alongside-22618.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Belite Bio（贝利特生物）</span>
+        <span class="date-tag">2026-10-04</span>
+      </div>
+      <h3>口服 RBP4 拮抗剂 tinlarebant Ⅲ期 DRAGON 数据在 EURETINA 2026 展示</h3>
+      <div class="summary">Belite Bio 在维也纳 EURETINA 2026 展示 tinlarebant 治疗青少年 Stargardt 病（STGD1）的 Ⅲ 期 DRAGON 研究数据，药物通过抑制 RBP4、减少维生素 A 毒性副产物双维甲酸蓄积，显著减缓视网膜病变进展，有望成为该病首个疾病修饰疗法。</div>
+      <div class="why">💡 Stargardt 病迄今无获批治疗药物，first-in-class 口服疗法若获批将填补重大临床空白，是罕见眼科赛道的关键节点。</div>
+      <div class="links"><a href="https://investors.belitebio.com/news-releases/news-release-details/belite-bio-announces-oral-presentations-two-upcoming-medical-1" target="_blank">https://investors.belitebio.com/news-releases/news-release-details/belite-bio-announces-oral-presentations-two-upcoming-medical-1</a><a href="https://www.ophthalmologytimes.com/view/belite-bio-releases-topline-results-from-phase-3-dragon-trial-of-tinlarebant-for-stgd1" target="_blank">https://www.ophthalmologytimes.com/view/belite-bio-releases-topline-results-from-phase-3-dragon-trial-of-tinlarebant-for-stgd1</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#0ea5a4"></span>
+      <h2>🩺 医疗AI与工具创新（院内·院外）</h2>
+      <span class="count">3 条</span>
+    </div>
+    
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">ARPA-H / 佛蒙特大学拉纳医学院</span>
+        <span class="date-tag">2026-10-01</span>
+      </div>
+      <h3>ARPA-H 最高拨款 3800 万美元研发 ICU「数字孪生」AI</h3>
+      <div class="summary">美国卫生高级研究计划署（ARPA-H）向佛蒙特大学拉纳医学院拨款最高 3800 万美元（5 年期），开发 AI 驱动的 ICU 数字孪生技术，为脓毒症、创伤、烧伤等危重症患者在「虚拟患者」上先行测试个性化治疗方案，目标将 ICU 住院时长最多缩短 25%。</div>
+      <div class="why">💡 数字孪生是 AI 在重症监护最具价值的落地场景之一，政府级大额资助将其从科研概念推向临床验证阶段。</div>
+      <div class="links"><a href="https://www.healthcareitnews.com/news/arpa-h-awards-uvm-38m-icu-digital-twin-ai" target="_blank">https://www.healthcareitnews.com/news/arpa-h-awards-uvm-38m-icu-digital-twin-ai</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">加州州长纽森（California Gov. Newsom）</span>
+        <span class="date-tag">2026-10-01</span>
+      </div>
+      <h3>加州签署 3 项医疗 AI 监管法案，将 AI 限定为「辅助而非替代」</h3>
+      <div class="summary">加州州长纽森签署 3 项医疗 AI 法案：AB 1979 将 AI 限定于临床「咨询」角色并保护聊天机器人中的患者隐私，SB 503 要求披露并缓解临床决策支持系统的算法偏见，AB 1609 规范客服聊天机器人不得冒充真人；同时否决了 2 项涉及医疗人力保护与精神健康 AI 限制的法案。</div>
+      <div class="why">💡 美国人口最大州率先立法规范医疗 AI，明确 AI 不得替代临床判断，为全美医疗 AI 监管提供模板，直接影响院内 AI 产品合规边界。</div>
+      <div class="links"><a href="https://www.healthcareitnews.com/news/california-gov-newsom-signs-3-bills-govern-healthcare-ai" target="_blank">https://www.healthcareitnews.com/news/california-gov-newsom-signs-3-bills-govern-healthcare-ai</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">ChristianaCare / UPMC</span>
+        <span class="date-tag">2026-10-03</span>
+      </div>
+      <h3>ChristianaCare 上线 Epic EHR，UPMC 推进第二轮 Epic 整合</h3>
+      <div class="summary">特拉华州 ChristianaCare 于 10 月 3 日正式上线 Epic 电子病历，完成其全州 EHR 转型；同日 UPMC 推进 40 家医院体系第二轮 Epic 上线，整合 9 套 EHR、约 600 万份病历，两系统均同步布局 AI 辅助文档/临床工具。</div>
+      <div class="why">💡 美国医院 EHR 进一步向 Epic 集中，大型系统完成整合后为语音病历、临床决策支持等 AI 上层应用铺路。</div>
+      <div class="links"><a href="https://news.christianacare.org/2026/07/christianacare-advances-epic-electronic-health-record-implementation-for-oct-3-go-live/" target="_blank">https://news.christianacare.org/2026/07/christianacare-advances-epic-electronic-health-record-implementation-for-oct-3-go-live/</a><a href="https://www.beckershospitalreview.com/healthcare-information-technology/ehrs/health-systems-moving-to-epic-oracle-in-2026/" target="_blank">https://www.beckershospitalreview.com/healthcare-information-technology/ehrs/health-systems-moving-to-epic-oracle-in-2026/</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#7c3aed"></span>
+      <h2>🤖 通用AI公司新AI产品</h2>
+      <span class="count">3 条</span>
+    </div>
+    
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Tavus</span>
+        <span class="date-tag">2026-10-01</span>
+      </div>
+      <h3>发布首个「人类交互模型」Griffin，通过实时视频图灵测试</h3>
+      <div class="summary">AI 研究公司 Tavus 发布 Griffin，自称首个通过「视频图灵测试」的实时视频交互模型（Human Interaction Model）：全双工、视频到视频，1 分钟视频通话中 48% 参与者误认为真人（上一代系统仅 2.4%），可边听边看边实时对话、打断与被打断。</div>
+      <div class="why">💡 实时拟人视频交互是 Agent/数字人赛道的新前沿，若规模化将重塑客服、销售、陪伴等场景，也加剧深度伪造监管争议。</div>
+      <div class="links"><a href="https://www.tavus.io/griffin" target="_blank">https://www.tavus.io/griffin</a><a href="https://www.businesswire.com/news/home/20261001092598/en/Tavus-Introduces-Griffin-the-First-Face-to-Face-Human-Interaction-Model-Unlocking-the-Future-of-Conversational-AI" target="_blank">https://www.businesswire.com/news/home/20261001092598/en/Tavus-Introduces-Griffin-the-First-Face-to-Face-Human-Interaction-Model-Unlocking-the-Future-of-Conversational-AI</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">英伟达（NVIDIA）</span>
+        <span class="date-tag">2026-10-02</span>
+      </div>
+      <h3>推出 DGX Spark 64GB 版，4999 美元起，桌面跑千亿参数模型</h3>
+      <div class="summary">英伟达为个人 AI 超算 DGX Spark 新增 64GB 统一内存配置，10 月 23 日起经宏碁、华硕、戴尔、技嘉、惠普、微星发售，起售价 4999 美元；单机支持最高 1000 亿参数模型，双机经 ConnectX-7 池化至 128GB 后可达 2000 亿参数。</div>
+      <div class="why">💡 将本地运行千亿参数模型的门槛拉到 5000 美元档，推动「端侧/本地大模型」从工作站走向桌面普及。</div>
+      <div class="links"><a href="https://www.nvidia.com/en-us/products/workstations/dgx-spark/" target="_blank">https://www.nvidia.com/en-us/products/workstations/dgx-spark/</a><a href="https://www.techpowerup.com/353347/nvidia-launches-dgx-spark-64-gb-desktop-ai-systems" target="_blank">https://www.techpowerup.com/353347/nvidia-launches-dgx-spark-64-gb-desktop-ai-systems</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">阿里云</span>
+        <span class="date-tag">2026-10-03</span>
+      </div>
+      <h3>百炼平台与通义千问完成国产算力全链路适配</h3>
+      <div class="summary">阿里云百炼平台与通义千问完成国产算力（华为昇腾）全链路适配，大模型服务底座实现「整体换装」；本周被业界概括为「算力自立的一周」，与华为 Mate 90 首发麒麟 9050 Pro+30B 端侧模型、DeepSeek 开源昇腾组件等事件叠加。</div>
+      <div class="why">💡 国产算力生态加速成型，大模型推理/训练服务逐步摆脱对英伟达 CUDA 生态的依赖，利好自主可控 AI 底座。</div>
+      <div class="links"><a href="https://www.163.com/dy/article/L8BQ2OIK0519BPG6.html" target="_blank">https://www.163.com/dy/article/L8BQ2OIK0519BPG6.html</a></div>
+    </div>
+  </section>
+  <footer>由 Hermes Agent 自动生成 · 数据来自公开新闻源</footer>
+</div>
+</body>
+</html>
