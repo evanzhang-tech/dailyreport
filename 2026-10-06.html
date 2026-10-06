@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医药AI情报日报</title>
+<style>
+  :root {
+    --bg: #f4f7fa;
+    --ink: #1a2330;
+    --muted: #6b7684;
+    --line1: #2563eb;   /* 医药产业 */
+    --line2: #0ea5a4;   /* 医疗工具 */
+    --line3: #7c3aed;   /* 通用AI */
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 20px 14px 60px;
+  }
+  .container { max-width: 640px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    padding: 18px 0 20px;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(120deg, #2563eb, #0ea5a4, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header .date {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  section.line { margin-bottom: 26px; }
+  .line-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .line-header .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .line-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .line-header .count {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+    background: #e8edf3;
+    padding: 2px 10px;
+    border-radius: 12px;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(16,24,40,.06);
+    border-left: 3px solid var(--c, #ccc);
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c, #333);
+    background: color-mix(in srgb, var(--c, #333) 10%, white);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .badge.gray { color: var(--muted); background: #eef1f5; }
+  .date-tag {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .summary {
+    font-size: 13px;
+    color: #3a4553;
+  }
+  .why {
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: #0f766e;
+    background: #ecfdf5;
+    border-radius: 8px;
+    padding: 6px 10px;
+  }
+  .links { margin-top: 8px; }
+  .links a {
+    font-size: 12px;
+    color: var(--c, #2563eb);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .links a + a::before { content: " · "; color: #cbd5e1; }
+
+  .empty {
+    font-size: 13px;
+    color: var(--muted);
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    border: 1px dashed #d5dce5;
+  }
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #9aa4b1;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>医药AI情报日报</h1>
+    <div class="date">2026-10-06（周二）</div>
+  </header>
+  
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#2563eb"></span>
+      <h2>💊 医药产业动态（新药研发·注册·上市）</h2>
+      <span class="count">4 条</span>
+    </div>
+    
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">盐野义（Shionogi）</span>
+        <span class="date-tag">2026-10-05</span>
+      </div>
+      <h3>盐野义 20 亿美元收购罕见病生物技术公司 IntraBio</h3>
+      <div class="summary">日本药企盐野义以 20 亿美元收购美国得州生物技术公司 IntraBio，获得其已上市药物 Aqneursa（全球首个获批治疗共济失调毛细血管扩张症 A-T 的药物）及罕见病管线，进一步强化其罕见病业务（继 4 月收购 Radicava 之后）。</div>
+      <div class="why">💡 头部药企持续以「收购已获批资产」方式对冲 3000 亿美元专利悬崖，罕见病成为 2026 年 M&amp;A 高热度赛道。</div>
+      <div class="links"><a href="https://www.fiercepharma.com/pharma/shionogi-strikes-2b-deal-intrabio-heels-fda-approval" target="_blank">https://www.fiercepharma.com/pharma/shionogi-strikes-2b-deal-intrabio-heels-fda-approval</a><a href="https://www.shionogi.com/global/en/news/2026/10/20261005_02.html" target="_blank">https://www.shionogi.com/global/en/news/2026/10/20261005_02.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">CSL / Alentis</span>
+        <span class="date-tag">2026-10-04</span>
+      </div>
+      <h3>CSL 首付 3.55 亿美元共同开发 Alentis 抗纤维化新药 lixudebart</h3>
+      <div class="summary">澳大利亚药企 CSL 以 3.55 亿美元首付款（总对价最高约 16 亿美元）与瑞士 Alentis 达成合作，共同开发治疗 ANCA 相关性血管炎（罕见自身免疫性肾病）的中期在研药物 lixudebart，CSL 将获 55% 全球利润分成。</div>
+      <div class="why">💡 ANCA 血管炎迄今缺乏针对性疗法，lixudebart 若获批将填补罕见肾病重大空白，也延续了 CSL 在罕见病领域的布局。</div>
+      <div class="links"><a href="https://endpoints.news/csl-to-pay-355m-upfront-to-co-develop-alentis-kidney-and-liver-drug/" target="_blank">https://endpoints.news/csl-to-pay-355m-upfront-to-co-develop-alentis-kidney-and-liver-drug/</a><a href="https://newsroom.csl.com/2026-10-04-CSL-and-Alentis-announce-global-partnership-to-develop-and-commercialise-lixudebart-for-rare-kidney-and-liver-diseases" target="_blank">https://newsroom.csl.com/2026-10-04-CSL-and-Alentis-announce-global-partnership-to-develop-and-commercialise-lixudebart-for-rare-kidney-and-liver-diseases</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">罗氏 / Alector</span>
+        <span class="date-tag">2026-10-05</span>
+      </div>
+      <h3>罗氏 Genentech 获 Alector 帕金森病酶替代疗法 AL050 全球权益</h3>
+      <div class="summary">Alector 将针对 GBA1 突变相关帕金森病及其他脑病的酶替代疗法 AL050 全球权益授权给罗氏旗下 Genentech，Alector 获 1 亿美元保证现金、最高 11.7 亿美元里程碑及销售分成，该药目前处于临床前阶段。</div>
+      <div class="why">💡 GBA1 突变是帕金森病最具成药性的遗传靶点之一，大药企押注基因分型精准神经退行性疗法，是神经科学赛道的重要 BD 信号。</div>
+      <div class="links"><a href="https://www.biopharmadive.com/news/nobel-optogenetics-roche-alector-csl-alentis-jaypirca-bayer/832083/" target="_blank">https://www.biopharmadive.com/news/nobel-optogenetics-roche-alector-csl-alentis-jaypirca-bayer/832083/</a><a href="https://investors.alector.com/news-releases/news-release-details/alector-enters-global-license-agreement-genentech-brain" target="_blank">https://investors.alector.com/news-releases/news-release-details/alector-enters-global-license-agreement-genentech-brain</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Vaxcyte</span>
+        <span class="date-tag">2026-10-05</span>
+      </div>
+      <h3>Vaxcyte 肺炎球菌疫苗 VAX-31 III 期达主要终点，股价大涨 35%</h3>
+      <div class="summary">Vaxcyte 宣布其新一代肺炎球菌结合疫苗 VAX-31 在 III 期试验中达到关键终点，周一早盘股价一度大涨 35%，该疫苗瞄准辉瑞 Prevnar 与默沙东 Capvaxive 主导的市场。</div>
+      <div class="why">💡 疫苗 III 期阳性数据是稀缺的高确定性催化剂，VAX-31 若获批将进一步重塑肺炎球菌疫苗竞争格局。</div>
+      <div class="links"><a href="https://endpoints.news/vaxcytes-pneumococcal-vaccine-succeeds-in-phase-3-stock-surges/" target="_blank">https://endpoints.news/vaxcytes-pneumococcal-vaccine-succeeds-in-phase-3-stock-surges/</a><a href="https://www.biopharmadive.com/news/vaxcyte-pneumococcal-vaccine-opus-study-results-prevnar-capvaxive/832095/" target="_blank">https://www.biopharmadive.com/news/vaxcyte-pneumococcal-vaccine-opus-study-results-prevnar-capvaxive/832095/</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#0ea5a4"></span>
+      <h2>🩺 医疗AI与工具创新（院内·院外）</h2>
+      <span class="count">2 条</span>
+    </div>
+    
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Nolla Health</span>
+        <span class="date-tag">2026-10-05</span>
+      </div>
+      <h3>Nolla Health 在犹他州启动 AI 痤疮处方试点，AI 可开出初始外用处方</h3>
+      <div class="summary">纽约公司 Nolla Health 宣布在犹他州开展试点，其 Nolla Derm 应用通过问卷+面部扫描，让 AI 从医生预先批准的外用方案中为轻中度痤疮患者开具初始处方，月费 4.99 美元，全程分三阶段由持牌医生监督。</div>
+      <div class="why">💡 继犹他州允许 AI 续方后，首次出现 AI「初始处方」落地试点，是监管在 AI 处方权上的一次关键试探，直接关系院内用药与处方自动化边界。</div>
+      <div class="links"><a href="https://www.mobihealthnews.com/news/nolla-health-launches-utah-pilot-ai-acne-prescriptions" target="_blank">https://www.mobihealthnews.com/news/nolla-health-launches-utah-pilot-ai-acne-prescriptions</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">罗氏 Genentech</span>
+        <span class="date-tag">2026-10-05</span>
+      </div>
+      <h3>Genentech AI 药物发现全球负责人 Richard Bonneau 离职</h3>
+      <div class="summary">据 Endpoints 独家报道，罗氏旗下 Genentech 已与 AI 药物发现全球负责人 Richard Bonneau 分道扬镳，这是该部门近期又一次高层 AI 人才离职。</div>
+      <div class="why">💡 大药企 AI 药物研发团队高层接连变动，折射出传统药企将 AI 能力内化落地的组织挑战，对 AI 制药人才与战略格局有风向标意义。</div>
+      <div class="links"><a href="https://endpoints.news/exclusive-genentech-ai-leader-richard-bonneau-leaves-pharma-in-latest-exit/" target="_blank">https://endpoints.news/exclusive-genentech-ai-leader-richard-bonneau-leaves-pharma-in-latest-exit/</a></div>
+    </div>
+  </section>
+  <section class="line">
+    <div class="line-header">
+      <span class="dot" style="background:#7c3aed"></span>
+      <h2>🤖 通用AI公司新AI产品</h2>
+      <span class="count">2 条</span>
+    </div>
+    
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-10-05</span>
+      </div>
+      <h3>OpenAI 在 ChatGPT 推出视觉广告与效果衡量工具</h3>
+      <div class="summary">OpenAI 宣布在 ChatGPT 图像生成过程中测试全新的视觉广告形式，并拓展 ChatGPT Ads 效果衡量体系（集成 Hightouch、Tealium、LiveRamp 及 AppsFlyer、Triple Whale 等归因伙伴）；ChatGPT 每周触达 12 亿人，广告初期本月晚些时候在美国启动。</div>
+      <div class="why">💡 OpenAI 正式加码「AI 原生广告」，在 12 亿周活用户基础上开辟订阅之外的收入曲线，是 AI 商业化与广告生态的标志性一步。</div>
+      <div class="links"><a href="https://openai.com/zh-Hans-CN/index/new-chatgpt-ads-format-and-measurement/" target="_blank">https://openai.com/zh-Hans-CN/index/new-chatgpt-ads-format-and-measurement/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">华为 / 高通</span>
+        <span class="date-tag">2026-10-05</span>
+      </div>
+      <h3>华为与高通宣布达成覆盖 5G、AI、计算及网络的广泛专利许可协议</h3>
+      <div class="summary">华为与高通宣布达成一项广泛的专利许可协议，覆盖 5G、AI、计算及网络技术领域，消除了两大科技巨头在核心技术标准上的潜在摩擦点。</div>
+      <div class="why">💡 两大科技巨头在 AI 与通信专利上达成合作共识，有助于降低产业链下游知识产权风险，利好端侧 AI 与物联网设备生态。</div>
+      <div class="links"><a href="https://www.yicai.com/news/103384546.html" target="_blank">https://www.yicai.com/news/103384546.html</a></div>
+    </div>
+  </section>
+  <footer>由 Hermes Agent 自动生成 · 数据来自公开新闻源</footer>
+</div>
+</body>
+</html>
