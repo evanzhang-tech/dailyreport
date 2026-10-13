@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="creative-medium" content="visual-report">
+<title>NextPharma 重磅功能一览（26.10月）</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --navy: #1a3652;        /* 深海军蓝：品牌栏 / Hero / 页脚 */
+    --navy-deep: #122841;   /* 更深的蓝：Hero 渐变底部 */
+    --teal: #0d8b7d;        /* 青绿强调色：编号 / 数字 / 标签 */
+    --teal-light: #e4f2ef;  /* 青绿浅底 */
+    --bg-page: #f2f4f5;     /* 页面浅灰背景 */
+    --bg-card: #ffffff;     /* 卡片白 */
+    --text-primary: #1f2937;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --border: #e5e7eb;
+    --radius: 6px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ===== 顶部品牌栏（深蓝通栏） ===== */
+  .brand-bar {
+    background: var(--navy);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 24px;
+  }
+  .brand-bar .brand-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+  .brand-bar .brand-name {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .brand-bar .brand-date {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+  }
+
+  /* 六边形品牌图形 */
+  .hex-mark { flex: none; display: block; }
+
+  /* ===== Hero（深蓝 + 网点纹理） ===== */
+  .hero {
+    background:
+      radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1.4px) 0 0 / 26px 26px,
+      linear-gradient(175deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: #ffffff;
+    padding: 72px 24px 64px;
+    text-align: center;
+  }
+  .hero .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    padding: 5px 18px;
+    margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-family: "Noto Serif SC", "Songti SC", serif;
+    font-size: clamp(30px, 5vw, 46px);
+    font-weight: 900;
+    line-height: 1.35;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+  .hero h1 .month {
+    color: #7fd8c9;
+  }
+  .hero .hero-sub {
+    font-size: clamp(12px, 1.7vw, 15px);
+    color: rgba(255, 255, 255, 0.78);
+    white-space: nowrap;
+    margin: 0 auto 8px;
+  }
+
+  /* ===== 主内容 ===== */
+  .content {
+    max-width: 920px;
+    margin: -28px auto 0;
+    padding: 0 20px 64px;
+    position: relative;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 40px 0 20px;
+  }
+  .section-label .line { flex: 1; height: 1px; background: var(--border); }
+  .section-label .text {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--text-secondary);
+  }
+
+  /* 功能卡片 */
+  .feature {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 30px 30px;
+    margin-bottom: 28px;
+  }
+  .feature-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+  .feature-no {
+    flex: none;
+    font-family: "Noto Serif SC", serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--teal);
+    line-height: 1.1;
+    padding-top: 2px;
+  }
+  .feature-no::after {
+    content: "";
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: var(--teal);
+    margin-top: 6px;
+    border-radius: 2px;
+  }
+  .feature-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.55;
+    color: var(--text-primary);
+    padding-top: 3px;
+  }
+  .feature-title em {
+    font-style: normal;
+    color: var(--teal);
+  }
+
+  /* 图例框：白底细边框，模拟浏览器窗口 */
+  .demo-frame {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #ffffff;
+  }
+  .demo-frame .frame-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    background: #f7f8f9;
+    border-bottom: 1px solid var(--border);
+  }
+  .demo-frame .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d5d9dd;
+  }
+  .demo-frame .frame-url {
+    font-size: 12px;
+    color: var(--text-muted);
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 12px;
+    margin-left: 6px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .demo-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .demo-caption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  /* 第 5 条：无图例，纯文本说明 */
+  .feature.text-only .feature-title {
+    padding-top: 0;
+  }
+  .feature-note {
+    background: var(--teal-light);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: #2b5a53;
+  }
+  .feature-note strong { font-weight: 700; }
+
+  /* ===== 页脚（深蓝通栏） ===== */
+  .footer {
+    background: var(--navy);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 24px;
+  }
+  .footer .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+  }
+
+  /* ===== 响应式 ===== */
+  @media (max-width: 640px) {
+    .hero { padding: 52px 20px 48px; }
+    .hero .hero-sub { white-space: normal; }
+    .feature { padding: 20px 18px 22px; }
+    .feature-head { flex-direction: column; gap: 10px; }
+    .brand-bar .brand-date { display: none; }
+    .footer { flex-direction: column; text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- 顶部品牌栏 -->
+  <header class="brand-bar">
+    <div class="brand-left">
+      <span class="brand-name">医药魔方 · NextPharma</span>
+    </div>
+    <span class="brand-date">2026年10月</span>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="hero-kicker">
+      <svg width="12" height="13" viewBox="0 0 22 24" aria-hidden="true">
+        <path d="M11 1 L21 6.75 V17.25 L11 23 L1 17.25 V6.75 Z" fill="none" stroke="#7fd8c9" stroke-width="2"></path>
+      </svg>
+      月度功能更新
+    </span>
+    <h1>NextPharma 重磅功能一览<span class="month">（26.10月）</span></h1>
+    <p class="hero-sub">本月围绕跨库查询、疾病详情、机会洞察、药品标签与研发机构五大方向持续升级，以下为本期功能速览。</p>
+  </section>
+
+  <!-- 主内容 -->
+  <main class="content">
+    <div class="section-label">
+      <span class="line"></span>
+      <span class="text">功能速览</span>
+      <span class="line"></span>
+    </div>
+
+    <!-- 01 跨数据库查询 -->
+    <article class="feature">
+      <div class="feature-head">
+        <div class="feature-no">01</div>
+        <h2 class="feature-title">NextPharma<em>【跨数据库查询】</em>功能：支持 TrialiCube、PharmaGO、InvestGO 的跨库跳转</h2>
+      </div>
+      <figure class="demo-frame">
+        <div class="frame-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="frame-url">next.pharmcube.com — 跨数据库查询演示</span>
+        </div>
+        <img src="assets/media/T1sZbAMKfo3s7jxXoMLcSbDnnnd.gif" alt="跨数据库查询功能演示：TrialiCube、PharmaGO、InvestGO 跨库跳转" loading="lazy">
+      </figure>
+      <p class="demo-caption">功能演示 · 跨数据库查询</p>
+    </article>
+
+    <!-- 02 适应症可视化图表 -->
+    <article class="feature">
+      <div class="feature-head">
+        <div class="feature-no">02</div>
+        <h2 class="feature-title">疾病详情页里面增加<em>适应症可视化图表</em></h2>
+      </div>
+      <figure class="demo-frame">
+        <div class="frame-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="frame-url">next.pharmcube.com — 疾病详情页 · 适应症可视化图表</span>
+        </div>
+        <img src="assets/media/AVOmbt1H8oPx5QxpqFfc4fpunmt.gif" alt="疾病详情页适应症可视化图表功能演示" loading="lazy">
+      </figure>
+      <p class="demo-caption">功能演示 · 疾病详情页</p>
+    </article>
+
+    <!-- 03 机会提示标签 -->
+    <article class="feature">
+      <div class="feature-head">
+        <div class="feature-no">03</div>
+        <h2 class="feature-title">机会洞察重磅上线<em>【机会提示】</em>标签——快速从重磅会议定位新成药靶点/新赛道（100%人工审核）</h2>
+      </div>
+      <figure class="demo-frame">
+        <div class="frame-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="frame-url">next.pharmcube.com — 机会洞察 · 机会提示标签</span>
+        </div>
+        <img src="assets/media/K9d7bRKTvobt0TxIX1mczhnhnBd.gif" alt="机会洞察机会提示标签功能演示" loading="lazy">
+      </figure>
+      <p class="demo-caption">功能演示 · 机会洞察</p>
+    </article>
+
+    <!-- 04 AI 制药标签 -->
+    <article class="feature">
+      <div class="feature-head">
+        <div class="feature-no">04</div>
+        <h2 class="feature-title"><em>【药品标签】</em>上新 AI 制药相关标签，快速了解 AI 热门赛道竞争格局</h2>
+      </div>
+      <figure class="demo-frame">
+        <div class="frame-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="frame-url">next.pharmcube.com — 药品标签 · AI 制药标签</span>
+        </div>
+        <img src="assets/media/RE06b4dIioyMgyxxqn0c0BGsnSf.gif" alt="药品标签 AI 制药相关标签功能演示" loading="lazy">
+      </figure>
+      <p class="demo-caption">功能演示 · 药品标签</p>
+    </article>
+
+    <!-- 05 研发机构升级（无图例） -->
+    <article class="feature text-only">
+      <div class="feature-head">
+        <div class="feature-no">05</div>
+        <h2 class="feature-title">研发机构升级：企业分类 <em>TOP20 MNC 更新</em></h2>
+      </div>
+      <div class="feature-note">
+        清单选自 2025 年 Pharm Exec 全球制药 50 强。
+      </div>
+    </article>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <span>本页面功能信息以产品实际发布为准 · 医药魔方 NextPharma</span>
+    <span class="footer-right">2026.10</span>
+  </footer>
+
+</body>
+</html>
