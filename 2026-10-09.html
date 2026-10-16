@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医药AI情报日报</title>
+<style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#101828;--muted:#667085;--line:#eaecf0;--blue:#175cd3;--blue-soft:#eff4ff;--teal:#0e9384;--violet:#6941c6}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:28px}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}.container{width:min(1600px,100%);min-height:100vh;margin:0 auto;display:grid;grid-template-columns:230px minmax(0,1fr);background:#fff}header{grid-column:1;grid-row:1 / span 20;position:sticky;top:0;height:100vh;padding:28px 20px;border-right:1px solid var(--line);background:#fff;z-index:5}header:before{content:"PHARMA AI";display:block;color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.18em;margin-bottom:34px}header h1{font-size:21px;line-height:1.2;letter-spacing:-.045em;margin:0;font-weight:760}.title-row{display:flex;align-items:center;gap:9px}.home-link{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid #d0d5dd;border-radius:50%;color:#667085;background:#fff;text-decoration:none;line-height:1;transition:all .18s ease}.home-link svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}.home-link:hover,.home-link:focus-visible{border-color:#98a2b3;color:var(--blue);background:#f8fafc;box-shadow:0 2px 6px rgba(16,24,40,.08);outline:none}header .date{font-size:12px;color:var(--muted);margin-top:10px}.side-nav{margin-top:38px;display:flex;flex-direction:column;gap:6px}.side-nav a{display:flex;align-items:center;gap:10px;min-height:40px;padding:9px 10px;border-radius:8px;color:#475467;font-size:12px;font-weight:600;text-decoration:none}.side-nav a:hover,.side-nav a:focus-visible{background:#f2f4f7;color:var(--ink);outline:none}.side-nav i{width:7px;height:7px;border-radius:50%;background:var(--nav-color,#98a2b3)}.header-note{position:absolute;left:20px;right:20px;bottom:28px;padding-top:17px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1.65}.header-note strong{display:block;color:var(--ink);font-size:12px;margin-bottom:4px}.container:after{content:none;display:none}section.line{grid-column:2;margin:0 58px 22px;padding:0 24px 24px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;position:relative;z-index:1}section.line:first-of-type{margin-top:44px}.line-header{min-height:86px;display:flex;align-items:center;gap:14px;margin:0;padding:0;border-bottom:1px solid var(--line)}.line-header .dot{width:7px;height:7px;border-radius:50%;box-shadow:0 0 0 5px color-mix(in srgb,currentColor 10%,transparent)}.line-header h2{font-size:18px;letter-spacing:-.035em;font-weight:720;margin:0}.line-header .count{margin-left:auto;color:var(--muted);font-size:12px;padding:5px 10px;background:#f8fafc;border:1px solid var(--line);border-radius:999px}.card{position:relative;padding:24px 0 24px 218px;border-bottom:1px solid var(--line);min-height:150px}.card:last-child{border-bottom:0;padding-bottom:4px}.card-top{position:absolute;left:0;top:25px;width:185px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}.badge{color:var(--c);font-size:11px;font-weight:720}.date-tag{font-size:11px;color:var(--muted)}.card h3{font-size:19px;line-height:1.36;letter-spacing:-.028em;margin:0 0 9px;font-weight:710;max-width:880px}.summary{font-size:13px;line-height:1.8;color:#475467;max-width:900px}.why{margin-top:13px;padding:9px 12px;border-radius:7px;background:#f0faf8;color:#23766e;font-size:12px;max-width:900px}.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}.links a{font-size:11px;color:var(--c);text-decoration:none;background:#f8fafc;border:1px solid #edf0f4;border-radius:5px;padding:4px 7px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.coverage{grid-column:2;margin:6px 58px 0;padding:0 24px 24px;border:1px solid var(--line);border-radius:14px;background:#fbfcfe}.coverage .line-header{border-bottom:1px solid var(--line)}.coverage-meta{font-size:12px;color:var(--muted);margin:20px 0 13px}.source-group{margin-top:17px}.source-group h3{font-size:12px;margin-bottom:8px}.source-links{display:flex;flex-wrap:wrap;gap:7px}.source-link{font-size:11px;color:var(--blue);text-decoration:none;padding:5px 9px;background:var(--blue-soft);border-radius:6px}.empty{padding:22px 0;color:var(--muted);font-size:13px}footer{grid-column:2;margin:42px 58px 0;padding:18px 0 34px;border-top:1px solid var(--line);color:#98a2b3;font-size:11px}@media(max-width:850px){.container{display:block}.container:after{display:none}header{position:relative;height:auto;padding:24px 20px;border-right:0;border-bottom:1px solid var(--line)}header:before{margin-bottom:22px}.side-nav{margin-top:24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.side-nav a{border:1px solid var(--line)}.header-note{position:relative;left:auto;right:auto;bottom:auto;margin-top:24px}section.line,section.line:first-of-type,.coverage,footer{margin-left:18px;margin-right:18px}section.line:first-of-type{margin-top:34px}.card{padding:20px 0}.card-top{position:static;width:auto;display:flex;flex-direction:row;margin-bottom:10px}.card h3{font-size:17px}.line-header{min-height:74px}.coverage{padding-left:18px;padding-right:18px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+<div class="title-row"><h1>医药AI情报日报</h1><a class="home-link" href="index.html" aria-label="返回日报目录" title="返回日报目录"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10.5 12 3.5l8.5 7"/><path d="M5.5 9.5v10h13v-10"/><path d="M9.5 19.5v-6h5v6"/></svg></a></div>
+    <div class="date">2026-10-09（周五）</div><nav class="side-nav" aria-label="日报板块">
+<a href="#line1"><i style="--nav-color:#2563eb"></i>医药产业动态</a>
+<a href="#line2"><i style="--nav-color:#0ea5a4"></i>医疗 AI 与工具</a>
+<a href="#line3"><i style="--nav-color:#7c3aed"></i>通用 AI 产品</a>
+<a href="#sources"><i style="--nav-color:#64748b"></i>新闻源导航</a>
+</nav><div class="header-note"><strong>每日情报工作台</strong>产业、医疗 AI 与通用 AI 的公开信息核验。</div>
+</header>
+  
+  <section class="line" id="line1">
+    <div class="line-header">
+      <span class="dot" style="background:#2563eb"></span>
+      <h2>💊 医药产业动态（新药研发·注册·上市）</h2>
+      <span class="count">7 条</span>
+    </div>
+    
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Transcripta Bio / Synfini</span>
+        <span class="date-tag">2026-10-07</span>
+      </div>
+      <h3>AI药物发现合作锁定亨廷顿病候选物</h3>
+      <div class="summary">两家公司宣布研究合作已产生针对MSH3的验证质量先导候选物，目标是影响亨廷顿病进展相关的体细胞重复扩增机制。</div>
+      <div class="why">💡 AI药物发现从平台叙事进一步走向具体疾病靶点和先导化合物产出。</div>
+      <div class="links"><a href="https://www.businesswire.com/news/home/20261007783241/en/Transcripta-Bio-Synfini-Collaborate-to-Identify-a-Lead-Candidate-Against-a-Key-Driver-of-Huntingtons-Disease-Progression-in-a-Matter-of-Weeks" target="_blank">https://www.businesswire.com/news/home/20261007783241/en/Transcripta-Bio-Synfini-Collaborate-to-Identify-a-Lead-Candidate-Against-a-Key-Driver-of-Huntingtons-Disease-Progression-in-a-Matter-of-Weeks</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Lantern Pharma</span>
+        <span class="date-tag">2026-10-07</span>
+      </div>
+      <h3>LP-300肺癌II期试验获台湾监管与伦理批准</h3>
+      <div class="summary">Lantern Pharma宣布获得台湾监管和IRB批准，可启动LP-300用于非吸烟、EGFR突变非小细胞肺癌的II期HARMONIC试验下一阶段。</div>
+      <div class="why">💡 AI驱动精准肿瘤公司推进跨区域临床开发，体现算法筛选与临床执行的结合。</div>
+      <div class="links"><a href="https://www.businesswire.com/news/home/20261007674654/en/Lantern-Pharma-Receives-Taiwan-Approvals-to-Open-Next-Stage-of-Phase-2-HARMONIC-Trial-of-LP-300-in-Never-Smoker-EGFR-Mutant-NSCLC" target="_blank">https://www.businesswire.com/news/home/20261007674654/en/Lantern-Pharma-Receives-Taiwan-Approvals-to-Open-Next-Stage-of-Phase-2-HARMONIC-Trial-of-LP-300-in-Never-Smoker-EGFR-Mutant-NSCLC</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Tempus / Moderna / Merck</span>
+        <span class="date-tag">2026-10-07</span>
+      </div>
+      <h3>扩大个体化新抗原疗法商业化支持合作</h3>
+      <div class="summary">Tempus宣布与Moderna和Merck开展多年期扩展合作，支持V940（intismeran autogene）联合Keytruda在黑色素瘤及其他癌种中的潜在商业化。</div>
+      <div class="why">💡 个体化肿瘤疗法的商业化需要真实世界数据、患者识别和临床开发能力，数据平台合作价值上升。</div>
+      <div class="links"><a href="https://www.businesswire.com/news/home/20261007586639/en/Tempus-Announces-Multi-Year-Collaboration-with-Moderna-and-Merck" target="_blank">https://www.businesswire.com/news/home/20261007586639/en/Tempus-Announces-Multi-Year-Collaboration-with-Moderna-and-Merck</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Natera / NYU Langone</span>
+        <span class="date-tag">2026-10-07</span>
+      </div>
+      <h3>启动Signatera指导的黑色素瘤随机干预研究</h3>
+      <div class="summary">Natera宣布由NYU Langone发起的Signatera指导黑色素瘤研究完成首例患者入组，试验编号为NCT07504796。</div>
+      <div class="why">💡 循环肿瘤DNA检测从复发监测进一步进入随机干预研究，有望影响精准治疗路径。</div>
+      <div class="links"><a href="https://www.businesswire.com/news/home/20261007356370/en/Natera-Announces-Randomized-Signatera-Guided-Interventional-Study-in-Melanoma" target="_blank">https://www.businesswire.com/news/home/20261007356370/en/Natera-Announces-Randomized-Signatera-Guided-Interventional-Study-in-Melanoma</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">CatalYm</span>
+        <span class="date-tag">2026-10-06（回溯补充）</span>
+      </div>
+      <h3>公布visugromab后续临床开发安排</h3>
+      <div class="summary">CatalYm宣布将在ESMO 2026展示GDFATHER-NEO II期更新数据，并推进visugromab多个IIb期研究。</div>
+      <div class="why">💡 免疫调节药物通过多适应症、多个IIb研究并行验证，值得持续跟踪后续临床读出。</div>
+      <div class="links"><a href="https://www.businesswire.com/news/home/20261006074820/en/CatalYm-to-Present-Updated-GDFATHER-NEO-Clinical-Data-and-Highlight-Ongoing-Phase-2b-Visugromab-Trials-at-ESMO-2026" target="_blank">https://www.businesswire.com/news/home/20261006074820/en/CatalYm-to-Present-Updated-GDFATHER-NEO-Clinical-Data-and-Highlight-Ongoing-Phase-2b-Visugromab-Trials-at-ESMO-2026</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Rocket Pharmaceuticals</span>
+        <span class="date-tag">2026-10-07</span>
+      </div>
+      <h3>RP-A501获FDA对关键II期试验路径的进一步对齐</h3>
+      <div class="summary">Rocket公布Danon病基因疗法RP-A501的FDA对齐关键II期方案：12名男性构成疗效人群，需达到双重应答标准以支持潜在加速批准路径；公司预计2027年年中完成给药。</div>
+      <div class="why">💡 罕见病基因疗法的监管终点、剂量调整和安全性监测路径进一步明确。</div>
+      <div class="links"><a href="https://www.businesswire.com/news/home/20261007068126/en/Rocket-Pharmaceuticals-Highlights-FDA-Aligned-Pivotal-Phase-2-Trial-and-Updated-Clinical-Findings-for-RP-A501-Following-Danon-Disease-Investor-Webinar" target="_blank">https://www.businesswire.com/news/home/20261007068126/en/Rocket-Pharmaceuticals-Highlights-FDA-Aligned-Pivotal-Phase-2-Trial-and-Updated-Clinical-Findings-for-RP-A501-Following-Danon-Disease-Investor-Webinar</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Seaport Therapeutics / PureTech</span>
+        <span class="date-tag">2026-10-07</span>
+      </div>
+      <h3>GlyphAgo启动广泛性焦虑障碍IIa期首例给药</h3>
+      <div class="summary">Seaport在澳大利亚完成GlyphAgo（SPT-320）广泛性焦虑障碍伴睡眠障碍IIa期首例给药，试验拟验证睡眠药理作用，并计划在2027年上半年启动全球II/III期。</div>
+      <div class="why">💡 口服前药平台从临床概念验证向后续注册性开发推进。</div>
+      <div class="links"><a href="https://www.businesswire.com/news/home/20261007828064/en/PureTech-Founded-Entity-Seaport-Therapeutics-Announces-First-Patient-Dosed-in-Phase-2a-Clinical-Trial-Evaluating-GlyphAgo-in-Patients-with-Generalized-Anxiety-Disorder-and-Sleep-Disturbance" target="_blank">https://www.businesswire.com/news/home/20261007828064/en/PureTech-Founded-Entity-Seaport-Therapeutics-Announces-First-Patient-Dosed-in-Phase-2a-Clinical-Trial-Evaluating-GlyphAgo-in-Patients-with-Generalized-Anxiety-Disorder-and-Sleep-Disturbance</a></div>
+    </div>
+  </section>
+  <section class="line" id="line2">
+    <div class="line-header">
+      <span class="dot" style="background:#0ea5a4"></span>
+      <h2>🩺 医疗AI与工具创新（院内·院外）</h2>
+      <span class="count">7 条</span>
+    </div>
+    
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Healthcare IT News / Oracle / athenahealth / Suki等</span>
+        <span class="date-tag">2026-10-08</span>
+      </div>
+      <h3>医疗AI产品动态汇总：Oracle、athenahealth、Suki等发布新能力</h3>
+      <div class="summary">Healthcare IT News发布10月8日医疗AI产品动态汇总，覆盖Oracle、athenahealth、Suki等公司的新产品与能力更新；该页面为行业媒体原文。</div>
+      <div class="why">💡 反映医疗IT厂商在临床工作流和AI产品上的持续迭代。</div>
+      <div class="links"><a href="https://www.healthcareitnews.com/news/ai-roundup-new-products-oracle-athenahealth-suki-and-others" target="_blank">https://www.healthcareitnews.com/news/ai-roundup-new-products-oracle-athenahealth-suki-and-others</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Abridge / Northwestern Medicine / NVIDIA</span>
+        <span class="date-tag">2026-10-07</span>
+      </div>
+      <h3>发布患者中心临床智能平台并推进医院全院部署</h3>
+      <div class="summary">Abridge发布连接诊疗、支付和循证治疗的临床智能平台；Northwestern Medicine宣布在全院及各类照护场景部署，平台已集成Epic、Oracle Health和athenahealth，并与NVIDIA合作临床对话基础模型。</div>
+      <div class="why">💡 医疗AI从环境记录单点工具扩展为贯穿诊前、诊中、诊后的临床工作流平台。</div>
+      <div class="links"><a href="https://www.abridge.com/press-release/patient-centered-clinician-intelligence-platform-keynote" target="_blank">https://www.abridge.com/press-release/patient-centered-clinician-intelligence-platform-keynote</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Clinisys</span>
+        <span class="date-tag">2026-10-07</span>
+      </div>
+      <h3>在实验室信息系统中扩展文档智能能力</h3>
+      <div class="summary">Clinisys宣布在Clinisys Laboratory Solution中扩展集成式文档智能，帮助实验室捕获、治理、检索并激活科研和运营信息。</div>
+      <div class="why">💡 医疗AI落地从诊疗端延伸到实验室信息治理，数据可检索性和流程编排成为基础能力。</div>
+      <div class="links"><a href="https://www.businesswire.com/newsroom/industry/health/biotechnology" target="_blank">https://www.businesswire.com/newsroom/industry/health/biotechnology</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">美国ONC / HHS</span>
+        <span class="date-tag">2026-10-07</span>
+      </div>
+      <h3>公布LEAP健康IT奖项以推进临床Agentic AI</h3>
+      <div class="summary">ONC公开信息显示，HHS宣布2026 LEAP in Health IT获奖方，目标是加速Agentic AI在临床照护中的应用并弥合相关缺口。</div>
+      <div class="why">💡 医疗智能体开始进入政府健康IT项目与临床应用加速机制，监管、采购和验证框架值得关注。</div>
+      <div class="links"><a href="https://healthit.gov/" target="_blank">https://healthit.gov/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Philips</span>
+        <span class="date-tag">2026-10-07（日期以页面为准）</span>
+      </div>
+      <h3>Future Health Index报告聚焦AI临床效率收益</h3>
+      <div class="summary">Philips发布Future Health Index 2026相关报告，称AI可为临床人员节省相当于每年16个工作日的时间，并提升接诊能力。</div>
+      <div class="why">💡 医疗AI价值评估从模型准确率转向临床生产力和容量释放，但报告数据仍需结合独立部署证据解读。</div>
+      <div class="links"><a href="https://www.philips.com/a-w/about/news/archive/standard/news/press/2026/philips-future-health-index-2026-ai-is-already-saving-clinicians-time-and-delivering-measurable-impact-in-healthcare.html" target="_blank">https://www.philips.com/a-w/about/news/archive/standard/news/press/2026/philips-future-health-index-2026-ai-is-already-saving-clinicians-time-and-delivering-measurable-impact-in-healthcare.html</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Ochsner Health</span>
+        <span class="date-tag">2026-10-06</span>
+      </div>
+      <h3>用AI扩大临床试验患者筛选</h3>
+      <div class="summary">Ochsner Health报告使用AI扩大临床试验筛选后，筛选能力提升41%，未来资格跟踪患者数达到3.6倍，人工筛选工作约减少75%。</div>
+      <div class="why">💡 医疗AI从记录生成延伸至研究患者识别，并以筛选效率和随访覆盖率衡量落地价值。</div>
+      <div class="links"><a href="https://www.healthcareitnews.com/news/ochsner-uses-ai-widen-clinical-trial-screening" target="_blank">https://www.healthcareitnews.com/news/ochsner-uses-ai-widen-clinical-trial-screening</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">HHS / ONC</span>
+        <span class="date-tag">2026-10-06</span>
+      </div>
+      <h3>LEAP健康IT项目资助临床Agentic AI与实验室互操作性</h3>
+      <div class="summary">美国HHS/ONC宣布2026年LEAP in Health IT两项奖项、合计150万美元，支持临床照护中的Agentic AI及实验室互操作性缺口解决方案。</div>
+      <div class="why">💡 临床智能体进入政府健康IT资助与验证体系，可能影响后续采购和评估标准。</div>
+      <div class="links"><a href="https://www.healthit.gov/news/hhs-announces-2026-leap-in-health-it-awardees-to-accelerate-the-use-of-agentic-ai-in-clinical-care-and-close-gaps-in-laboratory-interoperability/" target="_blank">https://www.healthit.gov/news/hhs-announces-2026-leap-in-health-it-awardees-to-accelerate-the-use-of-agentic-ai-in-clinical-care-and-close-gaps-in-laboratory-interoperability/</a></div>
+    </div>
+  </section>
+  <section class="line" id="line3">
+    <div class="line-header">
+      <span class="dot" style="background:#7c3aed"></span>
+      <h2>🤖 通用AI公司新AI产品</h2>
+      <span class="count">7 条</span>
+    </div>
+    
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Firecrawl</span>
+        <span class="date-tag">2026-10-08</span>
+      </div>
+      <h3>推出Universal Scrape，将网页、文件及多类数据接入同一抓取接口</h3>
+      <div class="summary">Firecrawl宣布Universal Scrape，扩展既有/scrape接口以处理网页、PDF、图片、Office文件以及人员、公司、金融和播客等提供商数据。</div>
+      <div class="why">💡 AI Agent的数据获取层从网页抓取扩展为多源统一上下文基础设施。</div>
+      <div class="links"><a href="https://www.firecrawl.dev/blog/universal-scrape" target="_blank">https://www.firecrawl.dev/blog/universal-scrape</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-10-07</span>
+      </div>
+      <h3>GPT-6进入ChatGPT并引入Intelligent UI</h3>
+      <div class="summary">OpenAI宣布GPT-6在ChatGPT中提供Intelligent UI，使回答可以呈现为可交互的用户界面。</div>
+      <div class="why">💡 通用AI产品从文本回答转向可操作界面，可能改变Agent与应用的交互边界。</div>
+      <div class="links"><a href="https://openai.com/index/gpt-6-for-everyone/" target="_blank">https://openai.com/index/gpt-6-for-everyone/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-10-07</span>
+      </div>
+      <h3>公布ChatGPT广告格式与衡量方案</h3>
+      <div class="summary">OpenAI发布面向ChatGPT使用方式的广告产品与衡量方案，属于通用产品商业化能力建设。</div>
+      <div class="why">💡 广告、推荐与AI回答的关系将影响产品变现、用户信任和答案中商业信息的治理。</div>
+      <div class="links"><a href="https://openai.com/index/new-chatgpt-ads-format-and-measurement/" target="_blank">https://openai.com/index/new-chatgpt-ads-format-and-measurement/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Anthropic</span>
+        <span class="date-tag">2026-10-07</span>
+      </div>
+      <h3>发布Claude Haiku 5.5并下调高频调用成本</h3>
+      <div class="summary">Anthropic发布Claude Haiku 5.5，定位为高吞吐、低成本小模型；公司称其运行成本较Haiku 4.5显著下降，并同步调整Sonnet 5.5缓存读取价格。</div>
+      <div class="why">💡 小模型成本和延迟下降将推动子Agent、摘要、分类和浏览器操作等高频工作流规模化。</div>
+      <div class="links"><a href="https://www.anthropic.com/claude-haiku-5-5" target="_blank">https://www.anthropic.com/claude-haiku-5-5</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-10-07</span>
+      </div>
+      <h3>发布面向青少年学习与规划的AI产品能力</h3>
+      <div class="summary">OpenAI发布面向青少年学习、规划和AI使用的产品更新，属于通用AI产品与安全设计范畴，不涉及医疗场景。</div>
+      <div class="why">💡 年龄适配、学习辅助和安全控制正在成为通用AI产品的重要差异化能力。</div>
+      <div class="links"><a href="https://openai.com/index/teens-learn-and-plan/" target="_blank">https://openai.com/index/teens-learn-and-plan/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-10-07（回溯补充）</span>
+      </div>
+      <h3>DevDay总结GPT-6.1 Sol及托管Agent能力</h3>
+      <div class="summary">OpenAI在DevDay总结中介绍GPT-6.1 Sol、Codex与API开发者工具，以及可在AWS中运行的Bedrock Managed Agents。</div>
+      <div class="why">💡 模型、编码工具和云端托管Agent开始以一体化开发栈交付。</div>
+      <div class="links"><a href="https://openai.com/index/devday-2026-recap/" target="_blank">https://openai.com/index/devday-2026-recap/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-10-06</span>
+      </div>
+      <h3>GPT-6系列进入Atlassian平台并驱动企业Agent</h3>
+      <div class="summary">OpenAI与Atlassian扩大合作，将GPT-6系列模型用于Atlassian平台和Rovo中的Agent，结合Teamwork Graph把企业知识连接到计划、开发和交付流程。</div>
+      <div class="why">💡 通用模型厂商通过企业上下文层进入具体工作流，Agent从聊天能力转向组织行动。</div>
+      <div class="links"><a href="https://openai.com/index/atlassian-partnership/" target="_blank">https://openai.com/index/atlassian-partnership/</a></div>
+    </div>
+  </section>
+<section class="coverage" id="sources"><div class="line-header"><span class="dot" style="background:#64748b"></span><h2>🌐 新闻源导航</h2></div><p class="coverage-meta">以下为当前日报持续关注的公开来源，点击名称可直接访问。</p><div class="source-group"><h3>医药产业、监管与资本市场</h3><div class="source-links"><a class="source-link" href="https://www.wuxiapptec.com/news" target="_blank" rel="noopener">药明康德</a><a class="source-link" href="https://www.pharmcube.com/" target="_blank" rel="noopener">医药魔方</a><a class="source-link" href="https://www.yypm.net/" target="_blank" rel="noopener">E药经理人</a><a class="source-link" href="https://www.yaozh.com/" target="_blank" rel="noopener">药智网</a><a class="source-link" href="https://www.menet.com.cn/" target="_blank" rel="noopener">米内网</a><a class="source-link" href="https://www.jianzhiju.cn/" target="_blank" rel="noopener">健识局</a><a class="source-link" href="https://www.cco.com.cn/" target="_blank" rel="noopener">赛柏蓝</a><a class="source-link" href="https://www.fiercepharma.com/" target="_blank" rel="noopener">FiercePharma</a><a class="source-link" href="https://www.biopharmadive.com/" target="_blank" rel="noopener">BioPharma Dive</a><a class="source-link" href="https://endpts.com/" target="_blank" rel="noopener">Endpoints News</a><a class="source-link" href="https://www.reuters.com/business/healthcare-pharmaceuticals/" target="_blank" rel="noopener">Reuters Health</a><a class="source-link" href="https://www.fda.gov/news-events/press-announcements" target="_blank" rel="noopener">FDA</a><a class="source-link" href="https://www.ema.europa.eu/en/news-events" target="_blank" rel="noopener">EMA</a><a class="source-link" href="https://www.cde.org.cn/" target="_blank" rel="noopener">CDE</a><a class="source-link" href="https://www.nmpa.gov.cn/" target="_blank" rel="noopener">国家药监局</a><a class="source-link" href="https://clinicaltrials.gov/" target="_blank" rel="noopener">ClinicalTrials.gov</a><a class="source-link" href="https://www.eastmoney.com/" target="_blank" rel="noopener">东方财富网</a><a class="source-link" href="https://xueqiu.com/" target="_blank" rel="noopener">雪球</a><a class="source-link" href="https://www.cninfo.com.cn/" target="_blank" rel="noopener">巨潮资讯</a><a class="source-link" href="https://www.cls.cn/" target="_blank" rel="noopener">财联社</a></div></div><div class="source-group"><h3>医疗AI与医疗IT</h3><div class="source-links"><a class="source-link" href="https://www.healthcareitnews.com/" target="_blank" rel="noopener">Healthcare IT News</a><a class="source-link" href="https://www.mobihealthnews.com/" target="_blank" rel="noopener">MobiHealthNews</a><a class="source-link" href="https://www.statnews.com/" target="_blank" rel="noopener">STAT</a><a class="source-link" href="https://www.fiercehealthcare.com/" target="_blank" rel="noopener">Fierce Healthcare</a><a class="source-link" href="https://medcitynews.com/" target="_blank" rel="noopener">MedCity News</a><a class="source-link" href="https://www.medtechdive.com/" target="_blank" rel="noopener">MedTech Dive</a><a class="source-link" href="https://hitconsultant.net/" target="_blank" rel="noopener">HIT Consultant</a><a class="source-link" href="https://www.beckershospitalreview.com/" target="_blank" rel="noopener">Becker&#x27;s Hospital Review</a><a class="source-link" href="https://vcbeat.top/" target="_blank" rel="noopener">动脉网</a><a class="source-link" href="https://www.cn-healthcare.com/" target="_blank" rel="noopener">健康界</a><a class="source-link" href="https://www.dxy.cn/" target="_blank" rel="noopener">丁香园</a><a class="source-link" href="https://www.yxj.org.cn/" target="_blank" rel="noopener">医学界</a><a class="source-link" href="https://www.epic.com/" target="_blank" rel="noopener">Epic</a><a class="source-link" href="https://www.oracle.com/health/" target="_blank" rel="noopener">Oracle Health</a><a class="source-link" href="https://www.abridge.com/" target="_blank" rel="noopener">Abridge</a><a class="source-link" href="https://www.microsoft.com/en-us/industry/health/microsoft-cloud-for-healthcare" target="_blank" rel="noopener">Microsoft Cloud for Healthcare</a><a class="source-link" href="https://www.philips.com/a-w/about/news/archive/standard/about/news.html" target="_blank" rel="noopener">Philips HealthTech</a><a class="source-link" href="https://www.siemens-healthineers.com/press" target="_blank" rel="noopener">Siemens Healthineers</a><a class="source-link" href="https://investor.gehealthcare.com/" target="_blank" rel="noopener">GE HealthCare</a><a class="source-link" href="https://health.google/" target="_blank" rel="noopener">Google Health</a><a class="source-link" href="https://aws.amazon.com/health/" target="_blank" rel="noopener">AWS for Healthcare</a></div></div><div class="source-group"><h3>通用AI模型、产品与开源</h3><div class="source-links"><a class="source-link" href="https://openai.com/news/" target="_blank" rel="noopener">OpenAI</a><a class="source-link" href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic</a><a class="source-link" href="https://x.ai/news" target="_blank" rel="noopener">xAI / Grok</a><a class="source-link" href="https://qwenlm.github.io/" target="_blank" rel="noopener">Qwen</a><a class="source-link" href="https://www.deepseek.com/" target="_blank" rel="noopener">DeepSeek</a><a class="source-link" href="https://www.zhipuai.cn/" target="_blank" rel="noopener">智谱 GLM</a><a class="source-link" href="https://deepmind.google/discover/blog/" target="_blank" rel="noopener">Google DeepMind</a><a class="source-link" href="https://ai.meta.com/blog/" target="_blank" rel="noopener">Meta AI</a><a class="source-link" href="https://mistral.ai/news/" target="_blank" rel="noopener">Mistral</a><a class="source-link" href="https://cohere.com/blog" target="_blank" rel="noopener">Cohere</a><a class="source-link" href="https://blogs.microsoft.com/ai/" target="_blank" rel="noopener">Microsoft AI</a><a class="source-link" href="https://blogs.nvidia.com/" target="_blank" rel="noopener">NVIDIA</a><a class="source-link" href="https://huggingface.co/blog" target="_blank" rel="noopener">Hugging Face</a><a class="source-link" href="https://www.latent.space/" target="_blank" rel="noopener">Latent Space</a><a class="source-link" href="https://github.com/explore" target="_blank" rel="noopener">GitHub Releases</a><a class="source-link" href="https://arxiv.org/" target="_blank" rel="noopener">arXiv</a><a class="source-link" href="https://modelscope.cn/" target="_blank" rel="noopener">ModelScope</a><a class="source-link" href="https://replicate.com/blog" target="_blank" rel="noopener">Replicate</a><a class="source-link" href="https://blog.langchain.dev/" target="_blank" rel="noopener">LangChain</a><a class="source-link" href="https://www.llamaindex.ai/blog" target="_blank" rel="noopener">LlamaIndex</a></div></div><div class="source-group"><h3>补充交叉验证</h3><div class="source-links"><a class="source-link" href="https://36kr.com/" target="_blank" rel="noopener">36氪</a><a class="source-link" href="https://www.jiemian.com/" target="_blank" rel="noopener">界面新闻</a><a class="source-link" href="https://www.jiqizhixin.com/" target="_blank" rel="noopener">机器之心</a><a class="source-link" href="https://www.qbitai.com/" target="_blank" rel="noopener">量子位</a><a class="source-link" href="https://www.aitimes.com.cn/" target="_blank" rel="noopener">新智元</a><a class="source-link" href="https://next.ithome.com/" target="_blank" rel="noopener">IT之家 Next</a><a class="source-link" href="https://techcrunch.com/" target="_blank" rel="noopener">TechCrunch</a><a class="source-link" href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" rel="noopener">The Verge</a><a class="source-link" href="https://venturebeat.com/ai/" target="_blank" rel="noopener">VentureBeat</a><a class="source-link" href="https://www.prnewswire.com/" target="_blank" rel="noopener">PR Newswire</a><a class="source-link" href="https://www.businesswire.com/" target="_blank" rel="noopener">Business Wire</a><a class="source-link" href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">SEC EDGAR</a><a class="source-link" href="https://news.google.com/" target="_blank" rel="noopener">Google News</a></div></div></section><footer>由 Hermes Agent 自动生成 · 数据来自公开新闻源</footer>
+</div>
+</body>
+</html>
