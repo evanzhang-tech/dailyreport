@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医药AI情报日报</title>
+<style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#101828;--muted:#667085;--line:#eaecf0;--blue:#175cd3;--blue-soft:#eff4ff;--teal:#0e9384;--violet:#6941c6}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:28px}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}.container{width:min(1600px,100%);min-height:100vh;margin:0 auto;display:grid;grid-template-columns:230px minmax(0,1fr);background:#fff}header{grid-column:1;grid-row:1 / span 20;position:sticky;top:0;height:100vh;padding:28px 20px;border-right:1px solid var(--line);background:#fff;z-index:5}header:before{content:"PHARMA AI";display:block;color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.18em;margin-bottom:34px}header h1{font-size:21px;line-height:1.2;letter-spacing:-.045em;margin:0;font-weight:760}.title-row{display:flex;align-items:center;gap:9px}.home-link{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid #d0d5dd;border-radius:50%;color:#667085;background:#fff;text-decoration:none;line-height:1;transition:all .18s ease}.home-link svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}.home-link:hover,.home-link:focus-visible{border-color:#98a2b3;color:var(--blue);background:#f8fafc;box-shadow:0 2px 6px rgba(16,24,40,.08);outline:none}header .date{font-size:12px;color:var(--muted);margin-top:10px}.side-nav{margin-top:38px;display:flex;flex-direction:column;gap:6px}.side-nav a{display:flex;align-items:center;gap:10px;min-height:40px;padding:9px 10px;border-radius:8px;color:#475467;font-size:12px;font-weight:600;text-decoration:none}.side-nav a:hover,.side-nav a:focus-visible{background:#f2f4f7;color:var(--ink);outline:none}.side-nav i{width:7px;height:7px;border-radius:50%;background:var(--nav-color,#98a2b3)}.header-note{position:absolute;left:20px;right:20px;bottom:28px;padding-top:17px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1.65}.header-note strong{display:block;color:var(--ink);font-size:12px;margin-bottom:4px}.container:after{content:none;display:none}section.line{grid-column:2;margin:0 58px 22px;padding:0 24px 24px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;position:relative;z-index:1}section.line:first-of-type{margin-top:44px}.line-header{min-height:86px;display:flex;align-items:center;gap:14px;margin:0;padding:0;border-bottom:1px solid var(--line)}.line-header .dot{width:7px;height:7px;border-radius:50%;box-shadow:0 0 0 5px color-mix(in srgb,currentColor 10%,transparent)}.line-header h2{font-size:18px;letter-spacing:-.035em;font-weight:720;margin:0}.line-header .count{margin-left:auto;color:var(--muted);font-size:12px;padding:5px 10px;background:#f8fafc;border:1px solid var(--line);border-radius:999px}.card{position:relative;padding:24px 0 24px 218px;border-bottom:1px solid var(--line);min-height:150px}.card:last-child{border-bottom:0;padding-bottom:4px}.card-top{position:absolute;left:0;top:25px;width:185px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}.badge{color:var(--c);font-size:11px;font-weight:720}.date-tag{font-size:11px;color:var(--muted)}.card h3{font-size:19px;line-height:1.36;letter-spacing:-.028em;margin:0 0 9px;font-weight:710;max-width:880px}.summary{font-size:13px;line-height:1.8;color:#475467;max-width:900px}.why{margin-top:13px;padding:9px 12px;border-radius:7px;background:#f0faf8;color:#23766e;font-size:12px;max-width:900px}.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}.links a{font-size:11px;color:var(--c);text-decoration:none;background:#f8fafc;border:1px solid #edf0f4;border-radius:5px;padding:4px 7px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.coverage{grid-column:2;margin:6px 58px 0;padding:0 24px 24px;border:1px solid var(--line);border-radius:14px;background:#fbfcfe}.coverage .line-header{border-bottom:1px solid var(--line)}.coverage-meta{font-size:12px;color:var(--muted);margin:20px 0 13px}.source-group{margin-top:17px}.source-group h3{font-size:12px;margin-bottom:8px}.source-links{display:flex;flex-wrap:wrap;gap:7px}.source-link{font-size:11px;color:var(--blue);text-decoration:none;padding:5px 9px;background:var(--blue-soft);border-radius:6px}.empty{padding:22px 0;color:var(--muted);font-size:13px}footer{grid-column:2;margin:42px 58px 0;padding:18px 0 34px;border-top:1px solid var(--line);color:#98a2b3;font-size:11px}@media(max-width:850px){.container{display:block}.container:after{display:none}header{position:relative;height:auto;padding:24px 20px;border-right:0;border-bottom:1px solid var(--line)}header:before{margin-bottom:22px}.side-nav{margin-top:24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.side-nav a{border:1px solid var(--line)}.header-note{position:relative;left:auto;right:auto;bottom:auto;margin-top:24px}section.line,section.line:first-of-type,.coverage,footer{margin-left:18px;margin-right:18px}section.line:first-of-type{margin-top:34px}.card{padding:20px 0}.card-top{position:static;width:auto;display:flex;flex-direction:row;margin-bottom:10px}.card h3{font-size:17px}.line-header{min-height:74px}.coverage{padding-left:18px;padding-right:18px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+<div class="title-row"><h1>医药AI情报日报</h1><a class="home-link" href="index.html" aria-label="返回日报目录" title="返回日报目录"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10.5 12 3.5l8.5 7"/><path d="M5.5 9.5v10h13v-10"/><path d="M9.5 19.5v-6h5v6"/></svg></a></div>
+    <div class="date">2026-10-21（周三）</div><nav class="side-nav" aria-label="日报板块">
+<a href="#line1"><i style="--nav-color:#2563eb"></i>医药产业动态</a>
+<a href="#line2"><i style="--nav-color:#0ea5a4"></i>医疗 AI 与工具</a>
+<a href="#line3"><i style="--nav-color:#7c3aed"></i>通用 AI 产品</a>
+<a href="#sources"><i style="--nav-color:#64748b"></i>新闻源导航</a>
+</nav><div class="header-note"><strong>每日情报工作台</strong>产业、医疗 AI 与通用 AI 的公开信息核验。</div>
+</header>
+  
+  <section class="line" id="line1">
+    <div class="line-header">
+      <span class="dot" style="background:#2563eb"></span>
+      <h2>💊 医药产业动态（研发·临床·注册·BD·并购）</h2>
+      <span class="count">27 条</span>
+    </div>
+    
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">亚盛医药</span>
+        <span class="date-tag">2026-10-21</span>
+      </div>
+      <h3>利沙托克拉联合阿可替尼一线CLL/SLL获突破性治疗品种认定</h3>
+      <div class="summary">公司08:45宣布，Bcl-2抑制剂利生妥（APG-2575）联合阿可替尼治疗成人初治CLL/SLL被CDE纳入突破性治疗品种名单。相关全球注册III期GLORA-2正在推进；此次是研发支持资格，不等同于新适应症获批上市。</div>
+      <div class="why">💡 国产Bcl-2产品向固定疗程一线联合方案扩展，监管沟通及临床执行值得持续监测。</div>
+      <div class="links"><a href="https://www.prnasia.com/story/552510-1.shtml" target="_blank">https://www.prnasia.com/story/552510-1.shtml</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">泽璟制药 / AbbVie</span>
+        <span class="date-tag">2026-10-21</span>
+      </div>
+      <h3>ZG006临床进展触发1000万美元里程碑付款</h3>
+      <div class="summary">21日07:01的医药早参核实，泽璟20日公告已收到艾伯维基于ZG006临床试验进展支付的1000万美元近期里程碑款。原全球合作与许可选择权协议签于2025年12月，泽璟保留大中华区权益，本次并非新签交易。</div>
+      <div class="why">💡 从签约金额转向真实到账与项目推进，有助于评估中国创新药BD的兑现质量。</div>
+      <div class="links"><a href="https://finance.eastmoney.com/a/202610213901785390.html" target="_blank">https://finance.eastmoney.com/a/202610213901785390.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">GSK / FDA</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>Hibsago获FDA批准，慢性乙肝迎来有限疗程功能性治愈路径</h3>
+      <div class="summary">FDA批准bepirovirsen联合既有抗病毒治疗，用于符合病毒抑制、HBsAg水平等条件的非肝硬化成人患者。两项试验中，19%的治疗组患者停用全部乙肝药物24周后仍维持病毒控制及HBsAg不可检出；药品附严重肝反应和血小板减少黑框警告。</div>
+      <div class="why">💡 功能性治愈进入商业化，但患者筛选、伴随诊断及安全监测将决定真实临床价值。</div>
+      <div class="links"><a href="https://www.fda.gov/news-events/press-announcements/fda-approves-first-its-kind-chronic-hepatitis-b-treatment" target="_blank">https://www.fda.gov/news-events/press-announcements/fda-approves-first-its-kind-chronic-hepatitis-b-treatment</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">GSK</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>Jemperli获加速批准治疗MSI-H/dMMR局部晚期直肠癌</h3>
+      <div class="summary">20日发布的公司新闻稿确认，dostarlimab单药获FDA加速批准，用于II/III期MSI-H/dMMR局部晚期直肠癌成人患者，依据为II期AZUR-1研究。该方案为部分符合条件的患者提供避免化疗、放疗和手术的可能，并非所有直肠癌患者均适用。</div>
+      <div class="why">💡 生物标志物驱动的器官保留治疗路径有望改变诊疗流程，后续确证证据仍需跟踪。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/jemperli-dostarlimab-gxly-approved-in-us-as-first-and-only-immunotherapy-for-adults-with-msi-h-dmmr-locally-advanced-rectal-cancer" target="_blank">https://www.biospace.com/press-releases/jemperli-dostarlimab-gxly-approved-in-us-as-first-and-only-immunotherapy-for-adults-with-msi-h-dmmr-locally-advanced-rectal-cancer</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">以岭药业</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>Factor B抑制剂LB220-D08获准开展aHUS临床试验</h3>
+      <div class="summary">公司20日披露，自主研发的1类化药LB220-D08缓释片获药物临床试验批准，适应症为非典型溶血性尿毒症综合征，批件日期为19日。该分子通过靶向Factor B抑制补体旁路途径，仍处于临床开发起点。</div>
+      <div class="why">💡 以岭的化药创新布局切入补体介导罕见病，与既有C5抑制路径形成机制差异。</div>
+      <div class="links"><a href="https://finance.eastmoney.com/a/202610203901346326.html" target="_blank">https://finance.eastmoney.com/a/202610203901346326.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">我武生物</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>抗耐药肺结核1类新药S01D片获临床试验批准</h3>
+      <div class="summary">公司原始公告确认S01D片临床试验申请获批，拟用于成人耐药肺结核；公司正在筹备I期，正式启动时间及结果尚不确定。公告称其为新分子、新机制化药，后续仍需完成临床及上市许可程序。</div>
+      <div class="why">💡 过敏领域药企向抗耐药感染拓展，必须区分IND许可、试验启动和临床疗效。</div>
+      <div class="links"><a href="http://www.wolwobiotech.com/data/upload/admin/20261020/6ad7313461e1f.pdf" target="_blank">http://www.wolwobiotech.com/data/upload/admin/20261020/6ad7313461e1f.pdf</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">石药集团</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>SYH2083干眼症I期临床在中国启动</h3>
+      <div class="summary">公司披露，SYH2083滴眼液治疗干眼症的I期研究SYH2083-001在中国正式启动。医药魔方收录的公司公告将其描述为LFA-1与活性醛类物质RASP双靶点抑制剂；尚无人体有效性结论。</div>
+      <div class="why">💡 干眼症局部用药从单靶点向双机制推进，早期安全性和给药耐受性是下一观察节点。</div>
+      <div class="links"><a href="https://www.sohu.com/a/1090278821_122123195" target="_blank">https://www.sohu.com/a/1090278821_122123195</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">长春高新 / 金赛药业</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>脑出血候选药GenSci155临床试验申请获受理</h3>
+      <div class="summary">金赛药业收到GenSci155注射液境内临床试验申请受理通知。财联社公开稿介绍其为长效化脂肪酸偶联重组人IGF-1类似物、治疗用生物制品1类，拟用于脑出血；受理不等于获准开展试验。</div>
+      <div class="why">💡 金赛向神经损伤领域拓展，监管状态需按受理、批准、首例给药分别追踪。</div>
+      <div class="links"><a href="https://m.caizhongshe.cn/article-7518254043492972040.html" target="_blank">https://m.caizhongshe.cn/article-7518254043492972040.html</a><a href="https://www.sohu.com/a/1090278806_222256" target="_blank">https://www.sohu.com/a/1090278806_222256</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">歌礼制药</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>每周口服多肽管线披露临床前PK数据及组合路线</h3>
+      <div class="summary">公司披露ASC36o在非人灵长类动物中约7天半衰期、6%—8%口服生物利用度，并展示胰淀素与GLP-1/GIP/GCG固定剂量复方组合。ASC36o正在美国I期，其余多个项目计划Q4提交IND；动物数据不能视为人体疗效。</div>
+      <div class="why">💡 口服长效多肽与复方制剂可能改变肥胖治疗的给药便利性，人体PK是近期关键验证。</div>
+      <div class="links"><a href="https://www.prnasia.com/story/552329-1.shtml" target="_blank">https://www.prnasia.com/story/552329-1.shtml</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">AstraZeneca / Amgen</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>TEZSPIRE公布EoE III期CROSSING完整结果</h3>
+      <div class="summary">tezepelumab在嗜酸性粒细胞性食管炎研究中达到组织学缓解与吞咽困难共同主要终点。24周两剂量组织学缓解率为64.8%和68.9%，安慰剂为3.5%，相关获益持续至52周；这是临床结果披露而非该适应症获批。</div>
+      <div class="why">💡 TSLP机制向食管疾病扩展，为现有生物制剂竞争带来新的后期证据。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/tezspire-positive-results-from-phase-iii-crossing-trial-in-eosinophilic-esophagitis-including-symptom-improvement-histologic-and-endoscopic-remission-presented-at-united-european-gastroenterology-week" target="_blank">https://www.biospace.com/press-releases/tezspire-positive-results-from-phase-iii-crossing-trial-in-eosinophilic-esophagitis-including-symptom-improvement-histologic-and-endoscopic-remission-presented-at-united-european-gastroenterology-week</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Arcus Biosciences</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>casdatifan披露跨线肾癌单药与联合治疗数据</h3>
+      <div class="summary">ARC-20平台研究发布casdatifan单药及联合抗PD-1、cabozantinib的新随访数据，覆盖一线至多线透明细胞肾癌。公司称多线单药队列中位OS接近三年，并计划年底启动一线III期PEAK-20；与外部基准的比较不等于随机头对头证据。</div>
+      <div class="why">💡 新一代HIF-2α抑制剂的竞争重点转向跨线联合及生存获益，需等待注册性验证。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/arcus-presents-new-data-from-arc-20-that-demonstrate-the-opportunity-for-casdatifan-to-become-a-foundational-treatment-across-all-lines-of-therapy-in-kidney-cancer" target="_blank">https://www.biospace.com/press-releases/arcus-presents-new-data-from-arc-20-that-demonstrate-the-opportunity-for-casdatifan-to-become-a-foundational-treatment-across-all-lines-of-therapy-in-kidney-cancer</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Rapport Therapeutics</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>RAP-219双相躁狂II期达标，疗效差距仍需审慎解读</h3>
+      <div class="summary">约250名成人的三周研究中，RAP-219组躁狂量表平均改善15.4分，安慰剂12.3分，3.1分组间差异达到统计学显著性。公司计划2027年与FDA讨论注册研究，并在下半年启动两项后期试验。</div>
+      <div class="why">💡 癫痫候选药的适应症扩展获得早期验证，但接近显著性边界的疗效需要更大研究复现。</div>
+      <div class="links"><a href="https://www.biopharmadive.com/news/rapport-bipolar-mania-clinical-trial-rap-219-results/833454/" target="_blank">https://www.biopharmadive.com/news/rapport-bipolar-mania-clinical-trial-rap-219-results/833454/</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Pfizer</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>终止CXCR5抗体ITP II期研究，未确认全面放弃资产</h3>
+      <div class="summary">辉瑞向Fierce确认，因商业决策终止PF-06835375在原发免疫性血小板减少症的61人II期研究，称不是出于安全问题。公司未确认是否停止全部开发；发稿时该资产仍列于ITP及狼疮管线。</div>
+      <div class="why">💡 试验终止与整项资产退出并不等同，管线数据库应保留适应症级别状态差异。</div>
+      <div class="links"><a href="https://www.fiercebiotech.com/biotech/pfizer-makes-business-decision-end-phase-2-trial-autoimmune-drug-while-programs-future" target="_blank">https://www.fiercebiotech.com/biotech/pfizer-makes-business-decision-end-phase-2-trial-autoimmune-drug-while-programs-future</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Nano24</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>吸入式EXO-CD24在ARDS IIb期达到主要终点</h3>
+      <div class="summary">90名ARDS患者的安慰剂对照研究中，EXO-CD24组第7天未发生呼吸衰竭比例为85%，对照为33.3%；28天全因死亡率分别为6.7%和30%。公司计划更大规模全球III期，现有结果仍需独立及后期验证。</div>
+      <div class="why">💡 工程化外泌体出现临床概念验证信号，后续规模化制造与多中心复现是重要门槛。</div>
+      <div class="links"><a href="https://www.fiercebiotech.com/biotech/israeli-biotechs-inhaled-exosome-therapy-reduces-respiratory-failure-phase-2-study" target="_blank">https://www.fiercebiotech.com/biotech/israeli-biotechs-inhaled-exosome-therapy-reduces-respiratory-failure-phase-2-study</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Gilead Sciences</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>emvistegrast溃疡性结肠炎II期结果支持后期开发</h3>
+      <div class="summary">20日原始报道跟进公司19日公布的SWIFT结果：口服α4β7抑制剂200mg组12周临床应答率66%，安慰剂37%；临床缓解率31%对8%。公司计划2027年启动III期，当前药物尚未获批。</div>
+      <div class="why">💡 小分子口服路径进入已验证的肠道整合素机制，剂量反应及维持期证据决定竞争力。</div>
+      <div class="links"><a href="https://www.biospace.com/drug-development/gileads-highly-competitive-mid-stage-ulcerative-colitis-data-validate-i-i-push" target="_blank">https://www.biospace.com/drug-development/gileads-highly-competitive-mid-stage-ulcerative-colitis-data-validate-i-i-push</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Bionyra Pharma</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>长效抗TL1A抗体BYN-002公布健康志愿者I期中期数据</h3>
+      <div class="summary">BYN-002（TL-001）SAD/MAD研究显示较长终末半衰期、持续TL1A抑制及初步良好安全性；多次给药队列半衰期约77.8—82天。公司据此探索每3—6个月维持给药，尚非IBD患者有效性结果。</div>
+      <div class="why">💡 抗TL1A竞争从疗效拓展到给药频次，早期PK优势必须转化为患者获益。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/bionyra-pharma-announces-positive-interim-phase-1-results-for-byn-002-a-long-acting-anti-tl1a-antibody" target="_blank">https://www.biospace.com/press-releases/bionyra-pharma-announces-positive-interim-phase-1-results-for-byn-002-a-long-acting-anti-tl1a-antibody</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Atlas Molecular Pharma</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>ATL-001在先天性红细胞生成性卟啉病患者中首次给药</h3>
+      <div class="summary">公司20日宣布，19日完成首批三名CEP患者给药，进入开放标签I/II期N-of-1设计研究，预计约六人接受48周治疗。ATL-001为稳定UROS酶的药理伴侣，既往已完成健康志愿者I期。</div>
+      <div class="why">💡 超罕见病开发采用个体内比较设计，终点与自然病程数据的质量尤为关键。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/atlas-molecular-pharma-announces-first-three-patients-with-congenital-erythropoietic-porphyria-dosed-with-atl-001" target="_blank">https://www.biospace.com/press-releases/atlas-molecular-pharma-announces-first-three-patients-with-congenital-erythropoietic-porphyria-dosed-with-atl-001</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Orogen Therapeutics</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>提名口服IL-17及JAK1/TYK2两款开发候选物</h3>
+      <div class="summary">Orogen选定ORO-110与ORO-210，分别靶向IL-17 AA/AF及JAK1/TYK2，公布非临床药效与分子选择性依据。IND支持性研究及生产正在推进；两个独立分子不应混写成一款三靶点药物。</div>
+      <div class="why">💡 免疫疾病口服替代方案持续扩展，机制选择性及安全窗口将影响后续差异化。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/orogen-therapeutics-announces-selection-of-two-development-candidates-for-immune-diseases-potential-best-in-class-oral-il-17-and-jak1-tyk2-small-molecule-inhibitors" target="_blank">https://www.biospace.com/press-releases/orogen-therapeutics-announces-selection-of-two-development-candidates-for-immune-diseases-potential-best-in-class-oral-il-17-and-jak1-tyk2-small-molecule-inhibitors</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Algia Pharma</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>AlgiaPak完成IND支持性毒理研究，计划年底申报</h3>
+      <div class="summary">非阿片多模式镇痛方案AlgiaPak完成GLP临床前毒理研究，公司正准备监管资料，计划2026年底提交IND。取得许可后拟于2027年Q1开展拇外翻术后疼痛IIa期，当前尚未取得该IND许可。</div>
+      <div class="why">💡 成熟药物组合的505(b)(2)开发路线可能降低部分风险，但临床镇痛获益仍待验证。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/algia-pharma-reports-positive-topline-results-from-ind-enabling-study-of-algiapak-for-non-opioid-treatment-of-mild-to-moderate-acute-pain" target="_blank">https://www.biospace.com/press-releases/algia-pharma-reports-positive-topline-results-from-ind-enabling-study-of-algiapak-for-non-opioid-treatment-of-mild-to-moderate-acute-pain</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Debiopharm</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>披露WEE1项目及WEE1/PKMYT1联合研究的ESMO更新安排</h3>
+      <div class="summary">公司介绍zedoresertib（Debio 0123）单药、联合替莫唑胺治疗胶质母细胞瘤，以及联合lunresertib的早期研究进展，并将于ESMO公布I/II期更新。报道提及脑穿透及初步临床活性，完整大会数据尚待展示。</div>
+      <div class="why">💡 合成致死策略向难治实体瘤推进，脑暴露、标志物选择和联合安全性值得重点跟踪。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/debiopharm-highlights-clinical-momentum-across-ddr-portfolio-at-esmo-2026-advancing-wee1-based-therapies-in-ovarian-and-uterine-cancers-and-glioblastoma" target="_blank">https://www.biospace.com/press-releases/debiopharm-highlights-clinical-momentum-across-ddr-portfolio-at-esmo-2026-advancing-wee1-based-therapies-in-ovarian-and-uterine-cancers-and-glioblastoma</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">AVEO Oncology / LG Chem</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>rilogrotug抗GDF-15 I b期数据将于ESMO展示</h3>
+      <div class="summary">AVEO宣布其癌症恶病质候选药rilogrotug（AV-380）的I b期摘要获ESMO接受，称观察到体重、骨骼肌面积及食欲改善信号。完整安全性与疗效数据将在24日海报展示，公司正向II期推进。</div>
+      <div class="why">💡 恶病质药物开发从肿瘤控制转向营养与功能结局，早期信号需与随机证据区分。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/aveo-oncology-an-lg-chem-company-announces-poster-presentation-at-esmo-2026" target="_blank">https://www.biospace.com/press-releases/aveo-oncology-an-lg-chem-company-announces-poster-presentation-at-esmo-2026</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Neurogene</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>NGN-401将公布MECP2表达与自调控平台新数据</h3>
+      <div class="summary">公司预告ESGCT将展示NGN-401单链AAV表达动力学、I/II期早期获益时间观察，以及EXACT和其他miRNA调控方案的临床前比较。相关报告将于28—29日展示，不能视为已公布新的注册结果。</div>
+      <div class="why">💡 Rett基因疗法需精细控制MECP2表达，平台调控与递送证据关系到安全性。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/neurogene-announces-upcoming-presentations-highlighting-key-differentiators-of-ngn-401-for-rett-syndrome-at-the-esgct-33rd-annual-congress" target="_blank">https://www.biospace.com/press-releases/neurogene-announces-upcoming-presentations-highlighting-key-differentiators-of-ngn-401-for-rett-syndrome-at-the-esgct-33rd-annual-congress</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">信达生物</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>IBI3001 EGFR/B7-H3双抗ADC全球I期数据披露</h3>
+      <div class="summary">药智20日原始分析核实19日公开的ESMO摘要：57名晚期实体瘤患者入组，50名可评价患者ORR为28%、DCR为88%；3级及以上治疗相关不良事件发生率47.4%。Ib期剂量优化仍在推进，亚组样本很小。</div>
+      <div class="why">💡 双抗ADC出现人体活性证据，优势人群及毒性管理比单看小亚组响应率更重要。</div>
+      <div class="links"><a href="https://news.yaozh.com/archive/49199.html" target="_blank">https://news.yaozh.com/archive/49199.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">AstraZeneca</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>ESMO将展示四项关键III期生存数据与多项ADC更新</h3>
+      <div class="summary">公司公布百余篇摘要安排，重点包括CLARITY-Gastric01、SAFFRON、VOLGA、DeLLphi-305，并列出SANOVO等关键研究。四项主席论坛数据将于24—25日展示，当前新闻是研究阵容及结果方向公告，不是完整大会数值读出。</div>
+      <div class="why">💡 胃癌、膀胱癌及肺癌多个潜在治疗标准变化集中到来，适合建立后续逐项读出监测。</div>
+      <div class="links"><a href="https://www.prnasia.com/story/552438-1.shtml" target="_blank">https://www.prnasia.com/story/552438-1.shtml</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Ambrose Healthcare / AM-Pharma</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>最高1.61亿欧元收购AM-Pharma，扩展HPP管线</h3>
+      <div class="summary">Ambrose收购AM-Pharma全部股权，交易含首付款、商业化里程碑及销售分成，最高金额1.61亿欧元。获得的ilofotase alfa用于低磷酸酯酶症，已有成人I b期生物标志物及安全数据，处于II期准备阶段。</div>
+      <div class="why">💡 罕见病平台通过已有人体证据的资产并购扩张，需区分付款上限与实际对价。</div>
+      <div class="links"><a href="https://www.globenewswire.com/news-release/2026/10/20/3384032/0/en/ambrose-healthcare-acquires-am-pharma-for-up-to-161-million-expanding-its-rare-disease-pipeline-and-gaining-a-european-base.html" target="_blank">https://www.globenewswire.com/news-release/2026/10/20/3384032/0/en/ambrose-healthcare-acquires-am-pharma-for-up-to-161-million-expanding-its-rare-disease-pipeline-and-gaining-a-european-base.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Samsung Bioepis / Bahiafarma / Bionovis</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>SB12 eculizumab签订巴西十年供应与技术转移协议</h3>
+      <div class="summary">Samsung Bioepis联合巴西本地合作方，获选为公共卫生体系SUS十年的eculizumab供应方。协议采用PDP框架，包含技术转移和本地生产安排，交易金额未披露。</div>
+      <div class="why">💡 生物类似药出海不仅是注册和销售，长期公共采购及本地制造能力成为竞争变量。</div>
+      <div class="links"><a href="https://www.samsungbioepis.com/en/newsroom/newsroomView.do?idx=600&amp;currentPage=1" target="_blank">https://www.samsungbioepis.com/en/newsroom/newsroomView.do?idx=600&amp;currentPage=1</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Savillex / Entegris</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>收购Entegris生命科学流体管理业务</h3>
+      <div class="summary">Savillex宣布完成收购，获得Aramus和PE袋、一次性组件等用于研发、临床及商业化生产的生物工艺产品。交易财务条款未披露，双方相关团队与产品能力将整合。</div>
+      <div class="why">💡 生物药生产配套供应链继续整合，影响一次性工艺耗材的组合供给及服务能力。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/savillex-expands-bioprocessing-capabilities-with-acquisition-of-entegris-life-sciences-fluid-management-business" target="_blank">https://www.biospace.com/press-releases/savillex-expands-bioprocessing-capabilities-with-acquisition-of-entegris-life-sciences-fluid-management-business</a></div>
+    </div>
+  </section>
+  <section class="line" id="line2">
+    <div class="line-header">
+      <span class="dot" style="background:#0ea5a4"></span>
+      <h2>🩺 医疗AI与医疗IT创新（院内·院外·研发）</h2>
+      <span class="count">23 条</span>
+    </div>
+    
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">OpenAI / Orchestra Bio</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>收购Orchestra Bio，将研发项目协作接入Rosalind</h3>
+      <div class="summary">OpenAI官方确认收购Orchestra Bio团队与技术，计划与Rosalind模型及Workbench结合。Orchestra的Agent用于监测研究和项目依赖，识别制造、临床等环节延误的影响，并由科学家及项目负责人作出决策；交易金额未公布。</div>
+      <div class="why">💡 AI制药由科学问答向跨部门研发执行扩展，项目状态、依赖关系与人工决策是关键产品能力。</div>
+      <div class="links"><a href="https://openai.com/index/openai-to-acquire-orchestra-bio/" target="_blank">https://openai.com/index/openai-to-acquire-orchestra-bio/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Oracle / AstraZeneca</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>拟利用AI和真实世界数据提升临床试验招募</h3>
+      <div class="summary">双方达成非约束性协议，探索患者筛选、证据生成及研究成果进入诊疗流程，初步覆盖肿瘤、心肾代谢、呼吸免疫及罕见病。计划设置共同治理和效果评估机制，尚非已经全面上线的招募产品。</div>
+      <div class="why">💡 从EHR与临床数据到试验执行的闭环合作，有助于观察真实数据授权与落地成效。</div>
+      <div class="links"><a href="https://www.cls.cn/detail/2509616" target="_blank">https://www.cls.cn/detail/2509616</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">英矽智能 / Servier</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>AI肿瘤药物合作达成首个研发里程碑</h3>
+      <div class="summary">双方年初启动的多年合作已推进两个肿瘤项目并完成靶点提名，英矽利用Pharma.AI达到首个早期发现里程碑，将获得付款，具体金额未披露。8.88亿美元是既有合作的潜在总额，不是本次到账金额。</div>
+      <div class="why">💡 AI研发合作开始以项目标准和里程碑兑现证明价值，不能用交易上限代替真实进度。</div>
+      <div class="links"><a href="https://www.prnasia.com/story/552337-1.shtml" target="_blank">https://www.prnasia.com/story/552337-1.shtml</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">剂泰科技 / Eli Lilly</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>AI-LNP递送合作引入最高11亿美元里程碑安排</h3>
+      <div class="summary">20日原始报道核实剂泰19日宣布的礼来合作：利用NanoForge及AiLNP优化脂质纳米颗粒组织靶向和体内分布，礼来负责后续研发与商业化资源。协议含逾千万美元首付款、最高11亿美元里程碑及销售分成。</div>
+      <div class="why">💡 药物递送成为AI制药的独立商业入口，组织靶向性能与湿实验验证将决定合作产出。</div>
+      <div class="links"><a href="https://www.drugtimes.cn/2026/10/20/chao11yimeiyuanjitaikejiyulilaidachenghezuo/" target="_blank">https://www.drugtimes.cn/2026/10/20/chao11yimeiyuanjitaikejiyulilaidachenghezuo/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">ScionxBio / Sanofi</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>AI驱动TERA平台授权合作开发长效xRNA</h3>
+      <div class="summary">双方签订全球研发与许可协议，利用ScionxBio的深度学习TERA平台优化部分Sanofi mRNA候选物的稳定性和蛋白表达持续时间。ScionxBio负责优化至体内验证，Sanofi承担后续临床前、IND支持、临床及商业化；疾病和金额未公开。</div>
+      <div class="why">💡 AI平台价值落在RNA结构—活性优化及明确研发分工，而非仅模型评分。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/scionxbio-announces-collaboration-to-develop-long-acting-xrna-therapeutics" target="_blank">https://www.biospace.com/press-releases/scionxbio-announces-collaboration-to-develop-long-acting-xrna-therapeutics</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Sinopia Biosciences / NIH</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>获250万美元支持代谢组学基础模型开发</h3>
+      <div class="summary">NIGMS的SBIR II期资助将用于开发与验证AI代谢组学基础模型，整合不同实验平台和分析方法产生的数据，并扩展LEADS药物发现平台。这里的II期是科研资助阶段，不是临床试验分期。</div>
+      <div class="why">💡 跨实验数据标准化是医药基础模型的重要瓶颈，值得跟踪验证集及可迁移性。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/sinopia-biosciences-secures-2-5-million-nih-grant-to-advance-metabolomics-foundation-model-for-drug-discovery" target="_blank">https://www.biospace.com/press-releases/sinopia-biosciences-secures-2-5-million-nih-grant-to-advance-metabolomics-foundation-model-for-drug-discovery</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Optum / Syneos Health</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>合作构建AI支持的自适应临床开发模式</h3>
+      <div class="summary">双方结合Optum数据网络与AI资源、Syneos全球试验执行能力，开展方案模拟、风险评估、患者及研究中心筛选。合作明确涵盖数据治理、科学验证、证据可追溯及人工监督，Syneos将成为Optum相关SMO建设的优选伙伴。</div>
+      <div class="why">💡 临床AI落地需要把预测能力与运营流程、访问权限及质量体系连接起来。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/optum-and-syneos-health-partner-to-advance-an-adaptive-clinical-development-model" target="_blank">https://www.biospace.com/press-releases/optum-and-syneos-health-partner-to-advance-an-adaptive-clinical-development-model</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">BostonGene / MUSC</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>多组学AI合作分析CAR-T疗效、毒性与持久性</h3>
+      <div class="summary">新研究合作将对CAR-T患者纵向血样开展流式细胞及RNA测序，并用生物学约束AI模型分析免疫动态与预测标志物。报道引用的67%完全缓解率来自此前ASCO数据，本次新增事件是分析合作而非新的临床读出。</div>
+      <div class="why">💡 模型与临床研究深度协同，有望把患者选择及风险监测从相关性分析推进至可验证工具。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/bostongene-and-medical-university-of-south-carolina-announce-strategic-collaboration-to-advance-car-t-therapy-insights-for-lymphoma-and-leukemia" target="_blank">https://www.biospace.com/press-releases/bostongene-and-medical-university-of-south-carolina-announce-strategic-collaboration-to-advance-car-t-therapy-insights-for-lymphoma-and-leukemia</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">NeuroXT</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>NEXT-Cue获FDA 510(k)许可，用于MCI进展风险辅助评估</h3>
+      <div class="summary">NEXT-Cue作为II类SaMD获FDA 510(k)许可，结合脑MRI、人口学与认知评估，辅助判断MCI患者五年内进展为阿尔茨海默痴呆的风险。公司拟在美国建立真实临床使用案例，并推进韩国监管路径。</div>
+      <div class="why">💡 医疗AI从识别现有病变拓展至预后管理，但应定位为临床辅助信息而非独立诊断。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/neuroxt-inc-receives-u-s-fda-510k-clearance-for-next-cue-ai-software-supporting-prognostic-assessment-in-mild-cognitive-impairment" target="_blank">https://www.biospace.com/press-releases/neuroxt-inc-receives-u-s-fda-510k-clearance-for-next-cue-ai-software-supporting-prognostic-assessment-in-mild-cognitive-impairment</a><a href="https://www.prnewswire.com/news-releases/neuroxt-inc-receives-us-fda-510k-clearance-for-next-cue-ai-software-supporting-prognostic-assessment-in-mild-cognitive-impairment-302913386.html" target="_blank">https://www.prnewswire.com/news-releases/neuroxt-inc-receives-us-fda-510k-clearance-for-next-cue-ai-software-supporting-prognostic-assessment-in-mild-cognitive-impairment-302913386.html</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">NVIDIA / CMR Surgical</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>Cosmos3-H-Dreams将生成式仿真推进至临床手术场景</h3>
+      <div class="summary">NVIDIA发布基于Versius临床胆囊切除视频和机器人运动学训练的实时生成式手术仿真模型。结合Cosmos 3及FlashDreams，可在单张RTX PRO 6000上交互运行；视觉逼真不能替代解剖及物理可靠性验证。</div>
+      <div class="why">💡 医疗世界模型开始使用真实手术数据，仿真质量与安全评价将成为核心门槛。</div>
+      <div class="links"><a href="https://huggingface.co/blog/nvidia/cosmos3-h-dreams" target="_blank">https://huggingface.co/blog/nvidia/cosmos3-h-dreams</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">蚂蚁百灵 / inclusionAI</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>开源Ming-3.0五款语音模型，覆盖医生助手等场景</h3>
+      <div class="summary">发布语音合成、音频理解与对话、ASR三个系列共五款模型，提供权重、体验及部分API。公司披露相关能力已用于阿福医生助手、医生音色及语音通话，也用于办公和搜索；医疗相关事件统一归入本板块。</div>
+      <div class="why">💡 中文医疗语音的输入、理解、播报能力可组合部署，但临床准确率及授权合规仍需独立测试。</div>
+      <div class="links"><a href="https://www.ithome.com/1/015/117.htm" target="_blank">https://www.ithome.com/1/015/117.htm</a><a href="https://huggingface.co/inclusionAI/Ming-3.0-audio-flash" target="_blank">https://huggingface.co/inclusionAI/Ming-3.0-audio-flash</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Zoom</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>Clinical Notes覆盖线下、电话及视频诊疗</h3>
+      <div class="summary">增强版Clinical Notes嵌入Zoom Meetings、Phone和Contact Center，生成结构化临床记录并支持诊断编码辅助。Web Meeting SDK现可使用，异步音频上传API处于预览，Video SDK支持计划年内推出。</div>
+      <div class="why">💡 通讯基础设施原生病历能力可能降低独立语音病历工具的部署摩擦和重复采购。</div>
+      <div class="links"><a href="https://hitconsultant.net/2026/10/20/zoom-launches-enhanced-zoom-clinical-notes-ambient-ai-documentation-meetings-phone/" target="_blank">https://hitconsultant.net/2026/10/20/zoom-launches-enhanced-zoom-clinical-notes-ambient-ai-documentation-meetings-phone/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">MEDITECH / Lifemed AI</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>将非生成式DeepClaim接入EHR收入周期流程</h3>
+      <div class="summary">Lifemed成为MEDITECH Alliance Accelerator伙伴，利用非生成式深度学习处理申报前理赔核查与拒付问题，并整合Gateway入口资格验证。复杂临床或编码边界问题仍需人工判断，不能把自动纠错描述为自主临床裁决。</div>
+      <div class="why">💡 医疗AI不只依赖大语言模型，交易级数据模型与人工例外处理同样可能产生实际收益。</div>
+      <div class="links"><a href="https://hitconsultant.net/2026/10/20/meditech-lifemed-ai-partner-revenue-cycle-automation-deepclaim-denial-prevention/" target="_blank">https://hitconsultant.net/2026/10/20/meditech-lifemed-ai-partner-revenue-cycle-automation-deepclaim-denial-prevention/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Baba</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>融资4000万美元并推出长流程医疗协调评测BabaBench</h3>
+      <div class="summary">Baba完成FirstMark领投的A轮融资，并介绍针对保险电话、账单申诉、事前授权等长流程任务的BabaBench。其运营采用人工护理团队加AI Agent，评测强调隐私与禁止自主临床动作，而不是只测医学问答。</div>
+      <div class="why">💡 患者协调Agent的价值应由任务闭环、隐私约束和单位运营成本共同评价。</div>
+      <div class="links"><a href="https://hitconsultant.net/2026/10/20/applied-ai-company-baba-raises-40m-series-a-firstmark-cvs-health-ventures-bababench-medicare/" target="_blank">https://hitconsultant.net/2026/10/20/applied-ai-company-baba-raises-40m-series-a-firstmark-cvs-health-ventures-bababench-medicare/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Citrini Research / Anthropic</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>报告AI辅助蛋白设计与实验验证结果，尚不是新药</h3>
+      <div class="summary">Citrini披露多月实验：在Anthropic协助下设计候选结合蛋白，211个送测设计中17个达到结合标准。尚未测试毒素中和能力，更未建立人体安全性或疗效，不能将结合阳性宣称为治疗成功。</div>
+      <div class="why">💡 设计速度提升可能把瓶颈移向实验资源，且每个研发阶段都需要明确证据边界。</div>
+      <div class="links"><a href="https://www.cls.cn/detail/2510312" target="_blank">https://www.cls.cn/detail/2510312</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Guardant Health</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>InfinityAI与液体活检数据将支撑25项ESMO摘要</h3>
+      <div class="summary">公司公布25项研究摘要、含5项快速口头报告，覆盖ctDNA监测、甲基化、耐药及风险分层，并介绍InfinityAI对数据与产品的支撑。大会展示日期为23—27日，本次公告不是新的检测产品注册许可。</div>
+      <div class="why">💡 医疗AI价值可体现为标志物证据与监测策略，需分别追踪算法、检测方法及临床适用性。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/guardant-health-highlights-broad-liquid-biopsy-research-portfolio-at-esmo-congress-2026" target="_blank">https://www.biospace.com/press-releases/guardant-health-highlights-broad-liquid-biopsy-research-portfolio-at-esmo-congress-2026</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Flatiron Health</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>公布跨国肿瘤真实世界数据研究阵容</h3>
+      <div class="summary">17篇ESMO摘要使用Flatiron数据，其中公司重点介绍四项美国、德国、日本和英国研究，关注结直肠癌治疗、肺癌预后和前列腺癌用药及检测缺口。观察性关联不能替代随机临床疗效判断。</div>
+      <div class="why">💡 临床数据工具的业务价值落在可复用证据生成及跨市场可比性，而不只是数据规模。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/flatiron-health-announces-research-at-esmo-congress-2026-examining-cancer-treatment-and-outcomes-across-global-markets" target="_blank">https://www.biospace.com/press-releases/flatiron-health-announces-research-at-esmo-congress-2026-examining-cancer-treatment-and-outcomes-across-global-markets</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Hologic / Inpeco</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>欧洲联合推广Panther与FlexLab X实验室自动化</h3>
+      <div class="summary">双方签署欧洲联合营销合作，将多台Panther分子诊断系统接入FlexLab X开放自动化流程，提升样本吞吐及前后分析可追溯性。公告强调流程互联，没有宣称新AI模型或新增诊断许可。</div>
+      <div class="why">💡 医疗IT的落地价值常来自设备、流程和数据的整合，院内系统互操作值得持续关注。</div>
+      <div class="links"><a href="https://www.biospace.com/press-releases/hologic-and-inpeco-announce-co-marketing-partnership-to-advance-molecular-laboratory-automation" target="_blank">https://www.biospace.com/press-releases/hologic-and-inpeco-announce-co-marketing-partnership-to-advance-molecular-laboratory-automation</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">泰尔茂比司特 / 金斯瑞 / 深研生物</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>LytoSpan整合院内T细胞制备与数字化记录</h3>
+      <div class="summary">新方案覆盖采集、分选、激活、转导、扩增、淘洗和灌装，采用模块化自动化流程，并加强数字化数据记录与可追溯。主要支持医院包括CAR-T在内的研究与转化，不等同于某一细胞药物获得上市批准。</div>
+      <div class="why">💡 院内新技术转化需要工艺协同和质量追踪，单一设备性能不足以支撑全流程交付。</div>
+      <div class="links"><a href="https://www.prnasia.com/story/552407-1.shtml" target="_blank">https://www.prnasia.com/story/552407-1.shtml</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Mistral AI</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>Voxtral 3语音Agent SDK发布，官方演示医疗转诊预约</h3>
+      <div class="summary">新语音模型与SDK串联听取、推理、工具调用和播报，转写支持50余种语言，并支持欧盟托管API及自部署。官网用法语医疗转诊、检索记录与预约工具展示多步流程；该演示不是临床安全性验证。</div>
+      <div class="why">💡 具有医疗示例的语音Agent统一放在医疗板块，实际落地仍需权限、身份和人工确认设计。</div>
+      <div class="links"><a href="https://mistral.ai/news/voxtral-3/" target="_blank">https://mistral.ai/news/voxtral-3/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Allen Institute for AI</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>发布FairStress，评估包括医疗分诊在内的决策公平性</h3>
+      <div class="summary">FairStress已开放数据与代码，并计划接入Olmo-eval；测试模型在对抗性说服下是否对不同人口群体改变决策。场景包括医疗、招聘、贷款和教育，是跨领域风险评测工具，并非医疗诊断模型。</div>
+      <div class="why">💡 相同答案不代表相同决策稳定性，医疗AI评估应检查群体差异与干预下的行为变化。</div>
+      <div class="links"><a href="https://huggingface.co/blog/allenai/fairstress" target="_blank">https://huggingface.co/blog/allenai/fairstress</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Google Public Sector / 美国HHS</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>政务Gemini进入预览，卫生与公众服务部为首批使用机构</h3>
+      <div class="summary">Google发布政府服务专用Agent方案，首批客户包括美国卫生与公众服务部HHS及密苏里州，能力覆盖规则解读、文件接收、采购与既有系统连接。产品是政务流程平台，公告未证明临床诊断或医院诊疗功能。</div>
+      <div class="why">💡 卫生系统行政工作同样需要可审计Agent，但政务部署不能直接等同于医疗场景有效性。</div>
+      <div class="links"><a href="https://www.googlecloudpresscorner.com/2026-10-20-Google-Public-Sector-Launches-Gemini-for-Government-Services" target="_blank">https://www.googlecloudpresscorner.com/2026-10-20-Google-Public-Sector-Launches-Gemini-for-Government-Services</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Medical Informatics Corp. / TMC</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>Sickbay展示中心开放，验证设备到虚拟护理的互操作链路</h3>
+      <div class="summary">MIC在TMC Helix Park开放中心，现场集成真实医疗设备与合作技术，展示连续生理波形、实验室及设备数据从床旁到指挥中心和远程工作流的流转。新增事件是联合验证场所开放，不是Sickbay本次取得FDA许可。</div>
+      <div class="why">💡 医疗AI与远程监测需要部署前端到端验证，展示与共创环境可降低系统集成风险。</div>
+      <div class="links"><a href="https://www.globenewswire.com/news-release/2026/10/20/3385034/0/en/medical-informatics-corp-launches-sickbay-experience-demo-center-at-tmc-helix-park-turning-signal-into-action-through-tangible-collaboration.html" target="_blank">https://www.globenewswire.com/news-release/2026/10/20/3385034/0/en/medical-informatics-corp-launches-sickbay-experience-demo-center-at-tmc-helix-park-turning-signal-into-action-through-tangible-collaboration.html</a></div>
+    </div>
+  </section>
+  <section class="line" id="line3">
+    <div class="line-header">
+      <span class="dot" style="background:#7c3aed"></span>
+      <h2>🤖 通用AI模型、Agent、API、开源与产品</h2>
+      <span class="count">17 条</span>
+    </div>
+    
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-10-21</span>
+      </div>
+      <h3>ChatGPT新增对话上锁及独立记忆分区</h3>
+      <div class="summary">21日07:22报道核实OpenAI周二宣布，可用PIN或设备生物识别锁定对话，锁定区与普通历史和新增记忆隔离。功能分批推出，不提供端到端加密，也不改变数据留存及模型训练设置。</div>
+      <div class="why">💡 对话访问保护和服务端数据治理是不同层次，产品隐私说明不能混为一谈。</div>
+      <div class="links"><a href="https://www.ithome.com/1/015/629.htm" target="_blank">https://www.ithome.com/1/015/629.htm</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-10-21</span>
+      </div>
+      <h3>公布低资源编程语言与COBOL迁移能力评测</h3>
+      <div class="summary">21日07:45报道跟进OpenAI20日研究：MultiLangBench覆盖20种语言，GPT-6 Astra平均测试通过率87.4%；COBOL迁移评测中GPT-6.1 Sol高推理强度结果达97.9%。这些为特定评测成绩，生产迁移仍需业务规则和专家审查。</div>
+      <div class="why">💡 AI编程价值由新代码生成延伸至旧系统改造，应以真实回归测试而非单一跑分验收。</div>
+      <div class="links"><a href="https://www.ithome.com/1/015/633.htm" target="_blank">https://www.ithome.com/1/015/633.htm</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">OpenAI</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>ChatGPT Slides上线，支持协作修改与演示文稿导出</h3>
+      <div class="summary">Slides作为ChatGPT Space组成部分开放给Pro、Business和Enterprise用户，可从对话、文件或大纲生成演示文稿，并邀请团队实时编辑、评论。支持导出PDF和PowerPoint，Plus当时尚不可用。</div>
+      <div class="why">💡 AI办公从单次生成转向共享编辑及交付格式兼容，权限与协同体验成为竞争点。</div>
+      <div class="links"><a href="https://www.ithome.com/1/015/298.htm" target="_blank">https://www.ithome.com/1/015/298.htm</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Perplexity</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>Mac版Computer新增全端侧模式</h3>
+      <div class="summary">端侧模式可离线进行规划、推理及本地文件处理，上传文件需用户批准，可在授权后协同邮件、备忘录和Numbers。首发Qwen 3.6与PPLX Pro模式，要求Apple芯片及至少36GB统一内存，面向Pro、Max和Enterprise。</div>
+      <div class="why">💡 本地Agent将隐私、设备成本和办公系统权限绑定，企业采用需评估整套部署条件。</div>
+      <div class="links"><a href="https://www.ithome.com/1/015/609.htm" target="_blank">https://www.ithome.com/1/015/609.htm</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">小米 / 腾讯WorkBuddy</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>MiMo-V2.6-Pro接入WorkBuddy</h3>
+      <div class="summary">小米宣布MiMo-V2.6-Pro在WorkBuddy上线，提供1M上下文及图像、视频、音频、文本联合理解和多Agent协作能力。MiMo模型家族在9月已发布，本次是新增产品接入而非新模型首次发布。</div>
+      <div class="why">💡 模型竞争进一步进入办公Agent渠道，真实工作流兼容与成本比单独模型参数更重要。</div>
+      <div class="links"><a href="https://www.ithome.com/1/015/533.htm" target="_blank">https://www.ithome.com/1/015/533.htm</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">DeepSeek</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>开源DeepInfer及生产级Token编解码组件</h3>
+      <div class="summary">DeepSeek将内部推理框架DeepInfer开源，支持分布式推理、推测解码、结构化输出等，并兼容NVIDIA及华为昇腾。同步公开deepseek-recipe以对齐官方API编解码行为，两个仓库均已实际打开核验。</div>
+      <div class="why">💡 开源范围从权重延伸至推理服务中间层，有助于私有部署复现吞吐、延迟和接口行为。</div>
+      <div class="links"><a href="https://www.ithome.com/1/015/429.htm" target="_blank">https://www.ithome.com/1/015/429.htm</a><a href="https://github.com/deepseek-ai/DeepInfer" target="_blank">https://github.com/deepseek-ai/DeepInfer</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">MiniMax</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>M3.1 Flash Agent与编程能力及定价获披露</h3>
+      <div class="summary">量子位20日原始报道介绍M3.1 Flash，称Agent、代码及桌面操作评测明显提升，公开输入每百万Token1元、输出4元、缓存读取0.1元的定价。榜单成绩来自特定测试与厂商披露，不代表所有企业任务均能复现。</div>
+      <div class="why">💡 低成本高吞吐模型适合规模化Agent调用，但选型应比较任务成功率与重试后总成本。</div>
+      <div class="links"><a href="https://www.qbitai.com/2026/10/504517.html" target="_blank">https://www.qbitai.com/2026/10/504517.html</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Meshy</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>Meshy Edit发布，实现指令驱动的3D局部编辑</h3>
+      <div class="summary">用户圈选区域并描述改动，可补充参考图，在保留原模型的同时生成局部修改版本。官方供稿称约一分钟完成，面向全部注册用户，每次20积分，当前支持Meshy 6和7.1高精度模型。</div>
+      <div class="why">💡 生成式3D从一次性产出转向可控迭代，局部编辑直接影响游戏和打印工作流的可用性。</div>
+      <div class="links"><a href="https://www.qbitai.com/2026/10/504415.html" target="_blank">https://www.qbitai.com/2026/10/504415.html</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">MemTensor及联合研究团队</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>MemT-1.0模型家族公开，探索原生可更新记忆</h3>
+      <div class="summary">原始arXiv记录为UTC19日17:54提交，即北京时间20日01:54，标题和作者已核对。团队公开Nano与Flash模型家族，将可更新状态纳入模型计算，并报告长历史任务中的推理与持久存储效率；这不是简单外接检索库。</div>
+      <div class="why">💡 原生记忆为持续学习Agent提供新路线，同时需要补强删除、解释与状态恢复能力。</div>
+      <div class="links"><a href="https://arxiv.org/abs/2610.26825" target="_blank">https://arxiv.org/abs/2610.26825</a><a href="https://www.qbitai.com/2026/10/504456.html" target="_blank">https://www.qbitai.com/2026/10/504456.html</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Hugging Face / PyTorch生态</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>TorchTPU使Hugging Face模型获得原生TPU后端</h3>
+      <div class="summary">官方博客介绍TorchTPU原生PyTorch后端，Transformers、Diffusers和Kernels可直接使用TPU设备，不再必须迁移至torch_xla或JAX。提供torch.compile、分布式训练及TPU专用内核支持。</div>
+      <div class="why">💡 训练与推理的软件迁移成本下降，为CUDA之外的算力路线提供更多选择。</div>
+      <div class="links"><a href="https://huggingface.co/blog/hf-torchtpu" target="_blank">https://huggingface.co/blog/hf-torchtpu</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Hugging Face / Swift开源生态</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>AnyLanguageModel及Swift模型下载组件达到1.0</h3>
+      <div class="summary">AnyLanguageModel 1.0、swift-huggingface 1.0和swift-xet 1.0发布，用统一Swift接口连接Apple系统模型、llama.cpp、MLX、Core ML及多家云端模型。工具调用与引导生成覆盖各提供方，并支持图像输入。</div>
+      <div class="why">💡 端侧与云端模型的接口统一能降低应用集成成本，但不同后端能力仍需逐项测试。</div>
+      <div class="links"><a href="https://huggingface.co/blog/anylanguagemodel-1-0" target="_blank">https://huggingface.co/blog/anylanguagemodel-1-0</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Hugging Face / PyTorch</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>PyTorch 2.15 MPS加入FP8及更快MoE解码</h3>
+      <div class="summary">官方介绍Mac后端新增FP8、专用Metal内核及更快矩阵向量、softmax和MoE路由路径，并改善视频解码内存使用。文章注明MPS要求macOS 15以上、PyTorch 2.15要求Python 3.11以上；性能提升取决于模型及设备。</div>
+      <div class="why">💡 Mac本地模型运行能力持续改善，升级前需同时核对软件兼容及实际负载。</div>
+      <div class="links"><a href="https://huggingface.co/blog/mps-pytorch-2-15" target="_blank">https://huggingface.co/blog/mps-pytorch-2-15</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">IBM Research</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>ALTK-Evolve用学习型规则记忆提升客服Agent一致性</h3>
+      <div class="summary">团队展示由GPT-4.1从成功与失败轨迹提炼行为规则、再注入ReAct Agent的方法，无需更新权重。τ²-bench零售测试四次均成功指标为67.5%，比较依据为10月12日榜单快照，不是当前全任务通用排行榜结论。</div>
+      <div class="why">💡 持续记忆与流程规则可能比换大模型更经济，但必须与独立评测及业务政策结合。</div>
+      <div class="links"><a href="https://huggingface.co/blog/ibm-research/altk-evolve-bc" target="_blank">https://huggingface.co/blog/ibm-research/altk-evolve-bc</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">AMD</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>FSR Upscaling 4.1扩展机器学习超分辨率设备覆盖</h3>
+      <div class="summary">AMD发布FSR Upscaling 4.1更新，将基于机器学习的超分辨率扩展到Radeon RX 6000、Ryzen AI 9、Ryzen AI Max、部分Ryzen Z2和Xbox设备。公告强调帧率与画质改善，具体收益依赖设备和应用支持。</div>
+      <div class="why">💡 AI图形能力向更多存量硬件扩展，软件分发与兼容覆盖决定用户触达。</div>
+      <div class="links"><a href="https://newsroom.amd.com/news/amd-fsr-upscaling-4-1-boosts-frames-image-quality/" target="_blank">https://newsroom.amd.com/news/amd-fsr-upscaling-4-1-boosts-frames-image-quality/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">AMD / Intel</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>合作将x86 PyTorch优化统一至oneDNN路线</h3>
+      <div class="summary">两家公司计划整合各自x86 CPU的PyTorch优化工作，为开发者提供跨AMD与Intel CPU的共同软件路径。当前是协作计划公告，不应写成全部整合已完成或已获得统一性能。</div>
+      <div class="why">💡 CPU推理开发的可移植性提升，有助于减少厂商专属实现与维护负担。</div>
+      <div class="links"><a href="https://newsroom.amd.com/news/amd-intel-collaborate-simplify-ai-development-on-x86-cpus-pytorch/" target="_blank">https://newsroom.amd.com/news/amd-intel-collaborate-simplify-ai-development-on-x86-cpus-pytorch/</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Mastercard / Cloudflare等</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>Agent Pay for Machines开放买卖双方API早期访问</h3>
+      <div class="summary">在端到端试点后，Mastercard开放API、工具包、沙箱及文档，基于x402让Agent在批准的任务、权限和预算内购买模型、数据及算力服务。通过签名付款凭证先确认服务交付，后合并结算，不是无限制授权花费。</div>
+      <div class="why">💡 Agent商业化需要身份、预算和支付保证联动，付款能力必须置于明确授权约束内。</div>
+      <div class="links"><a href="https://www.mastercard.com/us/en/news-and-trends/press/2026/october/Mastercard-Agent-Pay-for-Machines-in-action.html" target="_blank">https://www.mastercard.com/us/en/news-and-trends/press/2026/october/Mastercard-Agent-Pay-for-Machines-in-action.html</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Proof / Cloudflare</span>
+        <span class="date-tag">2026-10-20</span>
+      </div>
+      <h3>x401推出Cloudflare Workers开源集成</h3>
+      <div class="summary">Proof发布@proof.com/x401-workers，用401请求可验证身份凭证，在用户批准后确认Agent代表的真实身份再执行业务。协议基于OpenID for Verifiable Presentations，与x402支付请求解决的是不同问题。</div>
+      <div class="why">💡 Agent访问控制由识别机器人转向核验谁授权它做什么，可为高风险操作提供独立入口约束。</div>
+      <div class="links"><a href="https://www.proof.com/blog/x401-protocol-created-by-proof-now-offers-simple-cloudflare-integration-so-cloudflare-workers-can-verify-the-human-behind-the-agent" target="_blank">https://www.proof.com/blog/x401-protocol-created-by-proof-now-offers-simple-cloudflare-integration-so-cloudflare-workers-can-verify-the-human-behind-the-agent</a></div>
+    </div>
+  </section>
+<section class="coverage" id="sources"><div class="line-header"><span class="dot" style="background:#64748b"></span><h2>🌐 新闻源导航</h2></div><p class="coverage-meta">以下为当前日报持续关注的公开来源，点击名称可直接访问。</p><div class="source-group"><h3>医药产业、监管与资本市场</h3><div class="source-links"><a class="source-link" href="https://www.wuxiapptec.com/news" target="_blank" rel="noopener">药明康德</a><a class="source-link" href="https://www.pharmcube.com/" target="_blank" rel="noopener">医药魔方</a><a class="source-link" href="https://www.yypm.net/" target="_blank" rel="noopener">E药经理人</a><a class="source-link" href="https://www.yaozh.com/" target="_blank" rel="noopener">药智网</a><a class="source-link" href="https://www.menet.com.cn/" target="_blank" rel="noopener">米内网</a><a class="source-link" href="https://www.jianzhiju.cn/" target="_blank" rel="noopener">健识局</a><a class="source-link" href="https://www.cco.com.cn/" target="_blank" rel="noopener">赛柏蓝</a><a class="source-link" href="https://www.fiercepharma.com/" target="_blank" rel="noopener">FiercePharma</a><a class="source-link" href="https://www.biopharmadive.com/" target="_blank" rel="noopener">BioPharma Dive</a><a class="source-link" href="https://endpts.com/" target="_blank" rel="noopener">Endpoints News</a><a class="source-link" href="https://www.reuters.com/business/healthcare-pharmaceuticals/" target="_blank" rel="noopener">Reuters Health</a><a class="source-link" href="https://www.fda.gov/news-events/press-announcements" target="_blank" rel="noopener">FDA</a><a class="source-link" href="https://www.ema.europa.eu/en/news-events" target="_blank" rel="noopener">EMA</a><a class="source-link" href="https://www.cde.org.cn/" target="_blank" rel="noopener">CDE</a><a class="source-link" href="https://www.nmpa.gov.cn/" target="_blank" rel="noopener">国家药监局</a><a class="source-link" href="https://clinicaltrials.gov/" target="_blank" rel="noopener">ClinicalTrials.gov</a><a class="source-link" href="https://www.eastmoney.com/" target="_blank" rel="noopener">东方财富网</a><a class="source-link" href="https://xueqiu.com/" target="_blank" rel="noopener">雪球</a><a class="source-link" href="https://www.cninfo.com.cn/" target="_blank" rel="noopener">巨潮资讯</a><a class="source-link" href="https://www.cls.cn/" target="_blank" rel="noopener">财联社</a></div></div><div class="source-group"><h3>医疗AI与医疗IT</h3><div class="source-links"><a class="source-link" href="https://www.healthcareitnews.com/" target="_blank" rel="noopener">Healthcare IT News</a><a class="source-link" href="https://www.mobihealthnews.com/" target="_blank" rel="noopener">MobiHealthNews</a><a class="source-link" href="https://www.statnews.com/" target="_blank" rel="noopener">STAT</a><a class="source-link" href="https://www.fiercehealthcare.com/" target="_blank" rel="noopener">Fierce Healthcare</a><a class="source-link" href="https://medcitynews.com/" target="_blank" rel="noopener">MedCity News</a><a class="source-link" href="https://www.medtechdive.com/" target="_blank" rel="noopener">MedTech Dive</a><a class="source-link" href="https://hitconsultant.net/" target="_blank" rel="noopener">HIT Consultant</a><a class="source-link" href="https://www.beckershospitalreview.com/" target="_blank" rel="noopener">Becker&#x27;s Hospital Review</a><a class="source-link" href="https://vcbeat.top/" target="_blank" rel="noopener">动脉网</a><a class="source-link" href="https://www.cn-healthcare.com/" target="_blank" rel="noopener">健康界</a><a class="source-link" href="https://www.dxy.cn/" target="_blank" rel="noopener">丁香园</a><a class="source-link" href="https://www.yxj.org.cn/" target="_blank" rel="noopener">医学界</a><a class="source-link" href="https://www.epic.com/" target="_blank" rel="noopener">Epic</a><a class="source-link" href="https://www.oracle.com/health/" target="_blank" rel="noopener">Oracle Health</a><a class="source-link" href="https://www.abridge.com/" target="_blank" rel="noopener">Abridge</a><a class="source-link" href="https://www.microsoft.com/en-us/industry/health/microsoft-cloud-for-healthcare" target="_blank" rel="noopener">Microsoft Cloud for Healthcare</a><a class="source-link" href="https://www.philips.com/a-w/about/news/archive/standard/about/news.html" target="_blank" rel="noopener">Philips HealthTech</a><a class="source-link" href="https://www.siemens-healthineers.com/press" target="_blank" rel="noopener">Siemens Healthineers</a><a class="source-link" href="https://investor.gehealthcare.com/" target="_blank" rel="noopener">GE HealthCare</a><a class="source-link" href="https://health.google/" target="_blank" rel="noopener">Google Health</a><a class="source-link" href="https://aws.amazon.com/health/" target="_blank" rel="noopener">AWS for Healthcare</a></div></div><div class="source-group"><h3>通用AI模型、产品与开源</h3><div class="source-links"><a class="source-link" href="https://openai.com/news/" target="_blank" rel="noopener">OpenAI</a><a class="source-link" href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic</a><a class="source-link" href="https://x.ai/news" target="_blank" rel="noopener">xAI / Grok</a><a class="source-link" href="https://qwenlm.github.io/" target="_blank" rel="noopener">Qwen</a><a class="source-link" href="https://www.deepseek.com/" target="_blank" rel="noopener">DeepSeek</a><a class="source-link" href="https://www.zhipuai.cn/" target="_blank" rel="noopener">智谱 GLM</a><a class="source-link" href="https://deepmind.google/discover/blog/" target="_blank" rel="noopener">Google DeepMind</a><a class="source-link" href="https://ai.meta.com/blog/" target="_blank" rel="noopener">Meta AI</a><a class="source-link" href="https://mistral.ai/news/" target="_blank" rel="noopener">Mistral</a><a class="source-link" href="https://cohere.com/blog" target="_blank" rel="noopener">Cohere</a><a class="source-link" href="https://blogs.microsoft.com/ai/" target="_blank" rel="noopener">Microsoft AI</a><a class="source-link" href="https://blogs.nvidia.com/" target="_blank" rel="noopener">NVIDIA</a><a class="source-link" href="https://huggingface.co/blog" target="_blank" rel="noopener">Hugging Face</a><a class="source-link" href="https://www.latent.space/" target="_blank" rel="noopener">Latent Space</a><a class="source-link" href="https://github.com/explore" target="_blank" rel="noopener">GitHub Releases</a><a class="source-link" href="https://arxiv.org/" target="_blank" rel="noopener">arXiv</a><a class="source-link" href="https://modelscope.cn/" target="_blank" rel="noopener">ModelScope</a><a class="source-link" href="https://replicate.com/blog" target="_blank" rel="noopener">Replicate</a><a class="source-link" href="https://blog.langchain.dev/" target="_blank" rel="noopener">LangChain</a><a class="source-link" href="https://www.llamaindex.ai/blog" target="_blank" rel="noopener">LlamaIndex</a></div></div><div class="source-group"><h3>补充交叉验证</h3><div class="source-links"><a class="source-link" href="https://36kr.com/" target="_blank" rel="noopener">36氪</a><a class="source-link" href="https://www.jiemian.com/" target="_blank" rel="noopener">界面新闻</a><a class="source-link" href="https://www.jiqizhixin.com/" target="_blank" rel="noopener">机器之心</a><a class="source-link" href="https://www.qbitai.com/" target="_blank" rel="noopener">量子位</a><a class="source-link" href="https://www.aitimes.com.cn/" target="_blank" rel="noopener">新智元</a><a class="source-link" href="https://next.ithome.com/" target="_blank" rel="noopener">IT之家 Next</a><a class="source-link" href="https://techcrunch.com/" target="_blank" rel="noopener">TechCrunch</a><a class="source-link" href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" rel="noopener">The Verge</a><a class="source-link" href="https://venturebeat.com/ai/" target="_blank" rel="noopener">VentureBeat</a><a class="source-link" href="https://www.prnewswire.com/" target="_blank" rel="noopener">PR Newswire</a><a class="source-link" href="https://www.businesswire.com/" target="_blank" rel="noopener">Business Wire</a><a class="source-link" href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">SEC EDGAR</a><a class="source-link" href="https://news.google.com/" target="_blank" rel="noopener">Google News</a></div></div></section><footer>由 Hermes Agent 自动生成 · 数据来自公开新闻源</footer>
+</div>
+</body>
+</html>
