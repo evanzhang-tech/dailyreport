@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医药AI情报日报</title>
+<style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#101828;--muted:#667085;--line:#eaecf0;--blue:#175cd3;--blue-soft:#eff4ff;--teal:#0e9384;--violet:#6941c6}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:28px}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}.container{width:min(1600px,100%);min-height:100vh;margin:0 auto;display:grid;grid-template-columns:230px minmax(0,1fr);background:#fff}header{grid-column:1;grid-row:1 / span 20;position:sticky;top:0;height:100vh;padding:28px 20px;border-right:1px solid var(--line);background:#fff;z-index:5}header:before{content:"PHARMA AI";display:block;color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.18em;margin-bottom:34px}header h1{font-size:21px;line-height:1.2;letter-spacing:-.045em;margin:0;font-weight:760}.title-row{display:flex;align-items:center;gap:9px}.home-link{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid #d0d5dd;border-radius:50%;color:#667085;background:#fff;text-decoration:none;line-height:1;transition:all .18s ease}.home-link svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}.home-link:hover,.home-link:focus-visible{border-color:#98a2b3;color:var(--blue);background:#f8fafc;box-shadow:0 2px 6px rgba(16,24,40,.08);outline:none}header .date{font-size:12px;color:var(--muted);margin-top:10px}.side-nav{margin-top:38px;display:flex;flex-direction:column;gap:6px}.side-nav a{display:flex;align-items:center;gap:10px;min-height:40px;padding:9px 10px;border-radius:8px;color:#475467;font-size:12px;font-weight:600;text-decoration:none}.side-nav a:hover,.side-nav a:focus-visible{background:#f2f4f7;color:var(--ink);outline:none}.side-nav i{width:7px;height:7px;border-radius:50%;background:var(--nav-color,#98a2b3)}.header-note{position:absolute;left:20px;right:20px;bottom:28px;padding-top:17px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1.65}.header-note strong{display:block;color:var(--ink);font-size:12px;margin-bottom:4px}.container:after{content:none;display:none}section.line{grid-column:2;margin:0 58px 22px;padding:0 24px 24px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;position:relative;z-index:1}section.line:first-of-type{margin-top:44px}.line-header{min-height:86px;display:flex;align-items:center;gap:14px;margin:0;padding:0;border-bottom:1px solid var(--line)}.line-header .dot{width:7px;height:7px;border-radius:50%;box-shadow:0 0 0 5px color-mix(in srgb,currentColor 10%,transparent)}.line-header h2{font-size:18px;letter-spacing:-.035em;font-weight:720;margin:0}.line-header .count{margin-left:auto;color:var(--muted);font-size:12px;padding:5px 10px;background:#f8fafc;border:1px solid var(--line);border-radius:999px}.card{position:relative;padding:24px 0 24px 218px;border-bottom:1px solid var(--line);min-height:150px}.card:last-child{border-bottom:0;padding-bottom:4px}.card-top{position:absolute;left:0;top:25px;width:185px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}.badge{color:var(--c);font-size:11px;font-weight:720}.date-tag{font-size:11px;color:var(--muted)}.card h3{font-size:19px;line-height:1.36;letter-spacing:-.028em;margin:0 0 9px;font-weight:710;max-width:880px}.summary{font-size:13px;line-height:1.8;color:#475467;max-width:900px}.why{margin-top:13px;padding:9px 12px;border-radius:7px;background:#f0faf8;color:#23766e;font-size:12px;max-width:900px}.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}.links a{font-size:11px;color:var(--c);text-decoration:none;background:#f8fafc;border:1px solid #edf0f4;border-radius:5px;padding:4px 7px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.coverage{grid-column:2;margin:6px 58px 0;padding:0 24px 24px;border:1px solid var(--line);border-radius:14px;background:#fbfcfe}.coverage .line-header{border-bottom:1px solid var(--line)}.coverage-meta{font-size:12px;color:var(--muted);margin:20px 0 13px}.source-group{margin-top:17px}.source-group h3{font-size:12px;margin-bottom:8px}.source-links{display:flex;flex-wrap:wrap;gap:7px}.source-link{font-size:11px;color:var(--blue);text-decoration:none;padding:5px 9px;background:var(--blue-soft);border-radius:6px}.empty{padding:22px 0;color:var(--muted);font-size:13px}footer{grid-column:2;margin:42px 58px 0;padding:18px 0 34px;border-top:1px solid var(--line);color:#98a2b3;font-size:11px}@media(max-width:850px){.container{display:block}.container:after{display:none}header{position:relative;height:auto;padding:24px 20px;border-right:0;border-bottom:1px solid var(--line)}header:before{margin-bottom:22px}.side-nav{margin-top:24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.side-nav a{border:1px solid var(--line)}.header-note{position:relative;left:auto;right:auto;bottom:auto;margin-top:24px}section.line,section.line:first-of-type,.coverage,footer{margin-left:18px;margin-right:18px}section.line:first-of-type{margin-top:34px}.card{padding:20px 0}.card-top{position:static;width:auto;display:flex;flex-direction:row;margin-bottom:10px}.card h3{font-size:17px}.line-header{min-height:74px}.coverage{padding-left:18px;padding-right:18px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.research-readout{margin-top:16px;padding:14px 16px;background:#f7f5ff;border:1px solid #ebe5ff;border-radius:8px;color:#344054;font-size:13px;line-height:1.8}.research-readout strong{font-size:12px;color:#6941c6}.research-readout p{margin:6px 0 0}.research-signal{margin-top:9px;font-size:11px;color:#667085;overflow-wrap:anywhere}.research-signal a{color:#667085}.paper-download{font-weight:700}
+.watchlist-intro{margin:16px 0 2px;padding:11px 13px;border:1px solid #ebe5ff;border-radius:8px;background:#fbfaff;color:#667085;font-size:12px;line-height:1.8}.watchlist-intro a{color:#6941c6;font-weight:700;text-decoration:none}.watchlist-intro span{margin-left:3px}.watchlist-diagnostics{display:block!important;color:#b54708}.hf-rankings{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}.hf-rank{display:inline-flex;padding:4px 7px;border-radius:999px;border:1px solid #ebe5ff;background:#fbfaff;color:#6941c6;text-decoration:none;font-size:11px;font-weight:700}.hf-daily{border-color:#d1fadf;background:#f6fef9;color:#027a48}
+.watchlist-indices{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:0 24px 20px;border-bottom:1px solid #eaecf0}.watchlist-index strong{font-size:12px;color:#667085}.watchlist-index ol{list-style:none;margin:9px 0 0;padding:0}.watchlist-entry{font-size:12px;line-height:1.65;margin:7px 0}.watchlist-entry a{color:#344054;text-decoration:none}.watchlist-entry a:hover{color:#6941c6}.watchlist-entry span{color:#6941c6;font-weight:700}@media(max-width:700px){.watchlist-indices{grid-template-columns:1fr;padding:0 16px 16px;gap:12px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+<div class="title-row"><h1>医药AI情报日报</h1><a class="home-link" href="index.html" aria-label="返回日报目录" title="返回日报目录"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10.5 12 3.5l8.5 7"/><path d="M5.5 9.5v10h13v-10"/><path d="M9.5 19.5v-6h5v6"/></svg></a></div>
+    <div class="date">2026-11-02（周一）</div><nav class="side-nav" aria-label="日报板块"><a href="#line1"><i style="--nav-color:#2563eb"></i>医药产业动态</a>
+<a href="#line2"><i style="--nav-color:#0ea5a4"></i>通用AI·业界</a>
+<a href="#line3"><i style="--nav-color:#7c3aed"></i>通用AI·科研</a>
+<a href="#sources"><i style="--nav-color:#64748b"></i>新闻源导航</a></nav><div class="header-note"><strong>每日情报工作台</strong>医药产业与通用 AI 业界、科研精选。</div>
+</header>
+  
+  <section class="line" id="line1">
+    <div class="line-header">
+      <span class="dot" style="background:#2563eb"></span>
+      <h2>💊 医药产业动态</h2>
+      <span class="count">11 条</span>
+    </div>
+    
+    
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">INOVIO / FDA</span>
+        <span class="date-tag">2026-10-30</span>
+      </div>
+      <h3>重点｜VOCERYQ获FDA加速批准：DNA免疫治疗进入RRP商业化阶段</h3>
+      <div class="summary">FDA加速批准原INO-3107（VOCERYQ）用于减少成人复发性呼吸道乳头状瘤病（RRP）的手术频次，配合CELLECTRA 5PSP装置给药。支持研究共32名成人，疗效评价人群26名，其中7名（27%，95%CI 12%—48%）在治疗后12个月无需手术切除；不是全部32名患者的27%。公司计划约60天内供货，2027年一季度全面商业上市。</div>
+      <div class="why">💡 相较反复手术，这是获批的非手术免疫治疗新选项，DNA药物平台也获得重要注册验证。但属于加速批准、单臂小样本证据，持续批准可能取决于确证研究；供货与商业化是公司计划，不能写成已完成或治愈。</div>
+      
+      <div class="links"><a href="https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/voceryq" target="_blank">https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/voceryq</a><a href="https://www.prnewswire.com/news-releases/inovio-announces-fda-accelerated-approval-of-voceryq-an-immunotherapy-to-reduce-the-frequency-of-surgery-in-adults-with-recurrent-respiratory-papillomatosis-rrp-302925406.html" target="_blank">https://www.prnewswire.com/news-releases/inovio-announces-fda-accelerated-approval-of-voceryq-an-immunotherapy-to-reduce-the-frequency-of-surgery-in-adults-with-recurrent-respiratory-papillomatosis-rrp-302925406.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">君实生物</span>
+        <span class="date-tag">2026-10-30</span>
+      </div>
+      <h3>重点｜JS207联合JS007肝癌Ⅲ期完成首例给药，双抗加CTLA-4方案进入注册验证</h3>
+      <div class="summary">公司10月30日公告，JS207（PD-1/VEGF双抗）联合JS007（CTLA-4单抗）一线治疗晚期肝细胞癌的首个国内注册研究完成首例患者给药。随机、对照、开放Ⅲ期计划入组560例，对照为特瑞普利单抗联合贝伐珠单抗，主要终点为PFS和OS；研究编号NCT07823348。</div>
+      <div class="why">💡 从小样本探索推进到有活性对照的注册Ⅲ期，是IO组合竞争的实质里程碑。公告援引此前Ⅱ期34名可评估患者ORR 44.1%、DCR 85.3%，只能说明进一步验证的依据，不能横比证明优于对照，更不能把首例给药写成Ⅲ期成功。</div>
+      
+      <div class="links"><a href="https://paper.cnstock.com/html/2026-10/30/content_2284309.htm" target="_blank">https://paper.cnstock.com/html/2026-10/30/content_2284309.htm</a><a href="https://clinicaltrials.gov/study/NCT07823348" target="_blank">https://clinicaltrials.gov/study/NCT07823348</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">康方生物</span>
+        <span class="date-tag">2026-10-31</span>
+      </div>
+      <h3>重点｜依沃西单抗联合维恩妥尤单抗启动HARMONi-GU1，挑战尿路上皮癌现有组合</h3>
+      <div class="summary">医药魔方TrialiCube10月31日披露：依沃西单抗联合维恩妥尤单抗针对初治局部晚期或转移性尿路上皮癌的中国Ⅱ/Ⅲ期随机研究于10月30日启动，计划入组800例，编号CTR20263988；对照为帕博利珠单抗联合维恩妥尤单抗。页面列示ORR及安全性评价。</div>
+      <div class="why">💡 以相同ADC搭配不同免疫治疗，直接检验PD-1/VEGF双抗对现有免疫联合方案的增量价值；这是临床启动，不是头对头获胜。新闻页面列出的终点不能替代各研究阶段完整方案，后续需跟踪登记更新与实际入组。</div>
+      
+      <div class="links"><a href="https://bydrug.pharmcube.com/news/detail/59cf7d21b2a56317e03a02a2bed90c07" target="_blank">https://bydrug.pharmcube.com/news/detail/59cf7d21b2a56317e03a02a2bed90c07</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">智盟生物</span>
+        <span class="date-tag">2026-10-31</span>
+      </div>
+      <h3>CB03-154的ALS关键Ⅱ/Ⅲ期完成255例入组，顶线数据成为下一节点</h3>
+      <div class="summary">智盟宣布，选择性KCNQ2/3钾通道开放剂CB03-154在中国的ALS关键Ⅱ/Ⅲ期完成255例患者入组，涉及15个中心，主要终点为第39周ALSFRS-R评分相对基线的变化。若2027年三季度Ⅱ期顶线数据积极，公司计划申请附条件上市。</div>
+      <div class="why">💡 完成入组降低了招募不确定性，但尚无疗效读出，附条件申请仍以阳性结果及监管接受为前提。ClinicalTrials.gov同资产ALS研究NCT07082192的9月快照仍写计划240例、Recruiting；本期255例仅归因于最新公司公告，不把旧登记状态强行改成已确认的新状态。</div>
+      
+      <div class="links"><a href="https://www.prnewswire.com/news-releases/zhimeng-biopharma-has-completed-the-patients-enrollment-of-its-investigational-drug-cb03-154-in-the-pivotal-phase-23-als-clinical-trial-302924801.html" target="_blank">https://www.prnewswire.com/news-releases/zhimeng-biopharma-has-completed-the-patients-enrollment-of-its-investigational-drug-cb03-154-in-the-pivotal-phase-23-als-clinical-trial-302924801.html</a><a href="https://clinicaltrials.gov/study/NCT07082192" target="_blank">https://clinicaltrials.gov/study/NCT07082192</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">康诺亚</span>
+        <span class="date-tag">2026-10-31</span>
+      </div>
+      <h3>SEZ6/DLL3双抗ADC CM529D1启动实体瘤Ⅰ/Ⅱ期，当前只开展Ⅰ期</h3>
+      <div class="summary">TrialiCube披露，CM529D1的中国多中心、开放Ⅰ/Ⅱ期研究于10月30日启动，编号CTR20263960，目标入组76例。该资产为SEZ6/DLL3双特异性抗体偶联药物，当前实际开展阶段为Ⅰ期，关注DLT、AE及Ⅱ期推荐剂量；Ⅱ期设计包含RECIST v1.1的ORR评价。</div>
+      <div class="why">💡 双靶点ADC进入人体剂量与安全窗口探索，具有管线及竞争监测价值。不能因总方案标Ⅰ/Ⅱ期就称已进入Ⅱ期，也不能由双靶点结构推导已证明疗效或安全优势。</div>
+      
+      <div class="links"><a href="https://bydrug.pharmcube.com/news/detail/031b8c24321d373504a3a05d0c90c490" target="_blank">https://bydrug.pharmcube.com/news/detail/031b8c24321d373504a3a05d0c90c490</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Aspen Neuroscience</span>
+        <span class="date-tag">2026-10-29</span>
+      </div>
+      <h3>Aspen定价约1.406亿美元IPO，支持自体细胞疗法治疗帕金森病</h3>
+      <div class="summary">Aspen于美东10月29日晚宣布，以每股15美元发行9,375,000股普通股，IPO毛募资约1.406亿美元；预计10月30日开始交易、11月2日完成交割。其自体来源细胞疗法sasineprocel仍在开放Ⅰ/Ⅱa期研究中，公司计划进一步推进开发。</div>
+      <div class="why">💡 融资为患者个体化细胞制造与后续临床提供支持，区别于传统补充多巴胺的对症路径。但募集毛额不是净收入，预计交割不是已完成交割；早期开放研究不能证明延缓或逆转疾病，规模化生产与长期获益仍待验证。</div>
+      
+      <div class="links"><a href="https://www.globenewswire.com/news-release/2026/10/30/3391995/0/en/aspen-neuroscience-announces-pricing-of-initial-public-offering.html" target="_blank">https://www.globenewswire.com/news-release/2026/10/30/3391995/0/en/aspen-neuroscience-announces-pricing-of-initial-public-offering.html</a><a href="https://www.biopharmadive.com/news/aspen-neuroscience-parkinsons-ipo-pricing/873050/" target="_blank">https://www.biopharmadive.com/news/aspen-neuroscience-parkinsons-ipo-pricing/873050/</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">君实生物</span>
+        <span class="date-tag">2026-10-30</span>
+      </div>
+      <h3>君实三季报：特瑞普利单抗国内销售19.64亿元，调整后归母利润转正</h3>
+      <div class="summary">公司披露，2026年前三季度特瑞普利单抗国内销售约19.64亿元，同比增长约31%；扣除股份支付影响后的归母净利润为3,153.49万元，期末货币资金及交易性金融资产合计43.70亿元。公司同时继续推进多款双抗及ADC注册研究。</div>
+      <div class="why">💡 商业化收入增长与成本效率改善有助于支持后续研发，值得关注自我造血能力。但“扣除股份支付后盈利”是明确调整口径，不等于法定归母净利润已转正，43.70亿元也不是全额可随意支配现金；三季报未经审计。</div>
+      
+      <div class="links"><a href="https://paper.cnstock.com/html/2026-10/30/content_2284309.htm" target="_blank">https://paper.cnstock.com/html/2026-10/30/content_2284309.htm</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">丽珠医药</span>
+        <span class="date-tag">2026-10-31</span>
+      </div>
+      <h3>抗FXI双特异性抗体LZSN2501启动健康参与者单次剂量递增研究</h3>
+      <div class="summary">TrialiCube披露，LZSN2501注射液于10月30日启动中国Ⅰ期，编号CTR20264095，计划入组40名健康成年人，评估单次给药的安全性、耐受性、PK与PD。资产为重组人源化抗FXI双特异性抗体，静脉血栓栓塞症属于拟开发方向。</div>
+      <div class="why">💡 FXI抗凝路线进入人体药理学和耐受性验证。当前不是血栓患者疗效试验，不能称已证明防栓效果或更低出血风险；“双特异性”并未在该来源完整披露另一结合对象，不自行补写第二靶点。</div>
+      
+      <div class="links"><a href="https://bydrug.pharmcube.com/news/detail/ebb2edb490f27c1f1efb418f8ebba859" target="_blank">https://bydrug.pharmcube.com/news/detail/ebb2edb490f27c1f1efb418f8ebba859</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">麦济生物</span>
+        <span class="date-tag">2026-10-31</span>
+      </div>
+      <h3>柯美奇拜单抗启动6—12岁儿童特应性皮炎Ib/Ⅱ期研究</h3>
+      <div class="summary">TrialiCube披露，IL-4Rα单抗MG-K10（柯美奇拜单抗）10月30日启动儿童中重度特应性皮炎Ib/Ⅱ期研究，编号CTR20264078，计划入组24例。研究评价安全性、PK及初步有效性，主要终点关注不良事件与各项检查异常。</div>
+      <div class="why">💡 儿童适应症拓展需专门建立剂量与安全性依据，不能直接外推成人结果。24例的小规模阶段主要提供早期风险和药理信息，不是注册疗效结论或获批新适应症。</div>
+      
+      <div class="links"><a href="https://bydrug.pharmcube.com/news/detail/6fe67548a1d2dd12e32479253519b68c" target="_blank">https://bydrug.pharmcube.com/news/detail/6fe67548a1d2dd12e32479253519b68c</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">信诺维</span>
+        <span class="date-tag">2026-10-31</span>
+      </div>
+      <h3>XNW26018片启动Ⅰ期：先验证健康参与者安全性、PK及食物影响</h3>
+      <div class="summary">TrialiCube披露，大环内酯类小分子抗生素XNW26018于10月30日启动中国Ⅰ期，编号CTR20264008，计划入组98名健康参与者。方案包括随机、双盲、安慰剂对照的单次/多次口服给药，以及开放、交叉食物影响部分。</div>
+      <div class="why">💡 感染和肺炎是潜在开发适应症，当前里程碑是人体剂量、暴露和耐受性研究，不是肺炎治疗有效性结果。对抗感染管线监测可关注后续暴露范围及患者研究进度，不推断未披露的具体分子靶点。</div>
+      
+      <div class="links"><a href="https://bydrug.pharmcube.com/news/detail/49b38238dbac478c86095a80d7cd206a" target="_blank">https://bydrug.pharmcube.com/news/detail/49b38238dbac478c86095a80d7cd206a</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">恒瑞医药</span>
+        <span class="date-tag">2026-10-30</span>
+      </div>
+      <h3>HRS-4642新登记Ⅰ期是伊曲康唑DDI研究，尚未招募，不是胰腺癌疗效试验</h3>
+      <div class="summary">ClinicalTrials.gov于10月30日首次公示HRS-4642的DDI研究NCT07906691，最新登记为NOT_YET_RECRUITING、预计2026年11月开始，计划18名健康参与者。单中心、开放、固定序列、单臂设计，评估伊曲康唑对静脉输注HRS-4642药代动力学的影响。10月31日TrialiCube将其表述为“10月30日启动”；本期明确区分登记公示与实际启动，不沿用该较强说法。</div>
+      <div class="why">💡 DDI研究有助于明确合并用药和暴露管理，属于开发与注册支撑性工作。胰腺癌是KRAS G12D资产的潜在适应症，不应将健康参与者DDI登记写成胰腺癌患者临床启动或疗效突破。</div>
+      
+      <div class="links"><a href="https://clinicaltrials.gov/study/NCT07906691" target="_blank">https://clinicaltrials.gov/study/NCT07906691</a><a href="https://bydrug.pharmcube.com/news/detail/e03972fc03473a01c7f25576dede8975" target="_blank">https://bydrug.pharmcube.com/news/detail/e03972fc03473a01c7f25576dede8975</a></div>
+    </div>
+  </section>
+  <section class="line" id="line2">
+    <div class="line-header">
+      <span class="dot" style="background:#0ea5a4"></span>
+      <h2>🏭 通用AI·业界</h2>
+      <span class="count">2 条</span>
+    </div>
+    
+    
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">DeepSeek</span>
+        <span class="date-tag">2026-10-31</span>
+      </div>
+      <h3>重点｜DeepSeek开放Super-agent原型：从单会话工具走向事件驱动、持续协作</h3>
+      <div class="summary">DeepSeek发布Super-agent设计探索并开放dsh-superagent-prototype研究原型。Router统一承接交互、派发任务，隔离的Worker执行具体工作；代码原型面向单个GitHub仓库，可接入飞书，在允许的请求或团队书面规则下推进任务，并把结果回收到原会话。官方README明确：公开原型经过适配，不等同内部版本，部分文章设计尚未实现，非正式产品。</div>
+      <div class="why">💡 相比人手维护多个会话，这一模式把事件接入、状态与执行、跨渠道结果回收做成统一架构，原仓库及哲学/授权/架构文档均可读，观察时GitHub约7.4k stars、759 forks，且两家技术媒体有持续报道。媒体转述初步合成负载实验p95完成时间15.7分钟对单Session的29.5分钟，只支持调度改善，不是单任务能力或生产业务收益。可用于研发协作和持续工作流原型；应先从短允许名单、仅记录的主动模式开始，保留设计审批、权限隔离和人为审核，不能把公开设计方向当成默认已启用的全面自治。</div>
+      
+      <div class="links"><a href="https://github.com/deepseek-ai/dsh-superagent-prototype" target="_blank">https://github.com/deepseek-ai/dsh-superagent-prototype</a><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/docs/000-philosophy.md" target="_blank">https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/docs/000-philosophy.md</a><a href="https://www.ithome.com/1/020/615.htm" target="_blank">https://www.ithome.com/1/020/615.htm</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">商汤 / SenseNova</span>
+        <span class="date-tag">2026-10-30</span>
+      </div>
+      <h3>SenseNova Loop-9B-Preview开放：共享循环层增加有效计算深度，不靠成倍复制权重</h3>
+      <div class="summary">官方仓库10月30日发布多模态长上下文模型SenseNova Loop-9B-Preview。32组不同解码层中，中间24层重复执行两遍，形成每次前向56层计算；辅以两路mHC残差流及混合线性/全注意力，支持文本与图像输入、文本输出，文档列示最长262,144-token训练序列。官方称约9B参数尺度、约14.6B推理参数口径，并开放权重与配置。</div>
+      <div class="why">💡 具体技术变化是用共享权重增加执行路径深度，具有小参数模型复杂工作流的研究和部署价值，架构与模型文件可独立检查。但减少存储权重不等于同比降低计算或推理成本；媒体“媲美27B”的评测宣传缺少本轮可读取的完整原始数值表，本期不据此宣称全面能力跃迁。可优先验证长文档与工具轨迹任务，实际速度取决于硬件、循环次数和服务配置；技术报告仍标TBD，Dspark/Dflash2仍在训练，不能当成已上线加速能力。</div>
+      
+      <div class="links"><a href="https://github.com/OpenSenseNova/SenseNova-Loop" target="_blank">https://github.com/OpenSenseNova/SenseNova-Loop</a><a href="https://huggingface.co/sensenova/SenseNova-Loop-9B-Preview" target="_blank">https://huggingface.co/sensenova/SenseNova-Loop-9B-Preview</a><a href="https://www.ithome.com/1/020/654.htm" target="_blank">https://www.ithome.com/1/020/654.htm</a></div>
+    </div>
+  </section>
+  <section class="line" id="line3">
+    <div class="line-header">
+      <span class="dot" style="background:#7c3aed"></span>
+      <h2>🔬 通用AI·科研</h2>
+      <span class="count">8 条</span>
+    </div>
+    <div class="watchlist-intro"><a href="https://huggingface.co/papers/week/2026-W44" target="_blank" rel="noopener noreferrer">周榜Top5 · 当周固定</a> <span>（2026-W44 · 抓取 2026-11-02T01:00:21.065705+00:00 · ok）</span> · <a href="https://huggingface.co/papers/date/2026-10-30" target="_blank" rel="noopener noreferrer">日榜Top3 · 每日更新</a> <span>（2026-10-30 · 抓取 2026-11-02T01:04:50.286435+00:00 · ok）</span> · <span class="watchlist-diagnostics">诊断：11月2日日榜尚未发布：官方网页重定向与CLI日期上限已确认；本期采用10月30日最新可用日榜Top3。；预采集日榜和两篇正文曾失败；日榜已恢复，两篇已通过官方arXiv PDF全文恢复，未虚构或替换固定论文。</span></div><div class="watchlist-indices"><div class="watchlist-index"><strong>周榜固定阅读</strong><ol><li class="watchlist-entry weekly"><a href="https://huggingface.co/papers/2610.37381" target="_blank" rel="noopener noreferrer"><span>#1</span> PDRVLA: A Vision-Language-Action Model with Physical Dynamics Representations</a></li><li class="watchlist-entry weekly"><a href="https://huggingface.co/papers/2610.35684" target="_blank" rel="noopener noreferrer"><span>#2</span> OmniShowcase: Omnidirectional Subject-Consistent Video Generation from Multi-View Images</a></li><li class="watchlist-entry weekly"><a href="https://huggingface.co/papers/2610.32749" target="_blank" rel="noopener noreferrer"><span>#3</span> Efficient Streaming Audio-Visual Target Speaker Extraction for Real-World Acoustic Scenes</a></li><li class="watchlist-entry weekly"><a href="https://huggingface.co/papers/2610.36729" target="_blank" rel="noopener noreferrer"><span>#4</span> Hy-Nomas: Towards Free-form Interactive World Generation</a></li><li class="watchlist-entry weekly"><a href="https://huggingface.co/papers/2610.35845" target="_blank" rel="noopener noreferrer"><span>#5</span> Work Agents: Systems, Capabilities, and Optimization</a></li></ol></div><div class="watchlist-index"><strong>每日榜单</strong><ol><li class="watchlist-entry daily"><a href="https://huggingface.co/papers/2610.36671" target="_blank" rel="noopener noreferrer"><span>#1</span> Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs</a></li><li class="watchlist-entry daily"><a href="https://huggingface.co/papers/2610.39302" target="_blank" rel="noopener noreferrer"><span>#2</span> Proving and Improving the Platonic Representation Hypothesis with JEPAs</a></li><li class="watchlist-entry daily"><a href="https://huggingface.co/papers/2610.38568" target="_blank" rel="noopener noreferrer"><span>#3</span> A-RSI: Adaptive Task Refresh for Zero-Data Multimodal Self-Improvement</a></li></ol></div></div>
+    
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">KAIST / AITRICS</span>
+        <span class="date-tag">2026-10-27</span>
+      </div>
+      <h3>重点｜Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs</h3>
+      <div class="summary"><strong>中文摘要</strong> 【重点】LOWN把扩散视觉语言模型的优化问题从“每轮少看一些视觉token”改为“这一轮是否需要重新看图”。先用低成本纯文本前向检查与最近一次图像条件预测是否一致，再决定复用预测、重新读取图像及解掩码数量，无需额外训练或任务专用阈值。作者在LLaDA-V的10个基准上报告保留99.6%的平均归一化分数，仅使用35.3%的解码FLOPs；独立运行的平均生成时间下降57.4%。</div>
+      <div class="why">💡 变化在于按预测一致性调度视觉访问，完整图像表示仍可在后续步骤重新读取，而非永久剪掉证据。论文提供同预算对照、固定/随机调度消融，并发布代码，支持其作为可复现的推理成本改进方向；HF官方10月30日日榜第1名。这里的99.6%是跨任务归一化均值，不是所有任务都零损失，也不是端到端业务准确率。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-daily" href="https://huggingface.co/papers/date/2026-10-30" target="_blank" rel="noopener noreferrer">日榜 #1 · 每日更新</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>问题：DVLM在去噪的每一步重复处理同一张图，视觉token占输入89%—97%。方法：以最近一次FULL前向的预测为锚，用TEXT-ONLY前向的一致性作为复用依据，分歧时再跑FULL；和视觉token剪枝、近似KV缓存分别组合验证。结果：表1支持0.353倍解码FLOPs与99.6%平均分数，若各任务超过基线的收益封顶，保留比例降为98.6%；加入Fast-dLLM后在三个任务上进一步降低耗时，但LLaVA-Bench较Fast-dLLM掉5分。用途：适合探索文图理解、视频理解的按需计算，而不是直接替换现有自回归API。边界：一致性“证书”不是正确性的数学保证，复用token可能与新FULL预测不同；图表/文档任务视觉依赖更持续，收益较小；实际成本要到解码完成才能确定，仍需按目标硬件与真实数据复测。</p></div><div class="links"><a href="https://arxiv.org/abs/2610.36671" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2610.36671v1" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/date/2026-10-30" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.36671 · 官方日榜名次 · 1 · 2026-10-30 · 2026-11-02T01:04:50.286435+00:00</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/2610.36671" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.36671 · 论文点赞 · 103 · 榜单快照时刻；非arXiv下载量 · 2026-11-02T01:04:50.286435+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2610.36671" target="_blank">https://huggingface.co/papers/2610.36671</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Brown University / NYU / AMI Labs</span>
+        <span class="date-tag">2026-10-29</span>
+      </div>
+      <h3>重点｜Proving and Improving the Platonic Representation Hypothesis with JEPAs</h3>
+      <div class="summary"><strong>中文摘要</strong> 【重点】Randall Balestriero与Yann LeCun把“不同模态会形成相近表征”的猜想收窄为有条件的JEPA定理，并把训练同一场景的不同观测作为可操作杠杆。作者报告：同为109M文本编码器、同语料时，good-view JEPA用21.6M训练样本达到next-token预测用900M样本得到的近似跨模态对齐水平，约42倍样本差；扩大训练后，该文本编码器在指定对齐评测上超过所测最高72B语言模型。</div>
+      <div class="why">💡 值得关注的是从“靠规模自然对齐”转为“主动设计正样本关系”，有定理、同语料对照和多视觉编码器实验支持。但所谓“109M胜72B”仅指特定表征对齐指标，不代表通用问答、推理或Agent能力超过大模型；HF官方10月30日日榜第2名。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-daily" href="https://huggingface.co/papers/date/2026-10-30" target="_blank" rel="noopener noreferrer">日榜 #2 · 每日更新</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>问题：单靠扩大next-token模型未给出跨模态表征一致的保证或高效训练方法。方法：形式化有限世界、模态观测及正样本分布；在总体最优、单射观测和旋转唯一性等假设下给出对齐充分条件，并分析正样本不一致时的误差。实验用同一图像的多条描述构造good views，与next-token和坏视图JEPA对照，在WIT、COCO及Flickr等评估对齐和检索。用途：可启发轻量跨模态编码器、检索与独立编码器拼接，优先投入样本关系设计，而非机械加参数。边界：42倍为训练样本数，论文另报约14倍文本token差，不能混称42倍算力节省；大规模文本有图像描述器蒸馏来的配对信息，非完全无监督；不同seed和正则权重敏感，真实模态有信息损失，实验不严格满足全部定理假设，作者明确不主张全面能力替代。</p></div><div class="links"><a href="https://arxiv.org/abs/2610.39302" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2610.39302v1" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/date/2026-10-30" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.39302 · 官方日榜名次 · 2 · 2026-10-30 · 2026-11-02T01:04:50.286435+00:00</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/2610.39302" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.39302 · 论文点赞 · 66 · 榜单快照时刻；非arXiv下载量 · 2026-11-02T01:04:50.286435+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2610.39302" target="_blank">https://huggingface.co/papers/2610.39302</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">上海交大、港大、港科大（广州）等</span>
+        <span class="date-tag">2026-10-26</span>
+      </div>
+      <h3>重点｜Work Agents: Systems, Capabilities, and Optimization</h3>
+      <div class="summary"><strong>中文摘要</strong> 【重点】这篇91页综述把Agent的分析单位从“回答/工具调用”推进到“在有状态工作空间内完成可验证工作”。作者以工作持续性与开放性两轴划分工作条件，区分对话、单步修改、多步任务、工作流、工作空间五种工作形态，归纳感知理解、推理决策、规划协同、执行与状态管理、验证恢复与重规划五组能力，并系统梳理模型、Harness及二者联合优化。</div>
+      <div class="why">💡 应用模式变化是把交付结果、跨步骤状态与人类注意力纳入系统设计，而不是仅比较模型分数。对部门级Agent协作、持续任务和成果验收具有直接框架价值；HF上周官方周榜第5名、当周固定阅读。它是一篇综述和研究议程，不是新模型性能突破实验。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-weekly" href="https://huggingface.co/papers/week/2026-W44" target="_blank" rel="noopener noreferrer">上周周榜 #5 · 当周固定</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>问题：同样模型在不同运行支架下可能有不同失败模式、成本及人工检查负担，单次调用成功不足以证明工作完成。方法：把基础模型、运行Harness、状态化工作空间和可观察验收证据放入统一框架；第4.3节分别分析观察/行动接口、执行控制、上下文、记忆与技能，第5.5节拆开执行成本、专业工作价值和实际部署回报。用途：设计跨部门交接、保留未完成依赖、读回确认外部写入，以及将重复故障沉淀为经验证的工具/流程改进；评估时同时看可用成果、返工、人工审核和维护成本。边界：文章主要综合既有研究，不能把研究议程当已实现的长期自治能力；模型优化与Harness优化要分开归因，现有人工审核流程不应因追溯记录不足而被否定，也不能由此推导未经授权的自动改流程。原HF正文失败后，本轮读取了身份一致的官方arXiv PDF。</p></div><div class="links"><a href="https://arxiv.org/abs/2610.35845" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2610.35845v1" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/week/2026-W44" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.35845 · 官方周榜名次 · 5 · 2026-W44 · 2026-11-02T01:00:21.065705+00:00</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/2610.35845" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.35845 · 论文点赞 · 116 · 榜单快照时刻；非arXiv下载量 · 2026-11-02T01:00:21.065705+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2610.35845" target="_blank">https://huggingface.co/papers/2610.35845</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">腾讯混元</span>
+        <span class="date-tag">2026-10-27</span>
+      </div>
+      <h3>Hy-Nomas: Towards Free-form Interactive World Generation</h3>
+      <div class="summary"><strong>中文摘要</strong> Hy-Nomas将8B视频扩散骨干改为可多轮交互的世界模型，在同一个持续会话中交替接受自由文本和连续相机控制。核心是动作感知因果注意力：场景描述能跨片段保留，动作指令只在其对应时间窗生效，配合Prompt Enhancer、多阶段训练和蒸馏。作者开放权重、代码及评测，报告其在文本交互和混合控制上优于所比较系统。</div>
+      <div class="why">💡 变化不是多生成一段视频，而是在已有历史上持续推进用户交互，减少旧动作重复与指令时序混乱；可用于可交互内容制作和环境模拟研究。HF上周周榜第4名、当周固定阅读；应把控制灵活性和空间记忆分别评估，不沿用“全面领先”叙述。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-weekly" href="https://huggingface.co/papers/week/2026-W44" target="_blank" rel="noopener noreferrer">上周周榜 #4 · 当周固定</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>方法：基于HunyuanVideo 1.5按片段自回归生成，将描述头与动作尾分开设置注意力范围；Prompt Enhancer结合历史视频和对话生成下一段结构化条件，另用相机交叉注意力注入轨迹。证据：文本跟随的人评胜率对HappyOyster-Directing为65%、对LingBot-World v2为75%；60个文本/相机交替场景中，对LingBot的指令跟随胜率为75%。局限：回访空间记忆对Genie 3仅13.3%胜、56.7%平、30%负；文本场景物理合理性对HappyOyster的胜率为45%，不能据此说所有维度均占优。落地可先做互动分镜和受控仿真；视觉上合理不等于物理上正确，机器人控制仍需要动作配对数据及执行成功验证，长历史KV成本与误差累积未解决。</p></div><div class="links"><a href="https://arxiv.org/abs/2610.36729" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2610.36729v1" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/week/2026-W44" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.36729 · 官方周榜名次 · 4 · 2026-W44 · 2026-11-02T01:00:21.065705+00:00</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/2610.36729" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.36729 · 论文点赞 · 122 · 榜单快照时刻；非arXiv下载量 · 2026-11-02T01:00:21.065705+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2610.36729" target="_blank">https://huggingface.co/papers/2610.36729</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">清华大学 / 青海大学等</span>
+        <span class="date-tag">2026-10-23</span>
+      </div>
+      <h3>Efficient Streaming Audio-Visual Target Speaker Extraction for Real-World Acoustic Scenes</h3>
+      <div class="summary"><strong>中文摘要</strong> Falcon与RealSSA同时补齐流式视听目标说话人提取的两类短板：评测覆盖动态近/远场干扰、混响和突发噪声；模型采用单次编码—解码的多尺度时频分离器，配合不增加推理成本的说话人对比损失。作者报告较因果AV-TFGridNet减少91.9%参数，计算量降低20.2倍、GPU推理时延降低11.1倍。</div>
+      <div class="why">💡 这是有对照的质量—成本改善，比单纯“音质更好”更接近端侧部署问题。可服务多人环境语音交互、视频会议和消费级设备；论文首次发表于10月23日，本期为上周周榜第3名的固定热门阅读，不是当日新稿。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-weekly" href="https://huggingface.co/papers/week/2026-W44" target="_blank" rel="noopener noreferrer">上周周榜 #3 · 当周固定</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>方法：目标人物嘴部视频提供身份线索，音频单通道分离器以一次U-Net过程恢复多尺度频谱；训练端对近场干扰说话人施加编码空间对比损失。结果：RealSSA-Sim的SI-SNRi为7.7 dB，对照AV-TFGridNet为7.6 dB；优势主要在类似质量下显著降低资源消耗。RealSSA-Real的DNSMOS为3.276，但WER 32.74%仅排第二，不能称全部指标第一。用途：作为受控嘴部跟踪条件下的低延迟声音分离模块，而非完整语音助手。边界：真实集约84分钟、10名参与者、8个环境，规模有限；长期视觉缺失明显退化，完全无图时SI-SNRi为负值；当前单通道和依赖仿真干净声源的损失设计尚需更大真实数据、多通道和遮挡验证。</p></div><div class="links"><a href="https://arxiv.org/abs/2610.32749" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2610.32749v1" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/week/2026-W44" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.32749 · 官方周榜名次 · 3 · 2026-W44 · 2026-11-02T01:00:21.065705+00:00</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/2610.32749" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.32749 · 论文点赞 · 134 · 榜单快照时刻；非arXiv下载量 · 2026-11-02T01:00:21.065705+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2610.32749" target="_blank">https://huggingface.co/papers/2610.32749</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">北京大学 / 京东</span>
+        <span class="date-tag">2026-10-27</span>
+      </div>
+      <h3>PDRVLA: A Vision-Language-Action Model with Physical Dynamics Representations</h3>
+      <div class="summary"><strong>中文摘要</strong> PDRVLA不在机器人控制环里在线生成未来视频，而是从VLM中间特征提取紧凑物理token供动作专家使用。57.3M参数的物理动态模块以未来RGB、深度和光流特征及冻结视频世界模型监督训练。作者在LIBERO、LIBERO-Plus、RoboTwin 2.0、SimplerEnv报告99.3%、89.9%、93.6%、81.5%的成功率。</div>
+      <div class="why">💡 方法价值在于把世界模型的动态知识压到轻量动作条件中，避免在线视频生成的延迟路径。HF上周周榜第1名、当周固定；但四个榜单的领先幅度和比较协议不同，不能把高成功率本身说成机器人实用化的全面跨越。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-weekly" href="https://huggingface.co/papers/week/2026-W44" target="_blank" rel="noopener noreferrer">上周周榜 #1 · 当周固定</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>方法：Qwen3.5-4B第8层特征经50个可学习query和4层Transformer形成物理表示，再与最终VLM特征、机器人本体状态共同驱动流匹配动作专家。作者使用公开数据并加入人到机器人合成、子任务及具身思维链标注。结果：LIBERO为99.3%，相近强基线Qwen-RobotManip为99.1%；LIBERO-Plus为89.9%对89.0%。等预算消融中，世界模型辅助监督使留出数据未来特征平均误差仅相对降低1.32%，其中光流改善区间包含零。用途：探索操作策略中的低延迟动态表征，不必部署完整视频模型。边界：主要结果来自四个仿真基准，部分基线沿用各自训练协议；未证明真实机器人、材料/接触性质或复杂长程任务的普遍成功，因而本期不把局部指标改善包装成重大能力跃迁。</p></div><div class="links"><a href="https://arxiv.org/abs/2610.37381" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2610.37381v1" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/week/2026-W44" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.37381 · 官方周榜名次 · 1 · 2026-W44 · 2026-11-02T01:00:21.065705+00:00</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/2610.37381" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.37381 · 论文点赞 · 153 · 榜单快照时刻；非arXiv下载量 · 2026-11-02T01:00:21.065705+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2610.37381" target="_blank">https://huggingface.co/papers/2610.37381</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Xiaomi Research（HF提交组织）</span>
+        <span class="date-tag">2026-10-28</span>
+      </div>
+      <h3>A-RSI: Adaptive Task Refresh for Zero-Data Multimodal Self-Improvement</h3>
+      <div class="summary"><strong>中文摘要</strong> A-RSI把“何时换训练经验”和“新任务答案是否可核验”分开处理：静态的模型编写程序库生成图像、问题及可计算答案；训练控制器只依据训练日志的奖励差异和准确率更新任务池，不读取验证/测试分数。作者在11个基准的主比较中报告，从初始化分数57.77提高至61.05，仅引入800个新任务。</div>
+      <div class="why">💡 可借鉴点是用独立答案检查约束自改进，并把补充经验的时机做成可追踪控制规则；HF官方10月30日日榜第3名。它不是无数据、无监督或已证明无限递归进化，800也仅指新增任务，不含共享初始池。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-daily" href="https://huggingface.co/papers/date/2026-10-30" target="_blank" rel="noopener noreferrer">日榜 #3 · 每日更新</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>方法：使用GRPO训练求解器，监控非零组内优势的任务数及训练准确率，在日志信号下降等条件触发整池替换；模板和候选池事前固定，不是在线不断生成新算法。主结果在8192-token响应预算下，800个新任务的A-RSI为61.05，每窗刷新3200个新任务为60.64。用途：为多模态训练设计经验补充、答案审计与健康门禁，并同时报告输出截断、格式修复和真实正确性。局限：每个训练臂仅运行一次、小分差未做显著性检验；没有固定三窗口随机刷新控制，时机贡献和新数据贡献未完全分离；任务族与主题参考了基准，跨模型外推有限。论文还主动审计短输出预算造成的“更会结束”假象，因此不把略高分数解释为通用推理跃迁，也不将其相对其他RSI的噪声内差异宣称为确定领先。</p></div><div class="links"><a href="https://arxiv.org/abs/2610.38568" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2610.38568v1" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/date/2026-10-30" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.38568 · 官方日榜名次 · 3 · 2026-10-30 · 2026-11-02T01:04:50.286435+00:00</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/2610.38568" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.38568 · 论文点赞 · 66 · 榜单快照时刻；非arXiv下载量 · 2026-11-02T01:04:50.286435+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2610.38568" target="_blank">https://huggingface.co/papers/2610.38568</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">KAIST AI / Inha University / FLIPTION</span>
+        <span class="date-tag">2026-10-26</span>
+      </div>
+      <h3>OmniShowcase: Omnidirectional Subject-Consistent Video Generation from Multi-View Images</h3>
+      <div class="summary"><strong>中文摘要</strong> OmniShowcase从4张多视角参考图重建主体几何，渲染表面法线转台作为独立条件，再用LoRA适配的视频扩散模型生成视角变化视频，无需逐主体优化。作者同时构建Showcase-4K合成数据与ShowcaseBench，报告在主体身份和3D一致性指标上优于比较方法，同时保持有竞争力的视频质量。</div>
+      <div class="why">💡 改变的是用显式几何约束减少背面/转视角时的主体幻觉，而非只增加参考图数量。适合静态商品展示、资产转台和一致性内容制作；上周HF周榜第2名、当周固定阅读，首次发表10月26日。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-weekly" href="https://huggingface.co/papers/week/2026-W44" target="_blank" rel="noopener noreferrer">上周周榜 #2 · 当周固定</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>方法：同一3D资产生成多种相机轨迹的训练视频；4张图和25帧法线条件以独立时段输入，不强制法线帧与目标80帧逐帧对齐。实验在50个未见主体的ShowcaseBench及35个NAVI主体上，用同样4张参考图比较多视图基线；DINO、CLIP、MEt3R和GT-CD为主要优势证据，视频美学并非所有指标第一。用途：先面向刚性物体的多视角展示流程，几何重建与视频生成可拆开验收。边界：参考图来自不同动态姿态时，静态重建会融合成错误形体，提示词不能修复几何—动作冲突；合成背景的光照与材质可能显得扁平，尚不能替代真实摄影或保证非刚体运动一致。</p></div><div class="links"><a href="https://arxiv.org/abs/2610.35684" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2610.35684v1" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/week/2026-W44" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.35684 · 官方周榜名次 · 2 · 2026-W44 · 2026-11-02T01:00:21.065705+00:00</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/2610.35684" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2610.35684 · 论文点赞 · 135 · 榜单快照时刻；非arXiv下载量 · 2026-11-02T01:00:21.065705+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2610.35684" target="_blank">https://huggingface.co/papers/2610.35684</a></div>
+    </div>
+  </section>
+<section class="coverage" id="sources"><div class="line-header"><span class="dot" style="background:#64748b"></span><h2>🌐 新闻源导航</h2></div><p class="coverage-meta">公开来源目录；列入导航不代表本轮已完成检查。</p><div class="source-group"><h3>医药产业、监管与资本市场</h3><div class="source-links"><a class="source-link" href="https://www.wuxiapptec.com/news" target="_blank" rel="noopener noreferrer">药明康德</a><a class="source-link" href="https://www.pharmcube.com/" target="_blank" rel="noopener noreferrer">医药魔方</a><a class="source-link" href="https://www.yypm.net/" target="_blank" rel="noopener noreferrer">E药经理人</a><a class="source-link" href="https://www.yaozh.com/" target="_blank" rel="noopener noreferrer">药智网</a><a class="source-link" href="https://www.menet.com.cn/" target="_blank" rel="noopener noreferrer">米内网</a><a class="source-link" href="https://www.jianzhiju.cn/" target="_blank" rel="noopener noreferrer">健识局</a><a class="source-link" href="https://www.cco.com.cn/" target="_blank" rel="noopener noreferrer">赛柏蓝</a><a class="source-link" href="https://www.fiercepharma.com/" target="_blank" rel="noopener noreferrer">FiercePharma</a><a class="source-link" href="https://www.biopharmadive.com/" target="_blank" rel="noopener noreferrer">BioPharma Dive</a><a class="source-link" href="https://endpts.com/" target="_blank" rel="noopener noreferrer">Endpoints News</a><a class="source-link" href="https://www.reuters.com/business/healthcare-pharmaceuticals/" target="_blank" rel="noopener noreferrer">Reuters Health</a><a class="source-link" href="https://www.fda.gov/news-events/press-announcements" target="_blank" rel="noopener noreferrer">FDA</a><a class="source-link" href="https://www.ema.europa.eu/en/news-events" target="_blank" rel="noopener noreferrer">EMA</a><a class="source-link" href="https://www.cde.org.cn/" target="_blank" rel="noopener noreferrer">CDE</a><a class="source-link" href="https://www.nmpa.gov.cn/" target="_blank" rel="noopener noreferrer">国家药监局</a><a class="source-link" href="https://clinicaltrials.gov/" target="_blank" rel="noopener noreferrer">ClinicalTrials.gov</a><a class="source-link" href="https://www.eastmoney.com/" target="_blank" rel="noopener noreferrer">东方财富网</a><a class="source-link" href="https://xueqiu.com/" target="_blank" rel="noopener noreferrer">雪球</a><a class="source-link" href="https://www.cninfo.com.cn/" target="_blank" rel="noopener noreferrer">巨潮资讯</a><a class="source-link" href="https://www.cls.cn/" target="_blank" rel="noopener noreferrer">财联社</a></div></div><div class="source-group"><h3>通用AI·业界</h3><div class="source-links"><a class="source-link" href="https://openai.com/news/" target="_blank" rel="noopener noreferrer">OpenAI</a><a class="source-link" href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer">Anthropic</a><a class="source-link" href="https://x.ai/news" target="_blank" rel="noopener noreferrer">xAI / Grok</a><a class="source-link" href="https://qwenlm.github.io/" target="_blank" rel="noopener noreferrer">Qwen</a><a class="source-link" href="https://www.deepseek.com/" target="_blank" rel="noopener noreferrer">DeepSeek</a><a class="source-link" href="https://www.zhipuai.cn/" target="_blank" rel="noopener noreferrer">智谱 GLM</a><a class="source-link" href="https://deepmind.google/discover/blog/" target="_blank" rel="noopener noreferrer">Google DeepMind</a><a class="source-link" href="https://ai.meta.com/blog/" target="_blank" rel="noopener noreferrer">Meta AI</a><a class="source-link" href="https://mistral.ai/news/" target="_blank" rel="noopener noreferrer">Mistral</a><a class="source-link" href="https://cohere.com/blog" target="_blank" rel="noopener noreferrer">Cohere</a><a class="source-link" href="https://blogs.microsoft.com/ai/" target="_blank" rel="noopener noreferrer">Microsoft AI</a><a class="source-link" href="https://blogs.nvidia.com/" target="_blank" rel="noopener noreferrer">NVIDIA</a><a class="source-link" href="https://www.latent.space/" target="_blank" rel="noopener noreferrer">Latent Space</a><a class="source-link" href="https://github.com/explore" target="_blank" rel="noopener noreferrer">GitHub Releases</a><a class="source-link" href="https://replicate.com/blog" target="_blank" rel="noopener noreferrer">Replicate</a><a class="source-link" href="https://blog.langchain.dev/" target="_blank" rel="noopener noreferrer">LangChain</a><a class="source-link" href="https://www.llamaindex.ai/blog" target="_blank" rel="noopener noreferrer">LlamaIndex</a><a class="source-link" href="https://seed.bytedance.com/" target="_blank" rel="noopener noreferrer">字节 Seed</a><a class="source-link" href="https://hunyuan.tencent.com/" target="_blank" rel="noopener noreferrer">腾讯混元</a><a class="source-link" href="https://aws.amazon.com/blogs/machine-learning/" target="_blank" rel="noopener noreferrer">Amazon AI</a><a class="source-link" href="https://www.amd.com/en/blogs.html" target="_blank" rel="noopener noreferrer">AMD</a></div></div><div class="source-group"><h3>通用AI·科研</h3><div class="source-links"><a class="source-link" href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener noreferrer">arXiv cs.AI</a><a class="source-link" href="https://arxiv.org/list/cs.CL/recent" target="_blank" rel="noopener noreferrer">arXiv cs.CL</a><a class="source-link" href="https://arxiv.org/list/cs.LG/recent" target="_blank" rel="noopener noreferrer">arXiv cs.LG</a><a class="source-link" href="https://arxiv.org/list/cs.CV/recent" target="_blank" rel="noopener noreferrer">arXiv cs.CV</a><a class="source-link" href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer">Hugging Face Papers</a><a class="source-link" href="https://huggingface.co/papers/trending" target="_blank" rel="noopener noreferrer">Hugging Face Trending</a><a class="source-link" href="https://huggingface.co/models" target="_blank" rel="noopener noreferrer">Hugging Face Models</a><a class="source-link" href="https://github.com/trending" target="_blank" rel="noopener noreferrer">GitHub Trending</a><a class="source-link" href="https://modelscope.cn/" target="_blank" rel="noopener noreferrer">ModelScope</a></div></div><div class="source-group"><h3>补充交叉验证</h3><div class="source-links"><a class="source-link" href="https://36kr.com/" target="_blank" rel="noopener noreferrer">36氪</a><a class="source-link" href="https://www.jiemian.com/" target="_blank" rel="noopener noreferrer">界面新闻</a><a class="source-link" href="https://www.jiqizhixin.com/" target="_blank" rel="noopener noreferrer">机器之心</a><a class="source-link" href="https://www.qbitai.com/" target="_blank" rel="noopener noreferrer">量子位</a><a class="source-link" href="https://www.aitimes.com.cn/" target="_blank" rel="noopener noreferrer">新智元</a><a class="source-link" href="https://next.ithome.com/" target="_blank" rel="noopener noreferrer">IT之家 Next</a><a class="source-link" href="https://techcrunch.com/" target="_blank" rel="noopener noreferrer">TechCrunch</a><a class="source-link" href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" rel="noopener noreferrer">The Verge</a><a class="source-link" href="https://venturebeat.com/ai/" target="_blank" rel="noopener noreferrer">VentureBeat</a><a class="source-link" href="https://www.prnewswire.com/" target="_blank" rel="noopener noreferrer">PR Newswire</a><a class="source-link" href="https://www.businesswire.com/" target="_blank" rel="noopener noreferrer">Business Wire</a><a class="source-link" href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener noreferrer">SEC EDGAR</a><a class="source-link" href="https://news.google.com/" target="_blank" rel="noopener noreferrer">Google News</a></div></div></section><footer>由 Hermes Agent 自动生成 · 数据来自公开新闻源</footer>
+</div>
+</body>
+</html>
