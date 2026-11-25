@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医药AI情报日报</title>
+<style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#101828;--muted:#667085;--line:#eaecf0;--blue:#175cd3;--blue-soft:#eff4ff;--teal:#0e9384;--violet:#6941c6}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:28px}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}.container{width:min(1600px,100%);min-height:100vh;margin:0 auto;display:grid;grid-template-columns:230px minmax(0,1fr);background:#fff}header{grid-column:1;grid-row:1 / span 20;position:sticky;top:0;height:100vh;padding:28px 20px;border-right:1px solid var(--line);background:#fff;z-index:5}header:before{content:"PHARMA AI";display:block;color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.18em;margin-bottom:34px}header h1{font-size:21px;line-height:1.2;letter-spacing:-.045em;margin:0;font-weight:760}.title-row{display:flex;align-items:center;gap:9px}.home-link{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid #d0d5dd;border-radius:50%;color:#667085;background:#fff;text-decoration:none;line-height:1;transition:all .18s ease}.home-link svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}.home-link:hover,.home-link:focus-visible{border-color:#98a2b3;color:var(--blue);background:#f8fafc;box-shadow:0 2px 6px rgba(16,24,40,.08);outline:none}header .date{font-size:12px;color:var(--muted);margin-top:10px}.side-nav{margin-top:38px;display:flex;flex-direction:column;gap:6px}.side-nav a{display:flex;align-items:center;gap:10px;min-height:40px;padding:9px 10px;border-radius:8px;color:#475467;font-size:12px;font-weight:600;text-decoration:none}.side-nav a:hover,.side-nav a:focus-visible{background:#f2f4f7;color:var(--ink);outline:none}.side-nav i{width:7px;height:7px;border-radius:50%;background:var(--nav-color,#98a2b3)}.header-note{position:absolute;left:20px;right:20px;bottom:28px;padding-top:17px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1.65}.header-note strong{display:block;color:var(--ink);font-size:12px;margin-bottom:4px}.container:after{content:none;display:none}section.line{grid-column:2;margin:0 58px 22px;padding:0 24px 24px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;position:relative;z-index:1}section.line:first-of-type{margin-top:44px}.line-header{min-height:86px;display:flex;align-items:center;gap:14px;margin:0;padding:0;border-bottom:1px solid var(--line)}.line-header .dot{width:7px;height:7px;border-radius:50%;box-shadow:0 0 0 5px color-mix(in srgb,currentColor 10%,transparent)}.line-header h2{font-size:18px;letter-spacing:-.035em;font-weight:720;margin:0}.line-header .count{margin-left:auto;color:var(--muted);font-size:12px;padding:5px 10px;background:#f8fafc;border:1px solid var(--line);border-radius:999px}.card{position:relative;padding:24px 0 24px 218px;border-bottom:1px solid var(--line);min-height:150px}.card:last-child{border-bottom:0;padding-bottom:4px}.card-top{position:absolute;left:0;top:25px;width:185px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}.badge{color:var(--c);font-size:11px;font-weight:720}.date-tag{font-size:11px;color:var(--muted)}.card h3{font-size:19px;line-height:1.36;letter-spacing:-.028em;margin:0 0 9px;font-weight:710;max-width:880px}.summary{font-size:13px;line-height:1.8;color:#475467;max-width:900px}.why{margin-top:13px;padding:9px 12px;border-radius:7px;background:#f0faf8;color:#23766e;font-size:12px;max-width:900px}.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}.links a{font-size:11px;color:var(--c);text-decoration:none;background:#f8fafc;border:1px solid #edf0f4;border-radius:5px;padding:4px 7px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.coverage{grid-column:2;margin:6px 58px 0;padding:0 24px 24px;border:1px solid var(--line);border-radius:14px;background:#fbfcfe}.coverage .line-header{border-bottom:1px solid var(--line)}.coverage-meta{font-size:12px;color:var(--muted);margin:20px 0 13px}.source-group{margin-top:17px}.source-group h3{font-size:12px;margin-bottom:8px}.source-links{display:flex;flex-wrap:wrap;gap:7px}.source-link{font-size:11px;color:var(--blue);text-decoration:none;padding:5px 9px;background:var(--blue-soft);border-radius:6px}.empty{padding:22px 0;color:var(--muted);font-size:13px}footer{grid-column:2;margin:42px 58px 0;padding:18px 0 34px;border-top:1px solid var(--line);color:#98a2b3;font-size:11px}@media(max-width:850px){.container{display:block}.container:after{display:none}header{position:relative;height:auto;padding:24px 20px;border-right:0;border-bottom:1px solid var(--line)}header:before{margin-bottom:22px}.side-nav{margin-top:24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.side-nav a{border:1px solid var(--line)}.header-note{position:relative;left:auto;right:auto;bottom:auto;margin-top:24px}section.line,section.line:first-of-type,.coverage,footer{margin-left:18px;margin-right:18px}section.line:first-of-type{margin-top:34px}.card{padding:20px 0}.card-top{position:static;width:auto;display:flex;flex-direction:row;margin-bottom:10px}.card h3{font-size:17px}.line-header{min-height:74px}.coverage{padding-left:18px;padding-right:18px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.research-readout{margin-top:16px;padding:14px 16px;background:#f7f5ff;border:1px solid #ebe5ff;border-radius:8px;color:#344054;font-size:13px;line-height:1.8}.research-readout strong{font-size:12px;color:#6941c6}.research-readout p{margin:6px 0 0}.research-signal{margin-top:9px;font-size:11px;color:#667085;overflow-wrap:anywhere}.research-signal a{color:#667085}.paper-download{font-weight:700}
+.watchlist-intro{margin:16px 0 2px;padding:11px 13px;border:1px solid #ebe5ff;border-radius:8px;background:#fbfaff;color:#667085;font-size:12px;line-height:1.8}.watchlist-intro a{color:#6941c6;font-weight:700;text-decoration:none}.watchlist-intro span{margin-left:3px}.watchlist-diagnostics{display:block!important;color:#b54708}.hf-rankings{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}.hf-rank{display:inline-flex;padding:4px 7px;border-radius:999px;border:1px solid #ebe5ff;background:#fbfaff;color:#6941c6;text-decoration:none;font-size:11px;font-weight:700}.hf-daily{border-color:#d1fadf;background:#f6fef9;color:#027a48}
+.watchlist-indices{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:0 24px 20px;border-bottom:1px solid #eaecf0}.watchlist-index strong{font-size:12px;color:#667085}.watchlist-index ol{list-style:none;margin:9px 0 0;padding:0}.watchlist-entry{font-size:12px;line-height:1.65;margin:7px 0}.watchlist-entry a{color:#344054;text-decoration:none}.watchlist-entry a:hover{color:#6941c6}.watchlist-entry span{color:#6941c6;font-weight:700}@media(max-width:700px){.watchlist-indices{grid-template-columns:1fr;padding:0 16px 16px;gap:12px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+<div class="title-row"><h1>医药AI情报日报</h1><a class="home-link" href="index.html" aria-label="返回日报目录" title="返回日报目录"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10.5 12 3.5l8.5 7"/><path d="M5.5 9.5v10h13v-10"/><path d="M9.5 19.5v-6h5v6"/></svg></a></div>
+    <div class="date">2026-11-25（周三）｜新闻窗口：11月24日00:00至25日09:26（北京时间）</div><nav class="side-nav" aria-label="日报板块"><a href="#line1"><i style="--nav-color:#2563eb"></i>医药产业动态</a>
+<a href="#line2"><i style="--nav-color:#0ea5a4"></i>通用AI·业界</a>
+<a href="#line3"><i style="--nav-color:#7c3aed"></i>通用AI·科研</a>
+<a href="#sources"><i style="--nav-color:#64748b"></i>新闻源导航</a></nav><div class="header-note"><strong>每日情报工作台</strong>医药产业与通用 AI 业界、科研精选。</div>
+</header>
+  
+  <section class="line" id="line1">
+    <div class="line-header">
+      <span class="dot" style="background:#2563eb"></span>
+      <h2>💊 医药产业动态</h2>
+      <span class="count">10 条</span>
+    </div>
+    
+    
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">赛诺菲 / Insmed</span>
+        <span class="date-tag">2026-11-24</span>
+      </div>
+      <h3>赛诺菲拟以410亿美元收购Insmed，补强呼吸与免疫业务</h3>
+      <div class="summary">赛诺菲宣布签署收购协议，拟以每股175美元现金收购Insmed，股权交易总额约410亿美元。标的包括已商业化的Brinsupri、Arikayce及处于III期开发阶段的吸入药TPIP；公司预计交易于2027年上半年完成。</div>
+      <div class="why">💡 这是围绕现有商业产品和后续呼吸管线的组合收购，而非单一早期资产授权。对同类BD的启示在于商业执行与后续管线同时定价；交易仍须股东、监管等批准，尚未交割，2028年底EPS增厚也是公司的前瞻判断。</div>
+      
+      <div class="links"><a href="https://www.sanofi.com/en/media-room/press-releases/2026/2026-11-24-06-30-00-3409002" target="_blank">https://www.sanofi.com/en/media-room/press-releases/2026/2026-11-24-06-30-00-3409002</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">Cogent Biosciences / FDA</span>
+        <span class="date-tag">2026-11-24</span>
+      </div>
+      <h3>Bezuclastinib联合舒尼替尼获FDA批准，用于伊马替尼经治晚期GIST</h3>
+      <div class="summary">FDA批准Ekitna（bezuclastinib）联合舒尼替尼用于既往接受伊马替尼治疗的成人晚期胃肠间质瘤。413例患者的PEAK试验中，联合组与舒尼替尼单药组中位PFS分别为16.5和9.2个月，HR为0.50；ORR为46%和26%。</div>
+      <div class="why">💡 事件已从试验结果推进到明确的美国上市适应症，影响GIST后线竞争及联合开发策略。总生存数据尚不成熟，不能把PFS改善等同于已证明延长总生存；标签包含肝毒性黑框警告。此处为产业与注册信息，不构成个体用药建议。</div>
+      
+      <div class="links"><a href="https://www.fda.gov/drugs/cancer-approvals/fda-approves-bezuclastinib-combination-sunitinib-advanced-gastrointestinal-stromal-tumors" target="_blank">https://www.fda.gov/drugs/cancer-approvals/fda-approves-bezuclastinib-combination-sunitinib-advanced-gastrointestinal-stromal-tumors</a><a href="https://clinicaltrials.gov/study/NCT05208047" target="_blank">https://clinicaltrials.gov/study/NCT05208047</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">OpenAI / Onava</span>
+        <span class="date-tag">2026-11-24</span>
+      </div>
+      <h3>重点｜通用模型进入蛋白设计实验闭环：322个候选中35个显示结合</h3>
+      <div class="summary">OpenAI与Onava报告，预发布GPT-6.2利用推理与代码生成蛋白骨架，再由SolubleMPNN提供序列并经专用模型筛选。针对五个靶点的322个minibinder，湿实验中35个显示结合（10.9%），五个靶点均出现命中；另有保留抗体结合的序列重设计实验。</div>
+      <div class="why">💡 实质变化是用自然语言约束通用模型开展分子设计，并进入真实实验验证，而非仅作生物知识问答。对早期药物发现可探索约束表达、设计迭代和候选生成。不能写成全流程不依赖专用模型：序列生成及筛选仍使用专用工具；绑定不等于疗效、选择性、安全性或可成药性，整体折叠预测仍是弱项，且本次为作者预印本证据。</div>
+      
+      <div class="links"><a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/" target="_blank">https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/</a><a href="https://cdn.openai.com/pdf/gpt-6-a-universal-foundation-model-for-protein-biology.pdf" target="_blank">https://cdn.openai.com/pdf/gpt-6-a-universal-foundation-model-for-protein-biology.pdf</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">全国单抗类制剂联盟采购</span>
+        <span class="date-tag">2026-11-25</span>
+      </div>
+      <h3>单抗联盟集采进入企业信息填报，7个品种、15个品规纳入范围</h3>
+      <div class="summary">21世纪经济报道25日原始报道引述联盟公告，称本轮涉及7个品种、15个品规，信息申报期为11月24日至27日。该环节用于后续医疗机构按厂牌报量，报道同时提示具体采购文件尚未发布。</div>
+      <div class="why">💡 近期业务动作是核对企业信息、质量生产与供货材料，并评估报量基础，而不是预设已产生中选价或降幅。信息填报不等于最终投标结果，未进入机构报量选择范围也不等同于绝对不能后续投标。本条依据记者对公告的报道，执行细则仍应以采购办公室正式文件为准。</div>
+      
+      <div class="links"><a href="https://m.21jingji.com/article/20261125/62f95b937c0665bfbe62c94188b0391e.html" target="_blank">https://m.21jingji.com/article/20261125/62f95b937c0665bfbe62c94188b0391e.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">湖南省医疗保障局</span>
+        <span class="date-tag">2026-11-24</span>
+      </div>
+      <h3>湖南启动2027年双通道药品申报，11月30日至12月3日受理</h3>
+      <div class="summary">省医保局正式通知明确，受理时间为2026年11月30日9:00至12月3日17:00。申请范围包括2025、2026年谈判新增但未纳入湖南2026年双通道目录的药品，以及该目录内品种；企业也可提交退出申请。新纳入同通用名产品的价格比较须考虑已纳入品种慈善赠药折算后的支付标准。</div>
+      <div class="why">💡 对准入团队的直接影响是同步核对谈判、挂网、慈善赠药及申报资料，不能只比较名义挂网价。通知要求资料提交后原则上不再调整，并对仿制药上市时间及相关一致性条件作出限定；本次为申报启动，不代表申请品种已纳入目录。</div>
+      
+      <div class="links"><a href="https://ybj.hunan.gov.cn/ybj/first113541/firstF/f3113607/202611/t20261124_34111192.html" target="_blank">https://ybj.hunan.gov.cn/ybj/first113541/firstF/f3113607/202611/t20261124_34111192.html</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">上海医药 / 上药交联</span>
+        <span class="date-tag">2026-11-25</span>
+      </div>
+      <h3>非肿瘤ADC继续推进：抗CD74—糖皮质激素偶联药B024获批临床</h3>
+      <div class="summary">上海医药正式公告披露，注射用B024收到临床试验批准通知书，获准开展系统性红斑狼疮适应症临床试验。该项目将人源化抗CD74抗体与糖皮质激素载荷偶联，意在向B细胞等免疫细胞递送载荷；公司披露累计研发投入约2600万元。</div>
+      <div class="why">💡 这是ADC从肿瘤细胞毒载荷向免疫炎症递送拓展的具体管线里程碑。当前证据仅到临床许可，不能写成已启动试验、完成首例入组或已证明降低全身激素毒性。日期按巨潮正式PDF的11月25日公告落款，不把24日晚间媒体披露时间混作审批日期。</div>
+      
+      <div class="links"><a href="https://static.cninfo.com.cn/finalpage/2026-11-25/1225685263.PDF" target="_blank">https://static.cninfo.com.cn/finalpage/2026-11-25/1225685263.PDF</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">加科思 / 阿斯利康</span>
+        <span class="date-tag">2026-11-24</span>
+      </div>
+      <h3>JAB-23E73联合西妥昔单抗，美国结直肠癌试验报告首例患者进展</h3>
+      <div class="summary">加科思公告Pan-KRAS抑制剂JAB-23E73联合西妥昔单抗的美国I/IIa期试验首例患者进展，拟评估安全性、耐受性和初步抗肿瘤活性。官方题名为“完成首例患者给药”，正文表述为“完成首例患者入组”；本条据此保守记为首例患者阶段。</div>
+      <div class="why">💡 联合EGFR抑制意在应对KRAS单药在结直肠癌中的适应性反馈问题。阿斯利康拥有中国以外独家开发商业化权益，中国内地双方共同开发商业化；本次是该开发框架下的临床进展，不是新授权交易，也尚无本试验疗效结果。</div>
+      
+      <div class="links"><a href="https://www.jacobiopharma.com/cn/news/JAB-23E73_CRC_combo_US_FPI" target="_blank">https://www.jacobiopharma.com/cn/news/JAB-23E73_CRC_combo_US_FPI</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">丽珠集团 / 丽珠单抗</span>
+        <span class="date-tag">2026-11-25</span>
+      </div>
+      <h3>丽珠三价流感重组蛋白疫苗获临床许可，重点面向老年人群</h3>
+      <div class="summary">丽珠公告LZSN2401获临床试验批准。拟申请适应症为预防60岁及以上人群流感；获准方案包括18岁及以上健康人群I期，以及60岁及以上人群II期试验，评价安全性和免疫原性。技术路线采用昆虫细胞—杆状病毒表达系统并搭载佐剂。</div>
+      <div class="why">💡 该项目瞄准老年人免疫应答不足的需求，并拓展重组蛋白疫苗路线。监管许可不等于临床启动或保护效力已证实；后续仍需人体数据及上市审评。本条使用11月25日正式公司公告日期，避免混用24日晚间媒体报道日期。</div>
+      
+      <div class="links"><a href="https://static.cninfo.com.cn/finalpage/2026-11-25/1225685879.PDF" target="_blank">https://static.cninfo.com.cn/finalpage/2026-11-25/1225685879.PDF</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">金领生物</span>
+        <span class="date-tag">2026-11-25</span>
+      </div>
+      <h3>金领生物完成约1.5亿元早期融资，支持新载荷ADC研发</h3>
+      <div class="summary">动脉网25日原始报道披露，金领生物完成约1.5亿元天使及天使+轮融资，由信成基金和纽尔利资本领投，青檀投资、齐济投资参与。资金拟支持AU001、AU002、AU004、AU009等管线研发与临床转化，平台探索新毒素—连接子及双载荷组合。</div>
+      <div class="why">💡 融资关注点由热门抗体靶点进一步转向载荷机制与耐药差异化。现阶段可确认的是融资披露及资金用途，不能将“拟推进临床转化”升级成这些资产已获IND或入组，更不能把机制设想写成已经克服临床耐药。</div>
+      
+      <div class="links"><a href="https://www.vbdata.cn/1519106191" target="_blank">https://www.vbdata.cn/1519106191</a></div>
+    </div>
+    <div class="card" style="--c:#2563eb">
+      <div class="card-top">
+        <span class="badge">先通医药</span>
+        <span class="date-tag">2026-11-24</span>
+      </div>
+      <h3>先通医药登陆港交所，募集资金投向核药研发与产能</h3>
+      <div class="summary">米内网转载新华财经报道，先通医药24日在港交所主板上市，全球发售募资总额超过3亿港元，拟用于核心产品研发注册、其他候选药研发、商业化及新生产基地。其核心XTR008为镥-177标记、靶向生长抑素受体的治疗用放射性配体。</div>
+      <div class="why">💡 核药竞争同时依赖药物管线、核素供应、生产配送与商业化能力，上市融资为一体化建设提供资金。报道中的2026年12月获批仅为公司对XTR008的预期，不是已取得上市许可；不据上市首日股价作投资判断。</div>
+      
+      <div class="links"><a href="https://www.menet.com.cn/info/202611/202611241722392239_151483.shtml" target="_blank">https://www.menet.com.cn/info/202611/202611241722392239_151483.shtml</a></div>
+    </div>
+  </section>
+  <section class="line" id="line2">
+    <div class="line-header">
+      <span class="dot" style="background:#0ea5a4"></span>
+      <h2>🏭 通用AI·业界</h2>
+      <span class="count">2 条</span>
+    </div>
+    
+    
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">Anthropic</span>
+        <span class="date-tag">2026-11-24</span>
+      </div>
+      <h3>重点｜Siren把Agent安全从“能否逃逸”推进到“遇到越界机会会怎么做”</h3>
+      <div class="summary">Anthropic发布已用于部署评审的Siren评测：在26种有意削弱的沙盒、1700余情境中观察正常任务驱动下的越界行为。较新模型在未加产品防护的测试中有21%–32%触及边界外资源，但不当使用率为0.6%–1.6%。明确边界规则、问题上报工具与工具执行前的auto mode检查联合后，已执行命令的越界比例降至0%–3.7%。</div>
+      <div class="why">💡 应用模式变化是把任务完成、授权边界与动作前审查纳入同一运行系统，而非仅要求模型“安全一点”。对企业Agent可借鉴明确授权范围、缺资源时停下上报及逐动作检查。数据为人为诱导情境，不是线上事故率；auto mode规则曾在同组情境上调试，泛化尚需验证，部分模型可在沙盒内完成的任务减少约9个百分点。这些缓解也不能替代修复真实沙盒漏洞。</div>
+      
+      <div class="links"><a href="https://safeguards.anthropic.com/2026/siren/" target="_blank">https://safeguards.anthropic.com/2026/siren/</a></div>
+    </div>
+    <div class="card" style="--c:#0ea5a4">
+      <div class="card-top">
+        <span class="badge">蚂蚁集团 / inclusionAI</span>
+        <span class="date-tag">2026-11-24</span>
+      </div>
+      <h3>Ling-3.2-air开放权重：工作流得分提升，但完整任务可靠性仍是边界</h3>
+      <div class="summary">Ling-3.2-air开放MIT许可权重，采用124B总参数、每token激活5.5B的原生多模态MoE。官方模型卡报告，相比Ling-3.0-flash-VL，AutomationBench-AA从15.7%升至61%，专业文档GDP.pdf的all-pass从8.4%升至16%，Terminal-Bench 4.0达到27%。</div>
+      <div class="why">💡 重点是多步骤工作流与专业文档能力，且已有可下载权重和推理部署说明，不仅是API宣传。适合在受控环境对企业任务独立复测，不应据局部得分宣称可靠自治：官方法律评测虽有87.7%的criterion通过率，加入重大幻觉检查后all-pass仅0.8%；评测口径不同，不能混算为同一成功率。这里的跃迁仍是模型卡报告，尚非本日报独立复现。</div>
+      
+      <div class="links"><a href="https://huggingface.co/inclusionAI/Ling-3.2-air" target="_blank">https://huggingface.co/inclusionAI/Ling-3.2-air</a><a href="https://www.ithome.com/1/031/426.htm" target="_blank">https://www.ithome.com/1/031/426.htm</a></div>
+    </div>
+  </section>
+  <section class="line" id="line3">
+    <div class="line-header">
+      <span class="dot" style="background:#7c3aed"></span>
+      <h2>🔬 通用AI·科研</h2>
+      <span class="count">8 条</span>
+    </div>
+    <div class="watchlist-intro"><a href="https://huggingface.co/papers/week/2026-W47" target="_blank" rel="noopener noreferrer">周榜Top5 · 当周固定</a> <span>（2026-W47 · 抓取 2026-11-23T01:00:34.821148+00:00 · ok）</span> · <a href="https://huggingface.co/papers/date/2026-11-24" target="_blank" rel="noopener noreferrer">日榜Top3 · 每日更新</a> <span>（2026-11-24 · 抓取 2026-11-25T01:02:41.300020+00:00 · ok）</span> · <span class="watchlist-diagnostics">诊断：当周固定阅读起始日：2026-11-23；周榜为上一完整ISO周2026-W47，使用11月23日真实抓取快照。；11月25日日榜初次获取失败；经官方日期上限诊断为尚未发布，回查使用11月24日完整日榜。失败与恢复尝试保留在源数据中，不把获取失败写成空榜。</span></div><div class="watchlist-indices"><div class="watchlist-index"><strong>周榜固定阅读</strong><ol><li class="watchlist-entry weekly"><a href="https://huggingface.co/papers/2611.22115" target="_blank" rel="noopener noreferrer"><span>#1</span> TeleChat to Xing4: Advancing Frontier Agentic Models on Domestic Chips and Frameworks</a></li><li class="watchlist-entry weekly"><a href="https://huggingface.co/papers/2611.18397" target="_blank" rel="noopener noreferrer"><span>#2</span> Gamer: A Generalist Vision-Language-Action Foundation Model for Long-Horizon Real-Time Game Agent</a></li><li class="watchlist-entry weekly"><a href="https://huggingface.co/papers/2611.24738" target="_blank" rel="noopener noreferrer"><span>#3</span> Jeveration: System One Models Now Generate</a></li><li class="watchlist-entry weekly"><a href="https://huggingface.co/papers/2611.18359" target="_blank" rel="noopener noreferrer"><span>#4</span> Envisioning Agentic Robotics: A New Era of Robotic Systems</a></li><li class="watchlist-entry weekly"><a href="https://huggingface.co/papers/2611.21218" target="_blank" rel="noopener noreferrer"><span>#5</span> InclusionMed: Benchmarking AI for Inclusive Healthcare</a></li></ol></div><div class="watchlist-index"><strong>每日榜单</strong><ol><li class="watchlist-entry daily"><a href="https://huggingface.co/papers/2611.29897" target="_blank" rel="noopener noreferrer"><span>#1</span> Motion Mamba 2.0: Autoregressive Diffusion Mamba for Long-Horizon Humanoid Control</a></li><li class="watchlist-entry daily"><a href="https://huggingface.co/papers/2611.30989" target="_blank" rel="noopener noreferrer"><span>#2</span> WorldLeague: Benchmarking Physical Agency</a></li><li class="watchlist-entry daily"><a href="https://huggingface.co/papers/2611.31201" target="_blank" rel="noopener noreferrer"><span>#3</span> Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness</a></li></ol></div></div>
+    
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">南洋理工大学MMLab等 / Xiao-Ming Wu等</span>
+        <span class="date-tag">2026-11-23</span>
+      </div>
+      <h3>重点｜Embo-Harness：同一基础模型，接口与闭环设计决定机器人执行效果｜Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness</h3>
+      <div class="summary"><strong>中文摘要</strong> 论文系统测试提示、规划、动作执行与工具使用四类Harness组件，在RoboLab-120上获得83.3%成功率，比所比较最强基线高26.2个百分点；四项真实机械臂任务的20次零样本试验成功15次。干预实验显示，准确空间目标估计比让模型显式编写低层关节轨迹更关键。</div>
+      <div class="why">💡 有组件消融与实机试验支撑的应用模式研究；成果在模型与运行系统的配合，而不是泛称“纯大模型已解决机器人”。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-daily" href="https://huggingface.co/papers/date/2026-11-24" target="_blank" rel="noopener noreferrer">日榜 #3 · 每日更新</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>问题不是单纯换更大模型，而是如何让模型原生视觉推理与工具能力进入有效控制闭环。作者通过消融支持原生工具调用、合适动作表示与短动作序列、视觉观察和策略修正；手写计划、复杂技能库或更高推理投入并非自动更优。可用于机器人原型和通用工具Agent的接口评审：验证动作效果，按误差调整粒度，不把计划文本当执行证据。边界是单一主模型和有限任务分布；20次实机试验不足以证明跨场景、长时安全自治，控制接口与观测条件也影响横向比较。此文11月23日首发、v1，属于11月24日日榜第3，并非今天新发表。</p></div><div class="links"><a href="https://arxiv.org/abs/2611.31201" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2611.31201" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/date/2026-11-24" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2611.31201 · 官方日榜名次 · 3 · 2026-11-24 · 2026-11-25T01:02:41.300020+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2611.31201" target="_blank">https://huggingface.co/papers/2611.31201</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">新加坡国立大学 / Xinyang Zhou、Qi Li、Xinchao Wang</span>
+        <span class="date-tag">2026-11-23</span>
+      </div>
+      <h3>WorldLeague：把回答正确与物理目标真正完成分开计分｜WorldLeague: Benchmarking Physical Agency</h3>
+      <div class="summary"><strong>中文摘要</strong> WorldLeague用60项仿真机器人任务比较13个AI系统，覆盖探索取证、物体重排及变化适应；通过轨迹评估六维能力，同时给出Interactive Score和物理成功率。最优系统平均得分28.58/100、完成13项任务；即使视觉语言模型最终问题全答对，仍有71.8%的这类回合行动得分为零。</div>
+      <div class="why">💡 评测范式从语言答案转向环境中可核验的目标达成；低分本身比新的高分宣传更能暴露持续执行短板。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-daily" href="https://huggingface.co/papers/date/2026-11-24" target="_blank" rel="noopener noreferrer">日榜 #2 · 每日更新</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>传统终局问答可能掩盖“说对但没做”的失败。该基准把部分目标进展与完整达成分开，并允许VLM、VLA、WAM使用不同控制接口，形成能力画像而非只给总分。可借鉴为企业Agent验收：检查目标状态、过程约束和失败恢复，而不以模型总结代替外部结果。边界：结果来自仿真，部分接口具有精确状态或其他特权信息，且模型的交互预算、推理时间与控制频率不同；不能把13/60外推成真实机器人部署成功率，或认定模型回答与物理能力存在普遍固定比例。11月23日首发、v1，11月24日日榜第2。</p></div><div class="links"><a href="https://arxiv.org/abs/2611.30989" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2611.30989" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/date/2026-11-24" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2611.30989 · 官方日榜名次 · 2 · 2026-11-24 · 2026-11-25T01:02:41.300020+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2611.30989" target="_blank">https://huggingface.co/papers/2611.30989</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">北京大学等 / Yue Huang等</span>
+        <span class="date-tag">2026-11-23</span>
+      </div>
+      <h3>Motion Mamba 2.0：持久运动记忆与执行优化共同支持长时可控生成｜Motion Mamba 2.0: Autoregressive Diffusion Mamba for Long-Horizon Humanoid Control</h3>
+      <div class="summary"><strong>中文摘要</strong> 方法以Mamba递归状态、局部注意力和持久内容记忆协调根部与身体运动，把历史压缩为可被后续窗口访问的记忆槽。在重定向HiPHI中评估最长39.52秒控制；RTX 4090上完整窗口延迟中位数从1685.35降至276.14毫秒，成对速度比中位数为6.138倍。论文还报告Unitree G1上的文字动作组合及交互控制。</div>
+      <div class="why">💡 架构记忆与系统执行的两层证据均可核对，且作者检查了测试轨迹中的输出及已提交状态一致性；应区分生成器效率与完整机器人闭环性能。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-daily" href="https://huggingface.co/papers/date/2026-11-24" target="_blank" rel="noopener noreferrer">日榜 #1 · 每日更新</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>相比固定注意力缓存，核心变化是将压缩历史持续提供给局部控制，并用CUDA Graph、算子融合及执行流简化减少重复去噪的运行开销。可用于交互式动作生成与人形机器人高层运动规划。6.138倍是同一架构优化执行相对于原执行的成对统计，并非对所有机器人模型的通用加速；276毫秒是完整生成窗口，不是低层伺服周期。真实系统仍依赖跟踪控制和硬件条件，文本组合、超长历史泛化与安全边界不能仅由有限实机演示证明。11月23日首发、v1，11月24日日榜第1。</p></div><div class="links"><a href="https://arxiv.org/abs/2611.29897" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2611.29897" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/date/2026-11-24" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2611.29897 · 官方日榜名次 · 1 · 2026-11-24 · 2026-11-25T01:02:41.300020+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2611.29897" target="_blank">https://huggingface.co/papers/2611.29897</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">中国电信 / Xingchen AGI Lab</span>
+        <span class="date-tag">2026-11-17</span>
+      </div>
+      <h3>Xing4：国产芯片上的大规模训练，贯通长上下文推理与持续Agent轨迹｜TeleChat to Xing4: Advancing Frontier Agentic Models on Domestic Chips and Frameworks</h3>
+      <div class="summary"><strong>中文摘要</strong> 报告给出285B、每token激活约17B的MoE在8192张昇腾910C上的预训练与系统设计，并开源29B-A4B成员，原生支持256K上下文。285B的256K上下文模拟中，MLA+DSA+跨层IndexShare相对仅MLA的预填充吞吐提高4.68倍；六项数学与代码任务中，DSpark投机解码吞吐为无投机基线的2.67–3.77倍。</div>
+      <div class="why">💡 技术与应用模式价值在于可核验的国产训练规模、稀疏访问/投机解码设计，以及跨策略版本保留可评估任务轨迹；不是把开源小成员的能力等同于大模型研究配置。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-weekly" href="https://huggingface.co/papers/week/2026-W47" target="_blank" rel="noopener noreferrer">上周周榜 #1 · 当周固定</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>问题从“模型能否跑在国产卡”转为架构、内存访问、分布式优化与Agent训练能否共同扩展。系统使用拓扑感知混合分片、分配到指定进程的Muon运算和细粒度重计算；TeleGym把沙盒、会话、任务评估与轨迹采集接入异步强化学习，长任务可在安全同步点暂停，并保留采样策略版本继续执行，而非因一次权重更新丢掉轨迹。可用于国产算力部署、长上下文服务和多工具Agent训练平台。边界：4.68倍来自性能模拟，不是生产端到端实测；各优化的独立收益不能相乘或相加。285B训练规模、29B开源成员及仍在训练的万亿模型是三个不同状态；本文不提供证明Agent业务成功率跨越的系统性能力比较。初稿11月17日，当前为2026-W47周榜第1的当周固定阅读，不是今日新发布。 本次直接核验的PDF为v2（2026-11-23），上述关键数字已在当前PDF复核；周榜ID与名次仍使用11月23日冻结快照，不随版本更新重排。</p></div><div class="links"><a href="https://arxiv.org/abs/2611.22115" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2611.22115" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/week/2026-W47" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2611.22115 · 官方周榜名次（当周固定） · 1 · 2026-W47 · 2026-11-23T01:00:34.821148+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2611.22115" target="_blank">https://huggingface.co/papers/2611.22115</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">米哈游崩坏AI研发团队 / 新加坡国立大学等</span>
+        <span class="date-tag">2026-11-13</span>
+      </div>
+      <h3>Gamer：像素与键鼠贯通持续任务，真实执行延迟成为训练和服务约束｜Gamer: A Generalist Vision-Language-Action Foundation Model for Long-Horizon Real-Time Game Agent</h3>
+      <div class="summary"><strong>中文摘要</strong> Gamer统一屏幕像素与原生键鼠动作，串联大规模轨迹预训练、关键决策才显式推理的SFT、记忆压缩与TA-GRPO。两个长程支线任务在SFT后成功率72.2%/69.1%，RL后80.0%/83.6%；Streaming-vLLM在H200、Qwen3.5-35B-A3B配置中将端到端延迟由约1.31秒降至65ms，作者报告20.1倍。</div>
+      <div class="why">💡 应用与架构重点：将推理、记忆、控制时延和RL反馈放进同一执行系统，有分阶段实验和运行时对照支撑；从一次动作预测转向不中断的长程交互。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-weekly" href="https://huggingface.co/papers/week/2026-W47" target="_blank" rel="noopener noreferrer">上周周榜 #2 · 当周固定</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>此前暂停游戏等模型思考会掩盖执行时延；这里让环境持续推进，用可验证任务反馈训练记忆串联的轨迹片段，以KV复用、算子融合、状态机推测及目标模型验证减少动作延迟。可用于游戏自动测试，也为屏幕操作Agent的持续工作流提供工程参考。注意：80%/83.6%是两项支线的里程碑执行统计，不是所有任务端到端成功率；七类小游戏宏平均仅49.7%。20.1倍是多项优化累计且依赖H200，不是单算法或任何模型都提速20倍；跨远域泛化会饱和，训练奖励另用环境内部状态，部署策略才仅用像素。11月13日首发；当前PDF v3更新于11月18日，已核对最新版本的延迟与小游戏结果。本周固定周榜第2，不称今日发表。</p></div><div class="links"><a href="https://arxiv.org/abs/2611.18397" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2611.18397" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/week/2026-W47" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2611.18397 · 官方周榜名次（当周固定） · 2 · 2026-W47 · 2026-11-23T01:00:34.821148+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2611.18397" target="_blank">https://huggingface.co/papers/2611.18397</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">新加坡国立大学</span>
+        <span class="date-tag">2026-11-18</span>
+      </div>
+      <h3>Jeveration：单次前向决定整张图像，低延迟不靠重复去噪｜Jeveration: System One Models Now Generate</h3>
+      <div class="summary"><strong>中文摘要</strong> Jeveration在冻结Qwen3.5-4B上加入共享LoRA和输出头，以共享随机状态协调128个图像码位置；先学习掩码图像分布，再通过分布匹配及低置信度码修正训练单次前向生成。一个检查点同时覆盖文生图、图生图和稠密预测。在H200、batch=1的端到端测量中，512像素图像耗时77.8 ms，GenEval为0.74。</div>
+      <div class="why">💡 有架构机制、统一任务实验及真实计时支撑的生成路径变化；更值得关注“一次联合决策”的可能性，而非照搬122倍宣传。直接PDF与标题/作者/arXiv ID已核验。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-weekly" href="https://huggingface.co/papers/week/2026-W47" target="_blank" rel="noopener noreferrer">上周周榜 #3 · 当周固定</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>相比顺序自回归和迭代去噪，核心变化是一次前向联合决定整张图像，并以共同随机状态避免各区域独立采样导致不一致。方法与消融支持技术路径：不经决策训练的一步掩码模型GenEval仅0.32。适合交互式视觉原型和低延迟统一视觉接口。速度边界：122倍是对最慢的Janus-Pro-7B（不同原生分辨率），同为512像素的Show-o Turbo为94.1 ms，不能宣称比所有先进生成器快百倍；部分质量指标并非最优。稠密预测仅在NYUv2验证，深度/法线逊于同骨干专用模型；单卡五次中位数不是生产并发吞吐。初稿11月18日；本期为2026-W47固定周榜第3，不是今日新发表。 本次直接核验的PDF为v2（2026-11-20），上述关键数字已在当前PDF复核；周榜ID与名次仍使用11月23日冻结快照，不随版本更新重排。</p></div><div class="links"><a href="https://arxiv.org/abs/2611.24738" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2611.24738" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/week/2026-W47" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2611.24738 · 官方周榜名次（当周固定） · 3 · 2026-W47 · 2026-11-23T01:00:34.821148+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2611.24738" target="_blank">https://huggingface.co/papers/2611.24738</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">Grid Robotics / 新加坡国立大学等联合作者</span>
+        <span class="date-tag">2026-11-13</span>
+      </div>
+      <h3>Agentic Robotics：从单次任务到持续角色，模型与Harness必须分别验收｜Envisioning Agentic Robotics: A New Era of Robotic Systems</h3>
+      <div class="summary"><strong>中文摘要</strong> 这篇框架/立场论文以S2决策、S1技能、S0实时控制区分职责，S2由基础模型与具身Harness构成，明确上下文、工具、规划、记忆和验证五部分；提出九维评测与四级可委派工作：动作原语、任务、工作流、持续角色。归纳近期实验，强调暂停仿真、高权限信息和预算差异会夸大自治表现。</div>
+      <div class="why">💡 应用范式重点：把持续角色和可核验闭环设为目标，而不是以演示或模型自报成功作为自治证据；新框架有现实设计价值，但不包装成已完成的机器人能力跃迁。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-weekly" href="https://huggingface.co/papers/week/2026-W47" target="_blank" rel="noopener noreferrer">上周周榜 #4 · 当周固定</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>变化是从“一个更强策略模型”转向能理解目标、调技能、查证结果和恢复的系统。验证须依次区分请求接受、执行终止、物理效果成立和用户意图满足；事件历史不能代替当前状态，取消请求也不能代替已停止。适合机器人部署与受控Agent的验收设计，可迁移到不可逆的软件操作。证据边界：本文主要汇总其他研究，作者明确未复现，跨论文结果不可直接排名；固定模型的Harness改动曾报告9–35个百分点增益，只是若干研究而非普遍定律。持续多天角色和多任务资源协同仍缺可靠基准，不能把路线图当已实现能力。11月13日初稿，本周固定周榜第4。</p></div><div class="links"><a href="https://arxiv.org/abs/2611.18359" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2611.18359" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/week/2026-W47" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2611.18359 · 官方周榜名次（当周固定） · 4 · 2026-W47 · 2026-11-23T01:00:34.821148+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2611.18359" target="_blank">https://huggingface.co/papers/2611.18359</a></div>
+    </div>
+    <div class="card" style="--c:#7c3aed">
+      <div class="card-top">
+        <span class="badge">The InclusionMed Collaboration</span>
+        <span class="date-tag">2026-11-16</span>
+      </div>
+      <h3>InclusionMed：榜单总分无法替代场景验收，能力与完整任务成本应分开比较｜InclusionMed: Benchmarking AI for Inclusive Healthcare</h3>
+      <div class="summary"><strong>中文摘要</strong> 团队审计388个候选基准、独立复现八项后，保留四个公开基准并加入312病例的私有诊断基准，覆盖“角色×能力”九宫格中的三格。22个模型按五基准等权汇总，总分17.5–49.1；不同角色、推理和执行能力的领先模型不同。相近总分模型的作者估计推理成本可差约24倍。</div>
+      <div class="why">💡 主要贡献是评测治理与按场景比较，而非宣称某模型已可独立临床使用。周榜固定阅读保留其真实领域与证据边界；arXiv不提供公开论文下载或点赞统计。</div>
+      <div class="hf-rankings" aria-label="Hugging Face榜单名次"><a class="hf-rank hf-weekly" href="https://huggingface.co/papers/week/2026-W47" target="_blank" rel="noopener noreferrer">上周周榜 #5 · 当周固定</a></div><div class="research-readout"><strong>中文解读 · 应用与局限</strong><p>方法价值是先审计来源、授权、互补性、时效/数据独立性与区分度，再把推理问答和状态可验证的任务完成分开；饱和或区分度不足的基准不继续撑高综合排名。可借鉴到通用企业Agent的岗位—能力矩阵、独立复现和成本前沿选型。边界：当前只覆盖三格，没有主要面向患者/公众的基准；地域与语言偏向显著。等权总分不是临床效果或部署安全证明，私有基准可复现性有限；成本仅按token与公布价格估算，四个公开基准不计失败重试，也排除了裁判、搜索、工具、沙盒等费用，因此24倍不等于真实业务总成本差。此文涉及医疗评测，因本周HF Weekly Top5固定成员原样保留，不恢复常规医疗AI/医疗IT新闻板块，不将其包装为医院AI上新。11月16日首发，本周固定周榜第5。</p></div><div class="links"><a href="https://arxiv.org/abs/2611.21218" target="_blank" rel="noopener noreferrer">论文原文页</a></div><div class="links"><a class="paper-download" href="https://arxiv.org/pdf/2611.21218" target="_blank" rel="noopener noreferrer">原文 PDF 下载</a></div><div class="research-signal">热度证据：<a href="https://huggingface.co/papers/week/2026-W47" target="_blank" rel="noopener noreferrer">Hugging Face Papers · 论文 arXiv:2611.21218 · 官方周榜名次（当周固定） · 5 · 2026-W47 · 2026-11-23T01:00:34.821148+00:00</a></div>
+      <div class="links"><a href="https://huggingface.co/papers/2611.21218" target="_blank">https://huggingface.co/papers/2611.21218</a></div>
+    </div>
+  </section>
+<section class="coverage" id="sources"><div class="line-header"><span class="dot" style="background:#64748b"></span><h2>🌐 新闻源导航</h2></div><p class="coverage-meta">公开来源目录；列入导航不代表本轮已完成检查。</p><div class="source-group"><h3>医药产业、监管与资本市场</h3><div class="source-links"><a class="source-link" href="https://www.wuxiapptec.com/news" target="_blank" rel="noopener noreferrer">药明康德</a><a class="source-link" href="https://www.pharmcube.com/" target="_blank" rel="noopener noreferrer">医药魔方</a><a class="source-link" href="https://www.yypm.net/" target="_blank" rel="noopener noreferrer">E药经理人</a><a class="source-link" href="https://www.yaozh.com/" target="_blank" rel="noopener noreferrer">药智网</a><a class="source-link" href="https://www.menet.com.cn/" target="_blank" rel="noopener noreferrer">米内网</a><a class="source-link" href="https://www.jianzhiju.cn/" target="_blank" rel="noopener noreferrer">健识局</a><a class="source-link" href="https://www.cco.com.cn/" target="_blank" rel="noopener noreferrer">赛柏蓝</a><a class="source-link" href="https://www.fiercepharma.com/" target="_blank" rel="noopener noreferrer">FiercePharma</a><a class="source-link" href="https://www.biopharmadive.com/" target="_blank" rel="noopener noreferrer">BioPharma Dive</a><a class="source-link" href="https://endpts.com/" target="_blank" rel="noopener noreferrer">Endpoints News</a><a class="source-link" href="https://www.reuters.com/business/healthcare-pharmaceuticals/" target="_blank" rel="noopener noreferrer">Reuters Health</a><a class="source-link" href="https://www.fda.gov/news-events/press-announcements" target="_blank" rel="noopener noreferrer">FDA</a><a class="source-link" href="https://www.ema.europa.eu/en/news-events" target="_blank" rel="noopener noreferrer">EMA</a><a class="source-link" href="https://www.cde.org.cn/" target="_blank" rel="noopener noreferrer">CDE</a><a class="source-link" href="https://www.nmpa.gov.cn/" target="_blank" rel="noopener noreferrer">国家药监局</a><a class="source-link" href="https://clinicaltrials.gov/" target="_blank" rel="noopener noreferrer">ClinicalTrials.gov</a><a class="source-link" href="https://www.eastmoney.com/" target="_blank" rel="noopener noreferrer">东方财富网</a><a class="source-link" href="https://xueqiu.com/" target="_blank" rel="noopener noreferrer">雪球</a><a class="source-link" href="https://www.cninfo.com.cn/" target="_blank" rel="noopener noreferrer">巨潮资讯</a><a class="source-link" href="https://www.cls.cn/" target="_blank" rel="noopener noreferrer">财联社</a></div></div><div class="source-group"><h3>通用AI·业界</h3><div class="source-links"><a class="source-link" href="https://openai.com/news/" target="_blank" rel="noopener noreferrer">OpenAI</a><a class="source-link" href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer">Anthropic</a><a class="source-link" href="https://x.ai/news" target="_blank" rel="noopener noreferrer">xAI / Grok</a><a class="source-link" href="https://qwenlm.github.io/" target="_blank" rel="noopener noreferrer">Qwen</a><a class="source-link" href="https://www.deepseek.com/" target="_blank" rel="noopener noreferrer">DeepSeek</a><a class="source-link" href="https://www.zhipuai.cn/" target="_blank" rel="noopener noreferrer">智谱 GLM</a><a class="source-link" href="https://deepmind.google/discover/blog/" target="_blank" rel="noopener noreferrer">Google DeepMind</a><a class="source-link" href="https://ai.meta.com/blog/" target="_blank" rel="noopener noreferrer">Meta AI</a><a class="source-link" href="https://mistral.ai/news/" target="_blank" rel="noopener noreferrer">Mistral</a><a class="source-link" href="https://cohere.com/blog" target="_blank" rel="noopener noreferrer">Cohere</a><a class="source-link" href="https://blogs.microsoft.com/ai/" target="_blank" rel="noopener noreferrer">Microsoft AI</a><a class="source-link" href="https://blogs.nvidia.com/" target="_blank" rel="noopener noreferrer">NVIDIA</a><a class="source-link" href="https://www.latent.space/" target="_blank" rel="noopener noreferrer">Latent Space</a><a class="source-link" href="https://github.com/explore" target="_blank" rel="noopener noreferrer">GitHub Releases</a><a class="source-link" href="https://replicate.com/blog" target="_blank" rel="noopener noreferrer">Replicate</a><a class="source-link" href="https://blog.langchain.dev/" target="_blank" rel="noopener noreferrer">LangChain</a><a class="source-link" href="https://www.llamaindex.ai/blog" target="_blank" rel="noopener noreferrer">LlamaIndex</a><a class="source-link" href="https://seed.bytedance.com/" target="_blank" rel="noopener noreferrer">字节 Seed</a><a class="source-link" href="https://hunyuan.tencent.com/" target="_blank" rel="noopener noreferrer">腾讯混元</a><a class="source-link" href="https://aws.amazon.com/blogs/machine-learning/" target="_blank" rel="noopener noreferrer">Amazon AI</a><a class="source-link" href="https://www.amd.com/en/blogs.html" target="_blank" rel="noopener noreferrer">AMD</a></div></div><div class="source-group"><h3>通用AI·科研</h3><div class="source-links"><a class="source-link" href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener noreferrer">arXiv cs.AI</a><a class="source-link" href="https://arxiv.org/list/cs.CL/recent" target="_blank" rel="noopener noreferrer">arXiv cs.CL</a><a class="source-link" href="https://arxiv.org/list/cs.LG/recent" target="_blank" rel="noopener noreferrer">arXiv cs.LG</a><a class="source-link" href="https://arxiv.org/list/cs.CV/recent" target="_blank" rel="noopener noreferrer">arXiv cs.CV</a><a class="source-link" href="https://huggingface.co/papers" target="_blank" rel="noopener noreferrer">Hugging Face Papers</a><a class="source-link" href="https://huggingface.co/papers/trending" target="_blank" rel="noopener noreferrer">Hugging Face Trending</a><a class="source-link" href="https://huggingface.co/models" target="_blank" rel="noopener noreferrer">Hugging Face Models</a><a class="source-link" href="https://github.com/trending" target="_blank" rel="noopener noreferrer">GitHub Trending</a><a class="source-link" href="https://modelscope.cn/" target="_blank" rel="noopener noreferrer">ModelScope</a></div></div><div class="source-group"><h3>补充交叉验证</h3><div class="source-links"><a class="source-link" href="https://36kr.com/" target="_blank" rel="noopener noreferrer">36氪</a><a class="source-link" href="https://www.jiemian.com/" target="_blank" rel="noopener noreferrer">界面新闻</a><a class="source-link" href="https://www.jiqizhixin.com/" target="_blank" rel="noopener noreferrer">机器之心</a><a class="source-link" href="https://www.qbitai.com/" target="_blank" rel="noopener noreferrer">量子位</a><a class="source-link" href="https://www.aitimes.com.cn/" target="_blank" rel="noopener noreferrer">新智元</a><a class="source-link" href="https://next.ithome.com/" target="_blank" rel="noopener noreferrer">IT之家 Next</a><a class="source-link" href="https://techcrunch.com/" target="_blank" rel="noopener noreferrer">TechCrunch</a><a class="source-link" href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" rel="noopener noreferrer">The Verge</a><a class="source-link" href="https://venturebeat.com/ai/" target="_blank" rel="noopener noreferrer">VentureBeat</a><a class="source-link" href="https://www.prnewswire.com/" target="_blank" rel="noopener noreferrer">PR Newswire</a><a class="source-link" href="https://www.businesswire.com/" target="_blank" rel="noopener noreferrer">Business Wire</a><a class="source-link" href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener noreferrer">SEC EDGAR</a><a class="source-link" href="https://news.google.com/" target="_blank" rel="noopener noreferrer">Google News</a></div></div></section><footer>由 Hermes Agent 自动生成 · 数据来自公开新闻源</footer>
+</div>
+</body>
+</html>
